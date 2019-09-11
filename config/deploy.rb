@@ -2,7 +2,7 @@
 lock "~> 3.11.1"
 
 set :application, "sidekick"
-set :repo_url, "git@github.com:lolconcepts/sidekick.git"
+set :repo_url, "git@github.com:lolconcepts/SKS.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
