@@ -1,0 +1,19 @@
+<%= form_tag do %>
+  <% if @dojo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dojo.errors.count, "error") %> prohibited this dojo from being saved:</h2>
+
+      <ul>
+      <% @dojo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="group">
+<div class="field">
+        Enter Code
+	<%= text_field_tag 'code' %>
+	<%= submit_tag 'Submit' %>
+</div>
+<% end %>

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Dayofweek:</b>
+  <%= @class_slip.dayofweek %>
+</p>
+
+<p>
+  <b>Timeofday:</b>
+  <%= @class_slip.timeofday %>
+</p>
+
+<p>
+  <b>Agegroup:</b>
+  <%= @class_slip.agegroup %>
+</p>
+
+<p>
+  <b>Rankgroup:</b>
+  <%= @class_slip.rankgroup %>
+</p>
+
+
+<%= link_to 'Edit', edit_class_slip_path(@class_slip) %> |
+<%= link_to 'Back', class_slips_path %>

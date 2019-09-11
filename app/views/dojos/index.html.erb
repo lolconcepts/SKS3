@@ -1,0 +1,139 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<script>
+$(document).ready(function(){
+	$('#hchart').highcharts({
+		chart:{
+			plotBackgroundColor:null,
+			plotBorderWidth:null,
+			plotShadow:false
+		},
+		title:{
+			text: 'Attendance Insight'
+		},
+		tooltip:{
+			pointFormat: '{series.name}:<b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions:{
+			pie:{
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels:{
+					enabled:true,
+					format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					style: {
+						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					}
+				}
+			}
+		},
+		series:[{
+			type: 'pie',
+			name: 'Popularity',
+			data:[
+				['Mon', <%=@mon.to_f/@attendances.count.to_f %>],
+				['Tue', <%=@tue.to_f/@attendances.count.to_f %>],
+				['Wed', <%=@wed.to_f/@attendances.count.to_f %>],
+				['Thu', <%=@thu.to_f/@attendances.count.to_f %>],
+				['Fri', <%=@fri.to_f/@attendances.count.to_f %>],
+				['Sat', <%=@sat.to_f/@attendances.count.to_f %>],
+				['Sun', <%=@sun.to_f/@attendances.count.to_f %>]
+			]
+		}]
+	});
+
+});
+</script>
+</script>
+<h1 class="adminTitle">SideKick&reg; Configuration</h1>
+<div class="table3">
+<table>
+  <tr>
+    <th class="whitesmoke">My Logo</th>
+    <th class="whitesmoke">Dojo Name</th>
+    <th class="whitesmoke">Motto</th>
+    <th class="whitesmoke">Telephone</th>
+    <th class="whitesmoke">Website</th>
+    <th class="whitesmoke">Email</th>
+    <th class="whitesmoke">Social Connections</th>
+    <th class="whitesmoke"></th>
+  </tr>
+
+<% @dojos.each do |dojo| %>
+  <tr>
+                <td>
+                        <% if dojo.photo.exists? then %>
+                                <%= image_tag dojo.photo.url(:thumb) %>
+                        <% end %>
+                </td>
+    <td><%= dojo.name %></td>
+    <td><%= dojo.motto %></td>
+    <td><%= dojo.telephone %></td>
+    <td><%= dojo.website %></td>
+    <td><%= dojo.email %></td>
+    <td>
+	<% if !dojo.twitter.nil? %>
+		<%= link_to(image_tag("/images/png_twitter2.png", :size => "25x25"),"https://www.twitter.com/#{dojo.twitter}",:id => 'twitter',:title => "https://www.twitter.com/#{dojo.twitter}") %>
+	<% else %>
+		<%= link_to(image_tag("/images/png_twitter2.png", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+	<% end %>
+
+	 <% if !dojo.facebook.nil? %>
+                <%= link_to(image_tag("/images/facebook.png", :size => "25x25"),dojo.facebook,:id =>'facebook',:title =>"#{dojo.facebook}") %>
+        <% else %>
+               <%= link_to(image_tag("/images/facebook.png", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+        <% end %>
+
+ 	<% if !dojo.youtube.nil? %>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "25x25"),"https://www.youtube.com/user/#{dojo.youtube}",:id => 'youtube',:title => "https://www.youtube.com/user/#{dojo.youtube}") %>
+        <% else %>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+        <% end %>
+    </td>
+    <td><%= link_to 'Edit', edit_dojo_path(dojo),:title => '<font color="red">Configure</font> your Dojo Here',:id =>'configure' %>
+  
+<% if Dojo.count == 0 %>
+<%= link_to 'New Dojo', new_dojo_path %>
+<% end %>
+ 
+<%= link_to 'PhotoWall', root_url,:title => '<font color="red">View</font> your PhotoWall Here',:id =>'PW' %>
+<%= link_to 'View Ranks', ranks_url,:title => '<font color="red">Configure</font> Ranks Here',:id =>'ranks' %>
+<%= link_to 'View Students', students_url,:title => '<font color="red">Manage</font> your Students Here',:id =>'manage' %>
+</td>
+</tr>
+<% end %>
+</table>
+</div>
+<div class="group">
+<h2>Upcoming Birthdays</h2>
+<% @students.each do |s| %>
+   <% if s.dob != nil %>
+	<% if s.dob.month == Time.now.month %>
+		<% if s.rank.base == "black" %>
+			<%= image_tag("/images/blackbelt_belt.png", :height => "25")%>
+		<% end %>
+		<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
+	<% end %>
+  <% end%>
+<% end %>
+</div>
+<div class="group">
+<h2>Missing Students</h2>
+<% @students.each do |s| %>
+	<% if s.is_missed %>
+		<%= s.first_name %> <%= s.last_name %> - <%= link_to('Send Note',:controller => "students",:action => "missme", :id => s.id) %><br />
+	<% end %>
+<% end %>
+</div>
+<div class="group">
+<h2>Top Classes</h2>
+<% if @attendances.count > 1 %>
+	Monday: <%= ((@mon.to_f/@attendances.count.to_f) * 100).round %>%
+	Tuesday: <%= ((@tue.to_f/@attendances.count.to_f) * 100).round %>% 
+	Wednesday: <%= ((@wed.to_f/@attendances.count.to_f) * 100).round %>%
+	Thursday: <%= ((@thu.to_f/@attendances.count.to_f) * 100).round %>% 
+	Friday: <%= ((@fri.to_f/@attendances.count.to_f) * 100).round %>% 
+	Saturday: <%= ((@sat.to_f/@attendances.count.to_f) * 100).round %>% 
+	Sunday: <%= ((@sun.to_f/@attendances.count.to_f) * 100).round %>%
+<% end %> 
+</div>
+<div id="hchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>

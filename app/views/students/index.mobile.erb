@@ -1,0 +1,98 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">Side Kick&reg; Profiles</h1>
+<div class="table3">
+<table>
+  <tr>
+	<th></th>
+    <th>Student</th>
+    <th>Age</th>
+    <th>Rank</th>
+    <th>Years in training</th>
+    <th>Instructors</th>
+    <th>Classes attended each week</th>
+    <th>Clubs</th>
+    <th>Favorite martial artist/athlete</th>
+    <th>Favorite movie</th>
+    <th>Favorite class activity</th>
+    <th>Short term goal</th>
+    <th>Long term goal</th>
+	<th>T0urnament.net Member?</th>
+	<th>Admin Controls</th>
+  </tr>
+
+ 
+	
+	<% @students.each do |student| %>
+	  <tr>
+		<td>
+			<% if student.photo.exists? then %>
+				<%= image_tag student.photo.url(:small) %>
+			<% end %>
+		</td>
+    <td><%= student.first_name %> <%= student.last_name %></td>
+    <td><%= student.getAge %></td>
+    <td><%= student.rank.color %></td>
+    <td><%= student.years_in_training %></td>
+    <td><%= student.instructors %></td>
+    <td><%= student.classes_attended_each_week %></td>
+	<td>
+			<% if student.blackbelt_club? then %>
+				<%= image_tag("/images/bbc.png", :size => "64x64") %>
+			<% end %>
+				<% if student.swat? then %>
+					<%= image_tag("/images/swat.png", :size => "64x64") %>
+				<% end %>
+					<% if student.storm? then %>
+						<%= image_tag("/images/storm.png", :size => "64x64") %>
+					<% end %>
+						<% if student.demo_team? then %>
+							<%= image_tag("/images/demo.png", :size => "64x64") %>
+						<% end %>
+							<% if student.tournament_team? then %>
+								<%= image_tag("/images/tt.png", :size => "64x64")%>
+							<% end %>
+                        					<% if student.cardiokick? then %>
+                                					<%= image_tag("/images/cardiokick.png", :size => "64x64") %>
+                        					<% end %>
+                                                                <% if student.instructor? then %>
+                                                                        <%= image_tag("/images/instructor.png", :size => "64x64") %>
+                                                                <% end %>
+                                                                <% if student.mastersclub? then %>
+                                                                        <%= image_tag("/images/master.png", :size => "64x64") %>
+                                                                <% end %>
+	</td>
+    <td><%= student.favorite_martial_artist %></td>
+    <td><%= student.favorite_movie %></td>
+    <td><%= student.favorite_class_activity %></td>
+    <td><%= student.short_term_goal %></td>
+    <td><%= student.long_term_goal %></td>
+	<td>
+		<% if student.tnet_member? then %>
+			<%= image_tag("/images/tnet.png", :size => "64x64") %>
+			TNET-ID(<%= link_to(student.tnetid,"http://www.t0urnament.net/view?tnetid=#{student.tnetid}") %>)
+		<% else %>
+			Not a Member <%=link_to("Sign Up!","https://secure.t0urnament.net/User/Create/") %>
+		<% end %>
+	</td>
+            <td>
+	    <%= link_to 'Show', student %>
+	    <%= link_to 'Edit', edit_student_path(student) %>
+	    	<% if student.photo_file_name != nil %>
+	    		<%= link_to("Delete Photo",:controller => "students",:action => "remove_pic",:id => student.id) %>
+	    	<% end %>
+	    <%= link_to 'Delete', student, :method => :delete,:class=>:destroy, :data => { :confirm => 'Are you sure?' } %>
+	    </td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+<div class="button">
+	<%= link_to 'Add New Student', new_student_path %>
+</div>
+<div class="button">
+	<%= link_to 'PhotoWall', root_path %>
+</div>
+
+

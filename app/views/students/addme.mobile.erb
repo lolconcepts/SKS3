@@ -1,0 +1,18 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+  <div id="jqt">
+    <div class="current">
+      <div class="toolbar">
+        <%= link_to "Back", nil, :class => "back" unless current_page? root_path %>
+        <h1>SideKick</h1>
+        <%= link_to "QuickAdd", '/addme', :class => "button", :rel => "external" %>
+      </div>
+
+      <% unless flash.empty? %>
+        <div class="info">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+        </div>
+      <% end %>
+      <%= render 'formss.mobile' %>
+

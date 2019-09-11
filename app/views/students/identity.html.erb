@@ -1,0 +1,77 @@
+<link href='//fonts.googleapis.com/css?family=Shojumaru|Prosto+One|Raleway|Playball|Aldrich|Cinzel|Orbitron' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/stylesheets/t0urnamentNET.css" type="text/css" media="all" title="no title" charset="utf-8">
+	</br>
+	<h1 class="badass">Attendance Student Identity Card</h1>
+	<h2 class="badass2">by T0urnament.net</h2>
+	<div id="identity_placeholder">
+		<div id="tempidentity">
+			<div id="tnet-dojo-banner"><%= @dojo.name %></div>
+			<div id="tnet-pic">
+				<% if @student.photo.exists? then %>
+					<%= image_tag @student.photo.url(:sidekickmobile) %>
+                                <% else %>
+                                        <%= image_tag "/images/tnet2x2.png" %>
+				<% end %>
+			</div>
+			<div id="tnet-logo">
+				<% if @dojo.photo.exists? then %>
+                                	<%= image_tag @dojo.photo.url(:sidekickmobile) %>
+                        	<% else %>
+					<%= image_tag "/images/tnet2x2.png" %>
+				<% end %>				
+			</div>
+			<div id="tnet-fname"><h3><%= @student.first_name %></h3></div>
+			<div id="tnet-lname"><h3><%= @student.last_name %></h3></div>
+			<div id="tnet-badge-ribbon">
+								<% if @student.blackbelt_club %>
+										<img src="/images/bbc.png" width="25" height="25" alt="badge">
+								<% end %>
+                                <% if @student.swat %>
+                                        <img src="/images/swat.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.storm %>
+                                        <img src="/images/storm.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.demo_team %>
+                                        <img src="/images/demo.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.tournament_team %>
+                                        <img src="/images/tt.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.cardiokick %>
+                                        <img src="/images/cardiokick.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.mastersclub %>
+                                        <img src="/images/masters.png" width="25" height="25" alt="badge">
+                                <% end %>
+                                <% if @student.tnet_member %>
+                                        <img src="/images/tnet2x2.png" width="25" height="25" alt="badge">
+                                <% end %>
+			</div>
+			<% if @student.rank.base == "white" || @student.rank.base == "yellow" || @student.rank.base == "orange" %>
+			     <%	@fontcolor = "black" %>
+			<% else %>
+			     <%	@fontcolor = "white" %>
+			<% end %>
+			<div id="tnet-rank" style="background-color:<%= @student.rank.base %>;color:<%= @fontcolor %>;"><%= @student.rank.color %></div>
+			<div id="tnet-membership">Member Since: <%= @student.startdate.strftime("%m/%Y") %></div>
+			<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://#{getSK()}/attend?id=#{@student.id}&choe=UTF-8" %>
+			<% @alternate_text = "Student IdentityCard for #{@student.first_name} #{@student.last_name}" %>
+			<div id="tnet-QR"><%= raw(@url) %> title=<%= @alternate_text %> /></img></div>
+		</div>
+		<div id="tempidentity">
+			<div id="tnet-backdetails">
+				<div id="tnet-disclaimer">
+					<p>Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process
+						ATTENDANCE.</p>
+						<p><strong>INSTRUCTOR:</strong> Use your APPROVED SMARTDEVICE to SCAN The &quot;QR&quot; Code on the front of this STUDENT ID. Be sure that you are connected to the proper WiFi Network in order to have 
+							SideKick Server&trade; process the check-in correctly.</p>
+							<p>If this STUDENT ID is found, please contact <%= @dojo.name %> at <br /><%= @dojo.telephone %><br />Register Today: https://secure.t0urnament.net</p>
+				</div>
+				<div id="tnet-logo-back"></div>
+			</div>
+		</div>
+	</div>
+	<br />
+	<p class="instructions">*Print this Attendance Student Identity Card out and laminate using the T0urnament.net ID Creation Kit <%= link_to "(TNET_ID_KIT_STARTER)","http://www.t0urnament.net/getsidekick.html" %>*<br />Be sure to leave adaquete time for the ink to dry before laminating this ID.</p>
+	<%= link_to('Done','/students') %>

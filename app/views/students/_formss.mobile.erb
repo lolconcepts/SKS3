@@ -1,0 +1,154 @@
+<h2>Quick Add</h2>
+<div id="forms">
+<%= form_for @student ,:class => "scroll",:html => {:multipart => true} do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<ul class="edit rounded">
+<li>
+	<div class="buttons">
+	Upload Student Picture
+	<%= f.file_field :photo  %>
+        <% if @student.photo_file_name != nil %>
+           <%= link_to("Delete Photo",:controller => "students",:action => "remove_pic",:id => @student.id) %>
+        <% end %>
+	</div>
+ </li>
+  <li>
+    <%= f.text_field :first_name, :placeholder => "First Name" %>
+  </li>
+  <li>
+    <%= f.text_field :last_name , :placeholder => "Last Name" %>
+  </li>
+ <li>
+    <%= f.text_field :address , :placeholder => "Address" %>
+  </li>
+ <li>
+    <%= f.text_field :city , :placeholder => "City" %>
+  </li>
+ <li>
+    <%= f.text_field :state , :placeholder => "State" %>
+  </li>
+ <li>
+    <%= f.text_field :zip , :placeholder => "Zip" %>
+  </li>
+ <li>
+    <%= f.text_field :email , :placeholder => "email" %>
+  </li>
+ <li>
+    <%= f.text_field :telephone , :placeholder => "Telephone/Cell" %>
+  </li>
+  <li>
+    Date of Birth<br />
+    <%= f.date_select :dob ,:order => [:month,:day,:year], :start_year => 1920 , :end_year => Time.now.year %>
+  </li>
+  <li>
+    <%= f.label :rank %><br />
+    <%= f.collection_select :rank_id, Rank.all, :id, :color %>
+  </li>
+  <li>
+    Training Start Date<br />
+    <%= f.date_select :startdate , :order => [:month, :day, :year], :start_year => 1920, :end_year => Time.now.year %>
+  </li>
+  <li>
+    <%= f.text_field :instructors , :placeholder => "Instructor(s)"%>
+  </li>
+  <li>
+    <%= f.number_field :classes_attended_each_week , :placeholder => "Classes Per Week" %>
+  </li>
+ 
+ <h3>Group Memberships</h3>  
+<div id="memberships">
+  <li>
+   BLACKBELT CLUB
+   <div class="toggle">
+    <%= f.check_box :blackbelt_club %>
+  </div>
+  </li>
+  <li>
+  S.W.A.T TEAM
+  <div class="toggle">
+    <%= f.check_box :swat %>
+  </div>
+  </li>
+  <li> 
+  S.T.O.R.M TEAM
+  <div class="toggle">
+    <%= f.check_box :storm %>
+  </div>
+  </li>
+  <li>  
+DEMO TEAM
+  <div class="toggle">
+    <%= f.check_box :demo_team %>
+  </div>
+  </li>
+  <li>
+  TOURNAMENT TEAM
+  <div class="toggle">
+    <%= f.check_box :tournament_team %>
+  </div>
+  </li>
+  <li>
+  CARDIO KICKBOXING
+  <div class="toggle">
+    <%= f.check_box :cardiokick %>
+  </div>
+  </li>
+  <li>
+  MASTER'S CLUB
+  <div class="toggle">
+    <%= f.check_box :mastersclub %>
+  </div>
+  </li>
+  <li>
+  INSTRUCTOR?
+  <div class="toggle">
+    <%= f.check_box :instructor %>
+  </div>
+  </li>
+  <li>
+<div class="swap">
+ T0URNAMENT.NET MEMBER <%=link_to('Sign Up!','https://secure.t0urnament.net/User/Create/', :rel => 'external')%>
+</div>
+ <div class="toggle">
+    <%= f.check_box :tnet_member %>
+ </div>
+  </li>
+</div>
+  <li>
+   <%= f.number_field :tnetid, :placeholder => "TNETID" %>
+   </li>
+  <li>
+    <%= f.text_field :school, :placeholder => "Dojo" %>
+    </li>
+  <li>
+    <%= f.text_field :favorite_martial_artist, :placeholder => "Favorite Athlete" %>
+    </li>
+  <li>
+    <%= f.text_field :favorite_movie , :placeholder => "Favorite Movie" %>
+    </li>
+  <li>
+    <%= f.text_field :favorite_class_activity , :placeholder => "Favorite Activity" %>
+    </li>
+  <li>
+    <%= f.text_field :short_term_goal , :placeholder => "Short-Term Goal" %>
+    </li>
+  <li>
+    <%= f.text_field :long_term_goal , :placeholder => "Long-Term Goal" %>
+  </li>
+<li>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+</li>
+</ul>
+<% end %>
+

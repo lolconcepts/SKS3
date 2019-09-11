@@ -1,0 +1,57 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">Side Kick&reg; Attendance Records</h1>
+<script type="text/javascript">
+$(function() {
+ new Highcharts.Chart({
+   chart: {
+	renderTo: "orders_chart",
+	type: "bar"},
+   title: {
+	text: "Attendance Statistics"
+	},
+   xAxis: {
+	categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
+	},
+   yAxis: {
+	title:{
+	  text: "Students"
+	}
+  },
+   series: [{
+	name: "All Students",
+	data: [<%= @mon %>,<%= @tue %>,<%= @wed %>,<%= @thu %>,<%= @fri %>,<%= @sat %>,<%= @sun %>]
+	}
+	<% if @student != nil %>
+	,{
+	name: "<%= @student.fullname %>",
+	data: [<%= @smon %>,<%= @stue %>,<%= @swed %>,<%= @sthu %>,<%= @sfri %>,<%= @ssat %>,<%= @ssun %>]
+	}
+	<% end %>
+	]
+  });
+});
+</script>
+<div id="orders_chart" style="width:500px;height:300px;"></div>
+<div class="table3">
+<div class="scrollable">
+<table>
+  <tr>
+    <th class="whitesmoke">Student</th>
+    <th class="whitesmoke">Day of Week</th>
+    <th class="whitesmoke">Class Date</th>
+    <th class="whitesmoke">Options</th>
+  </tr>
+
+	<% @attendances.each do |attendance| %>
+  <tr>
+    <td><%= fullname(attendance.student.id) %></td>
+    <td><%= attendance.dow || attendance.created_at.strftime("%A")%></td>
+    <td><%= attendance.created_at.strftime("%m/%d/%y") %></td>
+    <td><%= link_to ' Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+</div>
+<br />
+

@@ -1,0 +1,28 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">Side Kick&reg; Belt Ranks</h1>
+<div class="table3">
+<table>
+  <tr>
+    <th>Color</th>
+    <th>Admin Tools</th>
+  </tr>
+
+<% @ranks.each do |rank| %>
+  <tr>
+    <td><%= rank.color %></td>
+	<td>
+    <%= link_to 'Show', rank %>
+    <%= link_to 'Edit', edit_rank_path(rank) %>
+    <%= link_to 'Delete', rank, :method => :delete, :data => { :confirm => 'Are you sure?' } %>
+	</td>
+  </tr>
+<% end %>
+</table>
+</div>
+<br />
+<div class="button">
+<%= link_to 'Add New Rank', new_rank_path %>
+</div>
+<div class="button">
+<%= link_to 'PhotoWall', root_path %>
+</div>

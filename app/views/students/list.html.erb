@@ -1,0 +1,38 @@
+<link href='//fonts.googleapis.com/css?family=Shojumaru|Prosto+One|Raleway|Playball|Aldrich|Cinzel|Orbitron' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="/stylesheets/t0urnamentNET.css" type="text/css" media="all" title="no title" charset="utf-8">
+	</br>
+	<h1 class="badass">Attendance Student Identity List</h1>
+	<h2 class="badass2">by T0urnament.net</h2>
+	<table id="idTable">
+		<% @students.each do |s| %>
+		<tr>
+			<td>
+				<!-- STUDENT PHOTO -->
+				<div class="idTile">
+				<div class="idPic">
+				<% if s.photo.exists? then %>
+					<%= image_tag s.photo.url(:sidekickmobile) %>
+                                <% else %>
+                     <%= image_tag "/images/tnet2x2.png" %>
+				<% end %>
+				</div>
+				<!-- STUDENT NAME -->
+			<% if s.rank.base == "white" || s.rank.base == "yellow" || s.rank.base == "orange" %>
+			     <%	@fontcolor = "black" %>
+			<% else %>
+			     <%	@fontcolor = "white" %>
+			<% end %>
+				<div class="nameTile" style="background-color:<%= s.rank.base %>;color:<%= @fontcolor %>;"><%= s.first_name %> <%= s.last_name %></div>
+				<!-- STUDENT QR -->
+				<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://#{getSK()}/attend?id=#{s.id}&choe=UTF-8" %>
+				<% @alternate_text = "Student IdentityCard for #{s.first_name} #{s.last_name}" %>
+				<div class="idQR">
+				<%= raw(@url) %> title=<%= @alternate_text %> /></img>
+				</div>
+				</div><!-- idTile End -->
+			</td>
+		</tr>
+		<% end %>
+    </table>
+	<p class="instructions">*Print this Attendance Student Identity Card out and laminate using the T0urnament.net ID Creation Kit <%= link_to "(TNET_ID_KIT_STARTER)","http://www.t0urnament.net/getsidekick.html" %>*<br />Be sure to leave adaquete time for the ink to dry before laminating this ID.</p>
+	<%= link_to('Done','/students') %>

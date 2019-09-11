@@ -1,0 +1,149 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#slider').s3Slider({
+			timeOut: 18000
+		});
+	});
+</script>
+<style>
+body{overflow:hidden;} <!-- FIX DISPLAY -->
+</style>
+	<img class="logo" src="images/tnet.png" width="100" height="100">
+	<div class="adminTitle">
+		<h1><%=Dojo.find(1).name || "" %></h1>
+		<h2><%=Dojo.find(1).motto || "" %></h2>
+	</div>
+<div id="sidekickWrapper">
+<div id="slider">
+	<ul id="sliderContent">
+	<% @students.each do |student| %>
+		<li class="sliderImage">
+        		<div class=highlight>
+                                <font color="red">AGE: </font><%= student.getAge || "Please Add DOB" %></br>
+                                <font color="red">RANK: </font><%= student.rank.color %></br>
+                                <font color="red">YEARS IN TRAINING: </font><%= student.years_in_training || "Please Add Start Date" %></br>
+                                <font color="red">INSTRUCTORS: </font><%= student.instructors %></br>
+                                <font color="red">CLASSES ATTENDED: </font><%= student.classes_attended_each_week %></br>
+                                <font color="red">FAVORITE MARTIAL ARTIST/ATHLETE: </font><%= student.favorite_martial_artist %></br>
+                                <font color="red">FAVORITE MOVIE: </font><%= student.favorite_movie %></br>
+                                <font color="red">FAVORITE CLASS ACTIVITY: </font><%= student.favorite_class_activity %></br>
+                                <font color="red">SHORT TERM GOAL: </font><%= student.short_term_goal %></br>
+                                <font color="red">LONG TERM GOAL: </font><%= student.long_term_goal %></br>
+        		</div>
+			<% if student.photo_file_name.nil? %>
+			<% case student.rank.color %>
+				<% when "White Belt" %>
+					<%= image_tag("/images/WHITE.png", :size => "400x450") %>
+				<% when "Yellow Belt" %>
+                                        <%= image_tag("/images/YELLOW.png", :size => "400x450") %>
+				<% when "Orange Belt" %>
+                                        <%= image_tag("/images/ORANGE.png", :size => "400x450") %>
+				<% when "Purple Belt" %>
+                                        <%= image_tag("/images/PURPLE.png", :size => "400x450") %>
+				<% when "Blue Belt" %>
+                                        <%= image_tag("/images/BLUE.png", :size => "400x450") %>
+				<% when "Green Belt" %>
+                                        <%= image_tag("/images/GREEN.png", :size => "400x450") %>
+				<% when "Brown Belt" %>
+                                        <%= image_tag("/images/BROWN.png", :size => "400x450") %>
+				<% when "Junior Black Belt" %>
+                                        <%= image_tag("/images/BLACK.png", :size => "400x450") %>
+				<% when "1st Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK1.png", :size => "400x450") %>
+				<% when "2nd Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK2.png", :size => "400x450") %>
+				<% when "3rd Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK3.png", :size => "400x450") %>
+				<% when "4th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK4.png", :size => "400x450") %>
+				<% when "5th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK5.png", :size => "400x450") %>
+				<% when "6th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK6.png", :size => "400x450") %>
+				<% when "7th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK7.png", :size => "400x450") %>
+				<% when "8th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK8.png", :size => "400x450") %>
+				<% when "9th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK9.png", :size => "400x450") %>
+				<% when "10th Degree Black Belt" %>
+                                        <%= image_tag("/images/BLACK10.png", :size => "400x450") %>
+				<% else %>
+					<%= image_tag("/images/SideKickPhotoHolder.png", :size => "400x450") %>
+				<% end %>
+                                <% if student.instructor? then %>
+                                                <div class="theribbon">
+                                                <%= image_tag("/images/instructor.png", :size => "400x450") %>
+                                                </div>
+                                <% end %>
+
+			<% else %>
+			<%= image_tag student.photo.url(:sidekick) %>
+				<% if student.instructor? then %>
+						<div class="theribbon">
+						<%= image_tag("/images/instructor.png", :size => "400x450") %>
+						</div>
+				<% end %>
+  			<% end %>
+			<span class="bottom">
+			<%= student.first_name %> <%= student.last_name %></br>
+				<% if student.blackbelt_club? then %>
+                                	<%= image_tag("/images/bbc.png", :size => "64x64") %>
+                        	<% end %>
+                                <% if student.swat? then %>
+                                        <%= image_tag("/images/swat.png", :size => "64x64") %>
+                                <% end %>
+                                <% if student.storm? then %>
+                                        <%= image_tag("/images/storm.png", :size => "64x64") %>
+                                <% end %>
+                                <% if student.demo_team? then %>
+                                        <%= image_tag("/images/demo.png", :size => "64x64") %>
+                                <% end %>
+                                <% if student.tournament_team? then %>
+                                        <%= image_tag("/images/tt.png", :size => "64x64")%>
+                                <% end %>
+				<% if student.tnet_member? then %>
+                        		<%= image_tag("/images/tnet2x2.png", :size => "64x64") %>
+                		<% end %>
+                                <% if student.cardiokick? then %>
+                                        <%= image_tag("/images/cardiokick.png", :size => "64x64") %>
+                                <% end %>
+		  		<% if student.mastersclub? then %>
+					<%= image_tag("/images/master.png", :size => "64x64") %>
+				<% end %>	
+		</span>
+		</li>
+	<% end %>
+	<div class="clear sliderImage"></div>
+	</ul>
+</div>
+</body>
+<div id="pageFooter">
+        <div class="col1">
+                <p>&copy;<%= Time.now.strftime('%Y')%> t0urnament.net, all rights reserved</p>
+                <p>Email Dojo:<%=mail_to(Dojo.find(1).email,Dojo.find(1).email) %></p>
+                <p>Call Dojo:<%=Dojo.find(1).telephone %></p>
+        </div>
+        <div class="col2">
+                <p>
+                <% if !Dojo.find(1).twitter.nil? %>
+                        <%= link_to(image_tag("/images/png_twitter2.png", :size => "32x32"),"https://www.twitter.com/#{Dojo.find(1).twitter}") %>
+                <% end %>
+
+                <% if !Dojo.find(1).facebook.nil? %>
+                        <%= link_to(image_tag("/images/facebook.png", :size => "32x32"),Dojo.find(1).facebook) %>
+                <% end %>
+
+                <% if !Dojo.find(1).youtube.nil? %>
+                        <%= link_to(image_tag("/images/youtube.jpg", :size => "32x32"),"https://www.youtube.com/user/#{Dojo.find(1).youtube}") %>
+                <% end %>
+                </p>
+        </div>
+        <div class="col3">
+                <p><%=link_to("www.t0urnament.net/getsidekick.html","http://www.t0urnament.net/getsidekick.html") %></p>
+                <p>SideKick&reg; Server http://<%=@sidekick_ip%></p>
+				<h2 class="motto">Elevate. Your. Dojo.</h2>
+        </div>
+</div>
+</div>
+</html>

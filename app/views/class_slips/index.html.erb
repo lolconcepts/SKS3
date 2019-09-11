@@ -1,0 +1,29 @@
+<h1>Listing class_slips</h1>
+
+<table>
+  <tr>
+    <th>Dayofweek</th>
+    <th>Timeofday</th>
+    <th>Agegroup</th>
+    <th>Rankgroup</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @class_slips.each do |class_slip| %>
+  <tr>
+    <td><%= class_slip.dayofweek %></td>
+    <td><%= class_slip.timeofday %></td>
+    <td><%= class_slip.agegroup %></td>
+    <td><%= class_slip.rankgroup %></td>
+    <td><%= link_to 'Show', class_slip %></td>
+    <td><%= link_to 'Edit', edit_class_slip_path(class_slip) %></td>
+    <td><%= link_to 'Destroy', class_slip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Class slip', new_class_slip_path %>

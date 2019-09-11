@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SideKick&reg;PWS v5.1 by T0urnament.net</title>
+    <%= stylesheet_link_tag "/jqtouch/jqtouch.min.css","sidekick-mobile" %>
+    <%= javascript_include_tag "jquery.min.js","/jqtouch/jqtouch-jquery.js","s3Slider.js","mobile.js" %>
+    <link href='//fonts.googleapis.com/css?family=Cutive+Mono|Codystar|Exo|Great+Vibes|Orbitron|Exo+2|Zeyada|Metamorphous|Arizonia' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript">
+	$(document).ready(function() {
+                $('#slider').s3Slider({
+                        timeOut: 18000
+                });
+        	$(document).ajaxStart(function(){
+                	$("#spinner").show();
+        	});
+        	$("form").submit(function(){
+                	$("#spinner").show();
+        	});
+        	$(document).ajaxStop(function(){
+                	$("#spinner").hide();
+        	});
+
+        });
+    </script>
+  </head>
+  <body>
+   <%= yield %>

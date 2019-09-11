@@ -1,0 +1,59 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">SideKick&reg; Configuration</h1>
+<div class="table3">
+<table>
+  <tr>
+    <th>Dojo Name</th>
+    <th>Motto</th>
+    <th>Telephone</th>
+    <th>Website</th>
+    <th>Email</th>
+    <th>Social Connections</th>
+    <th></th>
+  </tr>
+
+<% @dojos.each do |dojo| %>
+  <tr>
+    <td><%= dojo.name %></td>
+    <td><%= dojo.motto %></td>
+    <td><%= dojo.telephone %></td>
+    <td><%= dojo.website %></td>
+    <td><%= dojo.email %></td>
+    <td>
+	<% if !dojo.twitter.empty? %>
+		<%= link_to(image_tag("/images/png_twitter2.png", :size => "64x64"),"https://www.twitter.com/#{dojo.twitter}",:id => 'twitter',:title => '<html><head><!--[if IE]><style>iframe{zoom:0.2;}</style><![endif]--><style>iframe{width:100px;height:100px;border:none;-moz-transform:scale(0.2);-moz-transform-origin:0 0;-o-transform:scale(0.2);-o-transform-origin:0 0;-webkit-transform:scale(0.2);-webkit-transform-origin:0 0;}</style></head><body><iframe src="https://www.twitter.com/#{dojo.twitter}"></iframe></body></html>') %>
+	<% else %>
+		<%= link_to(image_tag("/images/png_twitter2.png", :size => "64x64", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+	<% end %>
+
+	 <% if !dojo.facebook.empty? %>
+                <%= link_to(image_tag("/images/facebook.png", :size => "64x64"),dojo.facebook,:id =>'facebook',:title =>'<html><head><!--[if IE]><style>iframe{zoom:0.2;}</style><![endif]--><style>iframe{width:100px;height:100px;border:none;-moz-transform:scale(0.2);-moz-transform-origin:0 0;-o-transform:scale(0.2);-o-transform-origin:0 0;-webkit-transform:scale(0.2);-webkit-transform-origin:0 0;}</style></head><body><iframe src="#{dojo.facebook}"></iframe></body></html>') %>
+        <% else %>
+               <%= link_to(image_tag("/images/facebook.png", :size => "64x64", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+        <% end %>
+
+ 	<% if !dojo.youtube.empty? %>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "64x64"),"https://www.youtube.com/user/#{dojo.youtube}",:id => 'youtube',:title => '<html><head><!--[if IE]><style>iframe{zoom:0.2;}</style><![endif]--><style>iframe{width:100px;height:100px;border:none;-moz-transform:scale(0.2);-moz-transform-origin:0 0;-o-transform:scale(0.2);-o-transform-origin:0 0;-webkit-transform:scale(0.2);-webkit-transform-origin:0 0;}</style></head><body><iframe src="https://www.youtube.com/user/#{dojo.youtube}"></iframe></body></html>') %>
+        <% else %>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "64x64", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
+        <% end %>
+    </td>
+    <td><%= link_to 'Edit', edit_dojo_path(dojo),:title => '<font color="red">Configure</font> your Dojo Here',:id =>'configure' %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+
+<br />
+<% if Dojo.count == 0 %>
+<%= link_to 'New Dojo', new_dojo_path %>
+<% end %>
+<div class="button">
+<%= link_to 'PhotoWall', root_url %>
+</div>
+<div class="button">
+<%= link_to 'View Ranks', ranks_url %>
+</div>
+<div class="button">
+<%= link_to 'View Students', students_url %>
+</div>

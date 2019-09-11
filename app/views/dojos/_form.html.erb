@@ -1,0 +1,151 @@
+<%= form_for @dojo, :html => {:multipart => true } do |f| %>
+  <% if @dojo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dojo.errors.count, "error") %> prohibited this dojo from being saved:</h2>
+      	<ul>
+      	  <% @dojo.errors.full_messages.each do |msg| %>
+        	<li><%= msg %></li>
+      	  <% end %>
+      	</ul>
+    </div>
+  <% end %>
+  <div class="table3">
+	<table>
+		<tbody>
+			<tr>
+				<th class="whitesmoke">Setting</th>
+				<th class="whitesmoke">Value</th>
+				<th class="whitesmoke">Comment</th>
+			</tr>
+			<tr>
+				<td>
+				Dojo Logo
+				</td>
+				<td>        
+					<% if @dojo.photo.exists? then %>
+	          			<%= image_tag @dojo.photo.url(:thumb) %>
+	        			<% end %>
+				</td>
+				<td>
+					Upload Dojo Logo 
+	        		<%= f.file_field :photo %>
+				</td> 
+			</tr>
+			<tr>
+				<td> 
+				    <%= f.label :name %>
+				</td>
+				<td>
+				    <%= f.text_field :name, :size => 50 %>
+				</td>
+				<td>
+					Dojo Name
+				</td>
+			</tr>
+			<tr>
+				<td>
+				    <%= f.label :motto %>
+				</td>
+				<td>
+				    <%= f.text_field :motto %>
+				</td>
+				<td>
+					Moto
+				</td>
+			</tr>
+			<tr>
+				<td>
+				    <%= f.label :telephone %>
+				</td>
+				<td>
+				    <%= f.text_field :telephone, :size => 15 %>
+				</td>
+				<td>
+					Dojo Telephone
+				</td>
+			</tr>
+			<tr>
+				<td>
+				    <%= f.label :website %>
+				</td>
+				<td>
+				    <%= f.text_field :website, :size=> 50 %>
+				</td>
+				<td>
+					Website
+				</td>
+			</tr>
+			<tr>
+				<td>
+				    <%= f.label :email %>
+				</td>
+				<td>
+				    <%= f.text_field :email %>
+				</td>
+				<td>
+					Email Address
+				</td>
+			</tr>
+			<tr>
+				<td>
+				    Facebook Account Name (FULL URL):<br />
+				    <%= image_tag("/images/facebook.png", :size => "25x25") %>
+				</td>
+				<td>
+				 	<%= f.text_field :facebook ,:size=> 40 %>
+				</td>
+				<td>
+					http://facebook.com/T0urnamentNET
+				</td>
+			</tr>
+			<tr>
+					<td>
+	    				Twitter Account Name (Username Only):<br />
+	    				<%= image_tag("/images/png_twitter2.png", :size => "25x25") %> 
+					</td>
+					<td>
+						<%= f.text_field :twitter, :size=> 25 %>
+					</td>
+					<td>
+						Username Only
+					</td>
+			</tr>
+			<tr>
+					<td>
+	    				YouTube Account Name (Username Only):<br />
+	   				 	<%= image_tag("/images/youtube.jpg", :size => "25x25") %> 
+					</td>
+					<td>
+						<%= f.text_field :youtube, :size => 20 %>
+					</td>
+					<td>
+						Username Only
+					</td>
+			</tr>
+			<tr>
+					<td>
+						Student Identity Card Licenses
+					</td>
+					<td>
+						0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
+						(<%= @dojo.max - @dojo.count %> remaining)
+					</td>
+					<td>
+						<%= text_field_tag 'code' %>
+						<%= link_to 'Get More Licenses','http://www.t0urnament.net/getsidekick.html'%>
+					</td>
+			</tr>
+			<tr>
+					<td>
+					</td>
+					<td>
+					</td>
+					<td>
+						<%= f.submit %>
+						<%= link_to 'Back', dojos_path %>
+					</td>
+			</tr>
+		</tbody>
+	</table>
+  </div>
+<% end %>

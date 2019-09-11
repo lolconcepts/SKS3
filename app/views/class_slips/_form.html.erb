@@ -1,0 +1,33 @@
+<%= form_for(@class_slip) do |f| %>
+  <% if @class_slip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@class_slip.errors.count, "error") %> prohibited this class_slip from being saved:</h2>
+
+      <ul>
+      <% @class_slip.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dayofweek %><br />
+    <%= f.text_field :dayofweek %>
+  </div>
+  <div class="field">
+    <%= f.label :timeofday %><br />
+    <%= f.time_select :timeofday %>
+  </div>
+  <div class="field">
+    <%= f.label :agegroup %><br />
+    <%= f.text_field :agegroup %>
+  </div>
+  <div class="field">
+    <%= f.label :rankgroup %><br />
+    <%= f.text_field :rankgroup %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">Side Kick&reg; Showing <%=@rank.color%></h1>
+<p id="notice"><%= notice %></p>
+<div class="field">
+<p>
+  <b>Color:</b>
+  <%= @rank.color %>
+</p>
+
+
+<%= link_to 'Edit', edit_rank_path(@rank) %> |
+<%= link_to 'Back', ranks_path %>
+</div>

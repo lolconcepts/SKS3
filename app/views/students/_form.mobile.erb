@@ -1,0 +1,118 @@
+<%= form_for @student , :html => {:multipart => true } do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+	Upload Student Picture
+	<%= f.file_field :photo %>
+        <% if @student.photo_file_name != nil %>
+           <%= link_to("Delete Photo",:controller => "students",:action => "remove_pic",:id => @student.id) %>
+        <% end %>
+  </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    Date of Birth<br />
+    <%= f.date_select :dob ,:order => [:month,:day,:year], :start_year => 1920 %>
+  </div>
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.collection_select :rank_id, Rank.all, :id, :color %>
+  </div>
+  <div class="field">
+    Training Start Date<br />
+    <%= f.date_select :startdate , :order => [:month, :day, :year], :start_year => 1920 %>
+  </div>
+  <div class="field">
+    <%= f.label :instructors %><br />
+    <%= f.text_field :instructors %>
+  </div>
+  <div class="field">
+    <%= f.label :classes_attended_each_week %><br />
+    <%= f.number_field :classes_attended_each_week %>
+  </div>
+<div class="group">
+ <h2>Group Membership</h2>
+   <div class="field">
+    <%= f.label :blackbelt_club %><br />
+    <%= f.check_box :blackbelt_club %>
+  </div>
+  <div class="field">
+    <%= f.label :swat %><br />
+    <%= f.check_box :swat %>
+  </div>
+  <div class="field">
+    <%= f.label :storm %><br />
+    <%= f.check_box :storm %>
+  </div>
+  <div class="field">
+    <%= f.label :demo_team %><br />
+    <%= f.check_box :demo_team %>
+  </div>
+  <div class="field">
+    <%= f.label :tournament_team %><br />
+    <%= f.check_box :tournament_team %>
+  </div>
+  <div class="field">
+    <%= f.label :cardiokick %><br />
+    <%= f.check_box :cardiokick %>
+  </div>
+  <div class="field">
+    Master's Club<br />
+    <%= f.check_box :mastersclub %>
+  </div>
+  <div class="field">
+    <%= f.label :instructor %><br />
+    <%= f.check_box :instructor %>
+  </div>
+ <div class="field">
+    T0urnament.net Member?<br />
+    <%= f.check_box :tnet_member %><%=link_to('Sign Up!','https://secure.t0urnament.net/User/Create/')%>
+ </div>
+ <div class="field">
+   T0urnament.net ID (TNET-ID)<br />
+   <%= f.number_field :tnetid %>
+ </div>
+</div>
+  <div class="field">
+    <%= f.label :school %><br />
+    <%= f.text_field :school %>
+  </div>
+  <div class="field">
+    Favorite Martial Artist/Athlete<br />
+    <%= f.text_field :favorite_martial_artist %>
+  </div>
+  <div class="field">
+    <%= f.label :favorite_movie %><br />
+    <%= f.text_field :favorite_movie %>
+  </div>
+  <div class="field">
+    <%= f.label :favorite_class_activity %><br />
+    <%= f.text_field :favorite_class_activity %>
+  </div>
+  <div class="field">
+    <%= f.label :short_term_goal %><br />
+    <%= f.text_field :short_term_goal %>
+  </div>
+  <div class="field">
+    <%= f.label :long_term_goal %><br />
+    <%= f.text_field :long_term_goal %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

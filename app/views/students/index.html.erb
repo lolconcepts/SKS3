@@ -1,0 +1,133 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">Side Kick&reg; Profiles</h1>
+<div class="button">
+        <%= link_to 'Add New Student', new_student_path %>
+</div>
+<div class="button">
+        <%= link_to 'PhotoWall', root_path %>
+</div>
+<div id="upper_right">
+	ID Licenses: 0 <meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter> <%=@dojo.max %><br />
+	(<%= @dojo.max - @dojo.count %> remaining)
+</div>
+<% if @missed > 0 %>
+<script>
+$(document).ready(function(){
+		$("#missed").fadeIn('slow');
+		$("#missed").delay(5000).fadeOut('slow');
+	
+	});
+</script>
+  <div id="missed">
+<div class="ribbon"><div class="ribbon-stitches-top"></div><strong class="ribbon-content"><h1>You have <%= @missed %> Students Who Are Missed :(</h1></strong><div class="ribbon-stitches-bottom"></div></div>
+  </div>
+<% end %>
+<% if @students.count == 0 %>
+<br />
+	<div class="group">
+	<h2>No Students Yet, Get To Work. ;)</h2>
+	<p>If you dont have time, T0urnament.net offers an affordable DATA LOAD (ETL) Service.</p>
+	<p>Visit us and get started: <%=link_to('http://www.t0urnament.net','http://www.t0urnament.net/getsidekick.html')%></p>
+</div>
+<% else %>
+<div class="table3">
+<table>
+  <tr>
+    <th class="whitesmoke"></th>
+    <th class="whitesmoke">Student</th>
+    <th class="whitesmoke">Age</th>
+    <th class="whitesmoke">Rank</th>
+    <th class="whitesmoke">Years in training</th>
+    <th class="whitesmoke">Instructors</th>
+    <th class="whitesmoke">Classes attended each week</th>
+    <th class="whitesmoke">Clubs</th>
+    <th class="whitesmoke">Favorite martial artist/athlete</th>
+    <th class="whitesmoke">Favorite movie</th>
+    <th class="whitesmoke">Favorite class activity</th>
+    <th class="whitesmoke">Short term goal</th>
+    <th class="whitesmoke">Long term goal</th>
+	<th class="whitesmoke">T0urnament.net Member?</th>
+	<th class="whitesmoke">Admin Controls</th>
+  </tr>
+
+ 
+	
+	<% @students.each do |student| %>
+	  <tr>
+		<td>
+			<% if student.photo.exists? then %>
+				<%= image_tag student.photo.url(:thumb) %>
+			<% else %>
+				<h2>NO PHOTO ON FILE</h2>
+			<% end %>
+		</td>
+    <td><%= student.first_name %> <%= student.last_name %></td>
+    <td><%= student.getAge %></td>
+    <td><%= student.rank.color %></td>
+    <td><%= student.years_in_training %></td>
+    <td><%= student.instructors %></td>
+    <td><%= student.classes_attended_each_week %></td>
+	<td>
+			<% if student.blackbelt_club? then %>
+				<%= image_tag("/images/bbc.png", :size => "64x64") %>
+			<% end %>
+				<% if student.swat? then %>
+					<%= image_tag("/images/swat.png", :size => "64x64") %>
+				<% end %>
+					<% if student.storm? then %>
+						<%= image_tag("/images/storm.png", :size => "64x64") %>
+					<% end %>
+						<% if student.demo_team? then %>
+							<%= image_tag("/images/demo.png", :size => "64x64") %>
+						<% end %>
+							<% if student.tournament_team? then %>
+								<%= image_tag("/images/tt.png", :size => "64x64")%>
+							<% end %>
+                        					<% if student.cardiokick? then %>
+                                					<%= image_tag("/images/cardiokick.png", :size => "64x64") %>
+                        					<% end %>
+                                                                <% if student.instructor? then %>
+                                                                        <%= image_tag("/images/instructor.png", :size => "64x64") %>
+                                                                <% end %>
+                                                                <% if student.mastersclub? then %>
+                                                                        <%= image_tag("/images/master.png", :size => "64x64") %>
+                                                                <% end %>
+	</td>
+    <td><%= student.favorite_martial_artist %></td>
+    <td><%= student.favorite_movie %></td>
+    <td><%= student.favorite_class_activity %></td>
+    <td><%= student.short_term_goal %></td>
+    <td><%= student.long_term_goal %></td>
+	<td>
+		<% if student.tnet_member? then %>
+			<%= image_tag asset_path("/images/tnet.png", :size => "25x25") %>
+			TNET-ID(<%= link_to(student.tnetid,"https://sandbox.t0urnament.net/view.php?tnetid=#{student.tnetid}") %>)
+		<% else %>
+			Not a Member <%=link_to("Sign Up!","https://secure.t0urnament.net/User/Create/") %>
+		<% end %>
+	</td>
+            <td>
+	    <%= link_to 'Edit Student |', edit_student_path(student) %>
+	    	<% if student.photo_file_name != nil %>
+	    		<%= link_to(" Delete Photo |",:controller => "students",:action => "remove_pic",:id => student.id) %>
+			<% if @dojo.available_prints %>
+	    			<%= link_to(" Print ID |",:controller => "students",:action => "identity",:id => student.id) %>
+			<% else %>
+				<%= link_to " Print ID (Get Licenses) |","http://www.t0urnament.net/nolicense.html" %>
+			<% end %>
+		<% end %>
+	       <%= link_to(" Attendance |",:controller => "attendances",:action => "index",:id => student.id) %>
+		<%= link_to ' Delete Student', student, :method => :delete,:class=>:destroy, :data => { :confirm => 'Are you sure?' } %>
+	       <% if student.is_missed %>
+		<div class="caution">
+                 <%= link_to(image_tag("/images/caution.png"),:controller => "students",:action => "missme", :id => student.id) %>
+               </div>  
+	       <% end %>
+	  </td>
+  </tr>
+<% end %>
+</table>
+</div>
+<% end %>
+
+

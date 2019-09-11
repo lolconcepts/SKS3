@@ -1,0 +1,55 @@
+<img class="logo" src="/images/tnet.png" width="100" height="100">
+<h1 class="adminTitle">SideKick&reg; Configuration Viewer </h1>
+<p id="notice"><%= notice %></p>
+<div class="field">
+<% if @dojo.photo.exists? then %>
+        <%= image_tag @dojo.photo.url(:sidekickmobile) %>
+<% end %>
+<p>
+  <b>Name:</b>
+  <%= @dojo.name %>
+</p>
+
+<p>
+  <b>Motto:</b>
+  <%= @dojo.motto %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%= @dojo.telephone %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @dojo.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @dojo.email %>
+</p>
+<p>
+ <b>Social Connections</b><br />
+    <% if @dojo.twitter != "" %>
+                <%= link_to(image_tag("/images/png_twitter2.png", :size => "64x64"),"https://www.twitter.com/#{@dojo.twitter}") %>
+        <% else %>
+                [No Twitter Account!]
+        <% end %>
+
+         <% if @dojo.facebook != "" %>
+                <%= link_to(image_tag("/images/facebook.png", :size => "64x64"),@dojo.facebook) %>
+        <% else %>
+               [No Facebook Account!]
+        <% end %>
+
+        <% if @dojo.youtube != "" %>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "64x64"),"https://www.youtube.com/user/#{@dojo.youtube}")%>
+        <% else %>
+                [No YouTube Account!]
+        <% end %> 
+</p>
+
+<%= link_to 'Edit', edit_dojo_path(@dojo) %> |
+<%= link_to 'Back', dojos_path %>
+</div>

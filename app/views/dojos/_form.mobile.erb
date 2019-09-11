@@ -1,0 +1,51 @@
+<%= form_for(@dojo) do |f| %>
+  <% if @dojo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dojo.errors.count, "error") %> prohibited this dojo from being saved:</h2>
+
+      <ul>
+      <% @dojo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :size => 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :motto %><br />
+    <%= f.text_field :motto %>
+  </div>
+  <div class="field">
+    <%= f.label :telephone %><br />
+    <%= f.text_field :telephone, :size => 12 %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br />
+    <%= f.text_field :website, :size=> 50 %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="SocialGroup">
+  <div class="field">
+    Facebook Account Name (Paste Entire URL):<br />
+    <%= image_tag("/images/facebook.png", :size => "64x64") %> <%= f.text_field :facebook ,:size=> 75 %>
+  </div>
+  <div class="field">
+    Twitter Account Name (Username Only):<br />
+    <%= image_tag("/images/png_twitter2.png", :size => "64x64") %> <%= f.text_field :twitter, :size=> 20 %>
+  </div>
+  <div class="field">
+    YouTube Account Name (Username Only):<br />
+   <%= image_tag("/images/youtube.jpg", :size => "64x64") %> <%= f.text_field :youtube, :size => 20 %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

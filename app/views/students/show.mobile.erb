@@ -1,0 +1,15 @@
+<div id="jqt">
+    <div class="current">
+      <div class="toolbar">
+        <%= link_to "Back", '/welcomes', :class => "back" %>
+        <h1>SideKick</h1>
+      </div>
+
+      <% unless flash.empty? %>
+        <div class="info">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <%- end -%>
+        </div>
+      <% end %>
+</div>
