@@ -22,13 +22,13 @@
 				Dojo Logo
 				</td>
 				<td>        
-					<% if @dojo.photo.exists? then %>
-	          			<%= image_tag @dojo.photo.url(:thumb) %>
+					<% if @dojo.pic.exists? then %>
+	          			<%= image_tag @dojo.pic(:thumb) %>
 	        			<% end %>
 				</td>
 				<td>
 					Upload Dojo Logo 
-	        		<%= f.file_field :photo %>
+	        		<%= f.file_field :pic %>
 				</td> 
 			</tr>
 			<tr>

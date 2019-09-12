@@ -2,8 +2,8 @@
 <h1 class="adminTitle">SideKick&reg; Configuration Viewer </h1>
 <p id="notice"><%= notice %></p>
 <div class="field">
-<% if @dojo.photo.exists? then %>
-        <%= image_tag @dojo.photo.url(:sidekickmobile) %>
+<% if @dojo.pic? then %>
+        <%= image_tag @dojo.pic_url(:thumb) %>
 <% end %>
 <p>
   <b>Name:</b>

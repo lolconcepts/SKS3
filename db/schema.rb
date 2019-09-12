@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2014_01_07_191406) do
+ActiveRecord::Schema.define(version: 2019_09_12_182523) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2014_01_07_191406) do
     t.datetime "photo_updated_at"
     t.integer "count", default: 0
     t.integer "max", default: 100
+    t.string "pic"
   end
 
   create_table "ranks", force: :cascade do |t|
@@ -94,6 +95,7 @@ ActiveRecord::Schema.define(version: 2014_01_07_191406) do
     t.string "zip"
     t.string "email"
     t.string "telephone"
+    t.string "pic"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end
 

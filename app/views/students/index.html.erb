@@ -55,8 +55,8 @@ $(document).ready(function(){
 	<% @students.each do |student| %>
 	  <tr>
 		<td>
-			<% if student.photo.exists? then %>
-				<%= image_tag student.photo.url(:thumb) %>
+			<% if student.pic? then %>
+				<%= image_tag student.pic_url(:thumb) %>
 			<% else %>
 				<h2>NO PHOTO ON FILE</h2>
 			<% end %>
@@ -108,7 +108,7 @@ $(document).ready(function(){
 	</td>
             <td>
 	    <%= link_to 'Edit Student |', edit_student_path(student) %>
-	    	<% if student.photo_file_name != nil %>
+	    	<% if student.pic_url != nil %>
 	    		<%= link_to(" Delete Photo |",:controller => "students",:action => "remove_pic",:id => student.id) %>
 			<% if @dojo.available_prints %>
 	    			<%= link_to(" Print ID |",:controller => "students",:action => "identity",:id => student.id) %>

@@ -3,12 +3,14 @@ class Dojo < ApplicationRecord
 attr_accessor :code #:email, :motto, :name, :telephone, :website, :facebook, :twitter, :youtube,:photo,:photo_content_type, :photo_file_name, :photo_file_size
 
   #PaperClip
-  has_attached_file :photo,
-    				:styles => {
-      				:thumb => "100x100#",
-      				:sidekickmobile => "300x450#",
-      				:sidekick => "400x450#"}
+  # has_attached_file :photo,
+  #   				:styles => {
+  #     				:thumb => "100x100#",
+  #     				:sidekickmobile => "300x450#",
+  #     				:sidekick => "400x450#"}
   #do_not_validate_attachment_file_type :photo
+  mount_uploader :pic, PhotoUploader
+
    def available_prints
    	       if (self.max > self.count)
 			return true

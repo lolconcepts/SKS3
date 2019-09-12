@@ -9,10 +9,10 @@
 <div class="field">
 <p>
   <b>Photo file name:</b>
-  <%= @student.photo_file_name %>
+  <%= @student.pic %>
 </p>
-<% if @student.photo.exists? then %>
-	<%= image_tag @student.photo.url(:sidekickmobile) %>
+<% if @student.pic? then %>
+	<%= image_tag @student.pic_url(:thumb) %>
 <% end %>
 
 <%= link_to 'Done', welcomes_path %>

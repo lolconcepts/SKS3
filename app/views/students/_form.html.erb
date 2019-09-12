@@ -14,8 +14,8 @@
 <div id="personal">
   <div class="field">
 	Upload Student Picture
-	<%= f.file_field :photo %>
-        <% if @student.photo_file_name != nil %>
+	<%= f.file_field :pic %>
+        <% if @student.pic != nil %>
            <%= link_to("Delete Photo",:controller => "students",:action => "remove_pic",:id => @student.id) %>
         <% end %>
   </div>
@@ -76,7 +76,7 @@
   </div>
 <div class="field">
     <%= f.label :school %><br />
-    <%= f.text_field :school, :value => @dojo.name %>
+    <%= f.text_field :school %>
   </div>
   <div class="field">
     Favorite Martial Artist/Athlete<br />

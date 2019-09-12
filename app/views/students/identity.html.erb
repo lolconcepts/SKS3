@@ -7,15 +7,15 @@
 		<div id="tempidentity">
 			<div id="tnet-dojo-banner"><%= @dojo.name %></div>
 			<div id="tnet-pic">
-				<% if @student.photo.exists? then %>
-					<%= image_tag @student.photo.url(:sidekickmobile) %>
+				<% if @student.pic? then %>
+					<%= image_tag @student.pic_url(:thumb) %>
                                 <% else %>
                                         <%= image_tag "/images/tnet2x2.png" %>
 				<% end %>
 			</div>
 			<div id="tnet-logo">
-				<% if @dojo.photo.exists? then %>
-                                	<%= image_tag @dojo.photo.url(:sidekickmobile) %>
+				<% if @dojo.pic? then %>
+                                	<%= image_tag @dojo.pic_url %>
                         	<% else %>
 					<%= image_tag "/images/tnet2x2.png" %>
 				<% end %>				

@@ -7,11 +7,13 @@ after_update :send_notification_of_new_rank
   profanity_filter :favorite_class_activity, :favorite_martial_artist, :favorite_movie, :first_name, :instructors, :last_name, :long_term_goal, :school, :short_term_goal, :method => 'stars'
   
   #PaperClip
-  has_attached_file :photo,
-    :styles => {
-      :thumb => "100x100#",
-      :sidekickmobile => "300x450#",
-      :sidekick => "400x450#"}
+  # has_attached_file :photo,
+  #   :styles => {
+  #     :thumb => "100x100#",
+  #     :sidekickmobile => "300x450#",
+  #     :sidekick => "400x450#"}
+
+  mount_uploader :pic, PhotoUploader
       
   def remove_pic
 	self.photo_file_name = nil
