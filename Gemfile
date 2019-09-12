@@ -7,6 +7,7 @@ ruby '2.6.3'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -37,7 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # CUSTOM GEMS
 gem 'fb_graph2'
-gem 'paperclip', "~> 3.5.3"
+#gem 'paperclip', "~> 3.5.3"
 gem 'passenger'
 # Whenever
 gem 'whenever',:require => false
