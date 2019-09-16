@@ -127,6 +127,14 @@ html{
 }
 .adminTitle{
 	font-family:'Exo' !important;
+	top: 25px;
+    position: absolute;
+    right: 0px;
+    background: chocolate;
+    width: -webkit-fill-available;
+    height: 50px;
+    z-index: -10;
+
 }
 .table3 tbody td{
     text-align:center;
@@ -487,7 +495,7 @@ a:visited{
 }
 .highlight{
 	width:400px;
-	height:410px;
+	
 	color:white;
 	font-weight:bold;
 	line-height:3em;
@@ -544,7 +552,7 @@ a:visited{
 }
 /* FOOTER STYLE */
 #pageFooter{
-	height: 150px;
+	width: 100%;
     background: rgba(136,136,136,.7);
     color: white;
     clear: both;
@@ -605,17 +613,17 @@ a{
 }
  
 #sliderContent {
-    width:850px; /* important to be same as image width or wide*/
-    height:450px;
+    
+    height:556px;
     position:relative;
     margin:0 auto;
-    margin-top:100px;
+   
 }
  
 .sliderImage {
     display:none;
     width: 850px;
-    height: 450px;
+    height: 556px;
     border: 2px solid white;
     box-shadow: 10px 10px 5px black;
     float:left;
