@@ -78,7 +78,7 @@ body{overflow:hidden;} <!-- FIX DISPLAY -->
                                 <% end %>
 
 			<% else %>
-			<%= image_tag student.pic_url(:thumb) %>
+			<%= image_tag student.pic_url %>
 				<% if student.instructor? then %>
 						<div class="theribbon">
 						<%= image_tag("instructor.png", :size => "400x450") %>

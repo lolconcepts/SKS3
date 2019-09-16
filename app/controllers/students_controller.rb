@@ -118,7 +118,7 @@ def index
   
   def remove_pic
 	@student = Student.find(params[:id])
-	@student.photo_file_name = nil
+	@student.pic = nil
 		respond_to do |format|
       			if @student.save
         			format.html { redirect_to students_url, :notice => 'Photo was successfully deleted.' }
