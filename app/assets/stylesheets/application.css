@@ -204,6 +204,29 @@ color:white;
         padding:0;
         margin:0;
     }
+    #tnet-membership{
+            height: 25px;
+    width: 174px;
+    line-height: 25px;
+    font-size: small;
+    position: absolute;
+    bottom: -3;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+    }
+
+    #tnet-backdetails{
+            font-size: x-small;
+    padding: 15px;
+}
+    }
+
+    #tnet-rank{
+        background: black;
+        color:  white;
+        text-align: center;
+    }
     #tnet-side{
         height:485px;
         width:35px;
