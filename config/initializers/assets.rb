@@ -12,11 +12,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-Rails.application.config.assets.precompile += %w( sidekick.css )
-Rails.application.config.assets.precompile += %w( tipsy.css )
-Rails.application.config.assets.precompile += %w( jquery.min.js )
-Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
-Rails.application.config.assets.precompile += %w( s3Slider.js )
-Rails.application.config.assets.precompile += %w( jquery.tipsy.js)
-Rails.application.config.assets.precompile += %w( highcharts.js )
-Rails.application.config.assets.precompile += %w( exporting.js )
