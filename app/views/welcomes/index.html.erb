@@ -33,83 +33,83 @@ body{overflow:hidden;} <!-- FIX DISPLAY -->
 			<% if student.pic.nil? %>
 			<% case student.rank.color %>
 				<% when "White Belt" %>
-					<%= image_tag("/images/WHITE.png", :size => "400x450") %>
+					<%= image_tag("WHITE.png", :size => "400x450") %>
 				<% when "Yellow Belt" %>
-                                        <%= image_tag("/images/YELLOW.png", :size => "400x450") %>
+                                        <%= image_tag("YELLOW.png", :size => "400x450") %>
 				<% when "Orange Belt" %>
-                                        <%= image_tag("/images/ORANGE.png", :size => "400x450") %>
+                                        <%= image_tag("ORANGE.png", :size => "400x450") %>
 				<% when "Purple Belt" %>
-                                        <%= image_tag("/images/PURPLE.png", :size => "400x450") %>
+                                        <%= image_tag("PURPLE.png", :size => "400x450") %>
 				<% when "Blue Belt" %>
-                                        <%= image_tag("/images/BLUE.png", :size => "400x450") %>
+                                        <%= image_tag("BLUE.png", :size => "400x450") %>
 				<% when "Green Belt" %>
-                                        <%= image_tag("/images/GREEN.png", :size => "400x450") %>
+                                        <%= image_tag("GREEN.png", :size => "400x450") %>
 				<% when "Brown Belt" %>
-                                        <%= image_tag("/images/BROWN.png", :size => "400x450") %>
+                                        <%= image_tag("BROWN.png", :size => "400x450") %>
 				<% when "Junior Black Belt" %>
-                                        <%= image_tag("/images/BLACK.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK.png", :size => "400x450") %>
 				<% when "1st Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK1.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK1.png", :size => "400x450") %>
 				<% when "2nd Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK2.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK2.png", :size => "400x450") %>
 				<% when "3rd Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK3.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK3.png", :size => "400x450") %>
 				<% when "4th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK4.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK4.png", :size => "400x450") %>
 				<% when "5th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK5.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK5.png", :size => "400x450") %>
 				<% when "6th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK6.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK6.png", :size => "400x450") %>
 				<% when "7th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK7.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK7.png", :size => "400x450") %>
 				<% when "8th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK8.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK8.png", :size => "400x450") %>
 				<% when "9th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK9.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK9.png", :size => "400x450") %>
 				<% when "10th Degree Black Belt" %>
-                                        <%= image_tag("/images/BLACK10.png", :size => "400x450") %>
+                                        <%= image_tag("BLACK10.png", :size => "400x450") %>
 				<% else %>
-					<%= image_tag("/images/SideKickPhotoHolder.png", :size => "400x450") %>
+					<%= image_tag("SideKickPhotoHolder.png", :size => "400x450") %>
 				<% end %>
                                 <% if student.instructor? then %>
                                                 <div class="theribbon">
-                                                <%= image_tag("/images/instructor.png", :size => "400x450") %>
+                                                <%= image_tag("instructor.png", :size => "400x450") %>
                                                 </div>
                                 <% end %>
 
 			<% else %>
-			<%= image_tag student.photo.url(:sidekick) %>
+			<%= image_tag student.pic_url(:thumb) %>
 				<% if student.instructor? then %>
 						<div class="theribbon">
-						<%= image_tag("/images/instructor.png", :size => "400x450") %>
+						<%= image_tag("instructor.png", :size => "400x450") %>
 						</div>
 				<% end %>
   			<% end %>
 			<span class="bottom">
 			<%= student.first_name %> <%= student.last_name %></br>
 				<% if student.blackbelt_club? then %>
-                                	<%= image_tag("/images/bbc.png", :size => "64x64") %>
+                                	<%= image_tag("bbc.png", :size => "64x64") %>
                         	<% end %>
                                 <% if student.swat? then %>
-                                        <%= image_tag("/images/swat.png", :size => "64x64") %>
+                                        <%= image_tag("swat.png", :size => "64x64") %>
                                 <% end %>
                                 <% if student.storm? then %>
-                                        <%= image_tag("/images/storm.png", :size => "64x64") %>
+                                        <%= image_tag("storm.png", :size => "64x64") %>
                                 <% end %>
                                 <% if student.demo_team? then %>
-                                        <%= image_tag("/images/demo.png", :size => "64x64") %>
+                                        <%= image_tag("demo.png", :size => "64x64") %>
                                 <% end %>
                                 <% if student.tournament_team? then %>
-                                        <%= image_tag("/images/tt.png", :size => "64x64")%>
+                                        <%= image_tag("tt.png", :size => "64x64")%>
                                 <% end %>
 				<% if student.tnet_member? then %>
-                        		<%= image_tag("/images/tnet2x2.png", :size => "64x64") %>
+                        		<%= image_tag("tnet2x2.png", :size => "64x64") %>
                 		<% end %>
                                 <% if student.cardiokick? then %>
-                                        <%= image_tag("/images/cardiokick.png", :size => "64x64") %>
+                                        <%= image_tag("cardiokick.png", :size => "64x64") %>
                                 <% end %>
 		  		<% if student.mastersclub? then %>
-					<%= image_tag("/images/master.png", :size => "64x64") %>
+					<%= image_tag("master.png", :size => "64x64") %>
 				<% end %>	
 		</span>
 		</li>
@@ -127,15 +127,15 @@ body{overflow:hidden;} <!-- FIX DISPLAY -->
         <div class="col2">
                 <p>
                 <% if !Dojo.find(1).twitter.nil? %>
-                        <%= link_to(image_tag("/images/png_twitter2.png", :size => "32x32"),"https://www.twitter.com/#{Dojo.find(1).twitter}") %>
+                        <%= link_to(image_tag("png_twitter2.png", :size => "32x32"),"https://www.twitter.com/#{Dojo.find(1).twitter}") %>
                 <% end %>
 
                 <% if !Dojo.find(1).facebook.nil? %>
-                        <%= link_to(image_tag("/images/facebook.png", :size => "32x32"),Dojo.find(1).facebook) %>
+                        <%= link_to(image_tag("facebook.png", :size => "32x32"),Dojo.find(1).facebook) %>
                 <% end %>
 
                 <% if !Dojo.find(1).youtube.nil? %>
-                        <%= link_to(image_tag("/images/youtube.jpg", :size => "32x32"),"https://www.youtube.com/user/#{Dojo.find(1).youtube}") %>
+                        <%= link_to(image_tag("youtube.jpg", :size => "32x32"),"https://www.youtube.com/user/#{Dojo.find(1).youtube}") %>
                 <% end %>
                 </p>
         </div>
