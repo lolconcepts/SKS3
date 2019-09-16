@@ -6,6 +6,7 @@ class CreateDojos < ActiveRecord::Migration[5.2]
       t.string :telephone
       t.string :website
       t.string :email
+      t.string :pic
       
       t.timestamps
     end

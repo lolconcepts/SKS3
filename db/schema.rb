@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_12_182523) do
+ActiveRecord::Schema.define(version: 2014_01_07_191406) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -36,18 +36,14 @@ ActiveRecord::Schema.define(version: 2019_09_12_182523) do
     t.string "telephone"
     t.string "website"
     t.string "email"
+    t.string "pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "twitter"
     t.string "facebook"
     t.string "youtube"
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.bigint "photo_file_size"
-    t.datetime "photo_updated_at"
     t.integer "count", default: 0
     t.integer "max", default: 100
-    t.string "pic"
   end
 
   create_table "ranks", force: :cascade do |t|
@@ -58,9 +54,6 @@ ActiveRecord::Schema.define(version: 2019_09_12_182523) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string "photo_file_name"
-    t.string "photo_content_type"
-    t.integer "photo_file_size"
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
@@ -81,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_09_12_182523) do
     t.string "long_term_goal"
     t.integer "tnetid"
     t.boolean "tnet_member"
+    t.string "pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "cardiokick"
@@ -95,7 +89,6 @@ ActiveRecord::Schema.define(version: 2019_09_12_182523) do
     t.string "zip"
     t.string "email"
     t.string "telephone"
-    t.string "pic"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end
 
