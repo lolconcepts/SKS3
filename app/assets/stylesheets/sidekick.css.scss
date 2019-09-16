@@ -134,7 +134,14 @@ html{
     width: -webkit-fill-available;
     height: 50px;
     z-index: -10;
+    line-height: 50px;
 
+}
+
+.adminTitle h2{
+	float: right;
+    position: relative;
+    top: -33px;
 }
 .table3 tbody td{
     text-align:center;
@@ -627,6 +634,7 @@ a{
     border: 2px solid white;
     box-shadow: 10px 10px 5px black;
     float:left;
+    overflow:hidden;
 }
  
 .sliderImage span {
