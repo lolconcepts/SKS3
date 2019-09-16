@@ -1,0 +1,162 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+table.table3{
+    font-family:Arial;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.7em;
+    text-align:center;
+    border-collapse:collapse;
+}
+.table3 thead th{
+    padding:6px 10px;
+    text-transform:uppercase;
+    color:#444;
+    font-weight:bold;
+    text-shadow:1px 1px 1px #fff;
+    border-bottom:5px solid #444;
+}
+.table3 thead th:empty{
+    background:transparent;
+    border:none;
+}
+.table3 thead :nth-child(2),
+.table3 tfoot :nth-child(2){
+    background-color: #7FD2FF;
+}
+.table3 tfoot :nth-child(2){
+    -moz-border-radius:0px 0px 0px 5px;
+    -webkit-border-bottom-left-radius:5px;
+    border-bottom-left-radius:5px;
+}
+.table3 thead :nth-child(2){
+    -moz-border-radius:5px 0px 0px 0px;
+    -webkit-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+}
+.table3 thead :nth-child(3),
+.table3 tfoot :nth-child(3){
+    background-color: #45A8DF;
+}
+.table3 thead :nth-child(4),
+.table3 tfoot :nth-child(4){
+    background-color: #2388BF;
+}
+.table3 thead :nth-child(5),
+.table3 tfoot :nth-child(5){
+    background-color: #096A9F;
+}
+.table3 thead :nth-child(5){
+    -moz-border-radius:0px 5px 0px 0px;
+    -webkit-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+}
+.table3 tfoot :nth-child(5){
+    -moz-border-radius:0px 0px 5px 0px;
+    -webkit-border-bottom-right-radius:5px;
+    border-bottom-right-radius:5px;
+}
+.table3 tfoot td{
+    font-size:38px;
+    font-weight:bold;
+    padding:15px 0px;
+    text-shadow:1px 1px 1px #fff;
+}
+.table3 tbody td{
+    padding:10px;
+    text-align:center;
+}
+.table3 tbody td:nth-child(even){
+    background-color:#444;
+    color:#444;
+    border-bottom:1px solid #444;
+    background:-webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.39, rgb(189,189,189)),
+        color-stop(0.7, rgb(224,224,224))
+        );
+    background:-moz-linear-gradient(
+        center bottom,
+        rgb(189,189,189) 39%,
+        rgb(224,224,224) 70%
+        );
+    text-shadow:1px 1px 1px #fff;
+}
+.table3 tbody td:nth-child(odd){
+    background-color:#555;
+    color:#f0f0f0;
+    border-bottom:1px solid #444;
+    background:-webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.39, rgb(85,85,85)),
+        color-stop(0.7, rgb(105,105,105))
+        );
+    background:-moz-linear-gradient(
+        center bottom,
+        rgb(85,85,85) 39%,
+        rgb(105,105,105) 70%
+        );
+    text-shadow:1px 1px 1px #000;
+}
+.table3 tbody td:nth-last-child(1){
+    border-right:1px solid #222;
+}
+.table3 tbody th{
+    color:#696969;
+    text-align:center;
+    padding:0px 10px;
+    border-right:1px solid #aaa;
+    background-color:whitesmoke;
+}
+.button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fab3ad;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fab3ad;
+	box-shadow:inset 0px 1px 0px 0px #fab3ad;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa665a), color-stop(1, #d34639) );
+	background:-moz-linear-gradient( center top, #fa665a 5%, #d34639 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa665a', endColorstr='#d34639');
+	background-color:#fa665a;
+	-moz-border-radius:17px;
+	-webkit-border-radius:17px;
+	border-radius:17px;
+	border:3px solid #d83526;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 19px #98231a;
+}.button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #d34639), color-stop(1, #fa665a) );
+	background:-moz-linear-gradient( center top, #d34639 5%, #fa665a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#d34639', endColorstr='#fa665a');
+	background-color:#d34639;
+}.button:active {
+	position:relative;
+	top:1px;
+}
+.button a{
+text-decoration:none;
+color:white;
+}
+
