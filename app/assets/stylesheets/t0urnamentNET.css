@@ -27,7 +27,16 @@
 		overflow:hidden;
 		margin: 0 auto;
 	}
-
+		#tempidentity2{
+		width:3.375in;
+		height:2.125in;
+		border:2px solid red;
+		background:white;
+		position:relative;
+		border-radius:20px;
+		overflow:hidden;
+		margin: 0 auto;
+	}
 	#tnet-profile{
 		position: absolute;
 		width: 404px;
