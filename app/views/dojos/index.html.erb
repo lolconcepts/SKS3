@@ -61,8 +61,8 @@ $(document).ready(function(){
 <% @dojos.each do |dojo| %>
   <tr>
                 <td>
-                        <% if dojo.photo.exists? then %>
-                                <%= image_tag dojo.photo.url(:thumb) %>
+                        <% if dojo.pic? then %>
+                                <%= image_tag dojo.pic_url(:thumb) %>
                         <% end %>
                 </td>
     <td><%= dojo.name %></td>
