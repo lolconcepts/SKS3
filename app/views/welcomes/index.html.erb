@@ -30,7 +30,7 @@ body{overflow:hidden;} <!-- FIX DISPLAY -->
                                 <font color="red">SHORT TERM GOAL: </font><%= student.short_term_goal %></br>
                                 <font color="red">LONG TERM GOAL: </font><%= student.long_term_goal %></br>
         		</div>
-			<% if student.photo_file_name.nil? %>
+			<% if student.pic.nil? %>
 			<% case student.rank.color %>
 				<% when "White Belt" %>
 					<%= image_tag("/images/WHITE.png", :size => "400x450") %>
