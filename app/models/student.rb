@@ -2,7 +2,7 @@ class Student < ApplicationRecord
 after_update :send_notification_of_new_rank
 
   belongs_to :rank
-  #attr_accessor :address,:city,:state,:zip,:email,:telephone,:photo,:age,:dob,:startdate, :blackbelt_club, :instructor, :mastersclub, :classes_attended_each_week, :demo_team, :favorite_class_activity, :favorite_martial_artist, :favorite_movie, :first_name, :instructors, :last_name, :long_term_goal, :photo_content_type, :photo_file_name, :photo_file_size, :school, :short_term_goal, :storm, :swat, :tnet_member, :tnetid, :tournament_team, :years_in_martial_arts,:rank_id, :cardiokick
+  attr_accessor :pic#:address,:city,:state,:zip,:email,:telephone,:photo,:age,:dob,:startdate, :blackbelt_club, :instructor, :mastersclub, :classes_attended_each_week, :demo_team, :favorite_class_activity, :favorite_martial_artist, :favorite_movie, :first_name, :instructors, :last_name, :long_term_goal, :photo_content_type, :photo_file_name, :photo_file_size, :school, :short_term_goal, :storm, :swat, :tnet_member, :tnetid, :tournament_team, :years_in_martial_arts,:rank_id, :cardiokick
   #v3.0 Profanity Filter => replaces with stars
   profanity_filter :favorite_class_activity, :favorite_martial_artist, :favorite_movie, :first_name, :instructors, :last_name, :long_term_goal, :school, :short_term_goal, :method => 'stars'
   

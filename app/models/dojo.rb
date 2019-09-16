@@ -1,6 +1,6 @@
 class Dojo < ApplicationRecord
 
-attr_accessor :code #:email, :motto, :name, :telephone, :website, :facebook, :twitter, :youtube,:photo,:photo_content_type, :photo_file_name, :photo_file_size
+attr_accessor :code,:pic #:email, :motto, :name, :telephone, :website, :facebook, :twitter, :youtube,:photo,:photo_content_type, :photo_file_name, :photo_file_size
 
   #PaperClip
   # has_attached_file :photo,
