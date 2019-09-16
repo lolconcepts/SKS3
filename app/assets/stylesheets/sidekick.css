@@ -468,7 +468,7 @@ clear:left;
 /* BODY & BACKGROUND */
 body{
 	font-family:verdana;
-	background-image:url('sidekick-bg.jpg');
+	background-image: image-url('sidekick-bg.jpg');
 }
 #sidekickWrapper{
 	min-height:100%;
