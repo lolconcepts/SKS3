@@ -22,7 +22,7 @@
 				Dojo Logo
 				</td>
 				<td>        
-					<% if @dojo.pic.exists? then %>
+					<% if @dojo.pic? then %>
 	          			<%= image_tag @dojo.pic(:thumb) %>
 	        			<% end %>
 				</td>
