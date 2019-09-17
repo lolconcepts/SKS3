@@ -1,5 +1,19 @@
 <link href='//fonts.googleapis.com/css?family=Shojumaru|Prosto+One|Raleway|Playball|Aldrich|Cinzel|Orbitron' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag('application', media: 'all')%>
+	<style>
+		#tnet-rank{
+			font-size:small!important;
+			color:white!important;
+			background:black!important;
+		}
+
+		#tnet-membership {
+    		font-size: small!important;
+		}
+		#tnet-fname{left:147px!important;top:65px!important;}
+		#tnet-lname{left:147px!important;top:85px!important;}
+		#tnet-QR{postion:static!important;}
+	</style>
 	</br>
 	<h1 class="badass">Attendance Student Identity Card</h1>
 	<h2 class="badass2">by T0urnament.net</h2>
@@ -45,7 +59,7 @@
                                         <img src="/images/masters.png" width="25" height="25" alt="badge">
                                 <% end %>
                                 <% if @student.tnet_member %>
-                                        <img src="/images/tnet2x2.png" width="25" height="25" alt="badge">
+                                        <img src="/images/tnet_2x2.png" width="25" height="25" alt="badge">
                                 <% end %>
 			</div>
 			<% if @student.rank.base == "white" || @student.rank.base == "yellow" || @student.rank.base == "orange" %>
