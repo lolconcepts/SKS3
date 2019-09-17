@@ -13,6 +13,7 @@
 		#tnet-fname{left:147px!important;top:65px!important;}
 		#tnet-lname{left:147px!important;top:85px!important;}
 		#tnet-QR{postion:static!important;}
+		.badass,.badass2,a{color:white!important;}
 	</style>
 	</br>
 	<h1 class="badass">Attendance Student Identity Card</h1>
@@ -22,16 +23,16 @@
 			<div id="tnet-dojo-banner"><%= @dojo.name %></div>
 			<div id="tnet-pic">
 				<% if @student.pic? then %>
-					<%= image_tag @student.pic_url(:thumb) %>
+					<%= image_tag @student.pic_url %>
                                 <% else %>
-                                        <%= image_tag "/images/tnet2x2.png" %>
+                                        <%= image_tag "tnet2x2.png" %>
 				<% end %>
 			</div>
 			<div id="tnet-logo">
 				<% if @dojo.pic? then %>
                                 	<%= image_tag @dojo.pic_url %>
                         	<% else %>
-					<%= image_tag "/images/tnet2x2.png" %>
+					<%= image_tag "tnet2x2.png" %>
 				<% end %>				
 			</div>
 			<div id="tnet-fname"><h3><%= @student.first_name %></h3></div>
