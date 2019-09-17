@@ -1,5 +1,5 @@
 class StudentMailer < ApplicationMailer
-  default from: "bstewart@lolconcepts.com"
+  default from: "notify@lolconcepts.com"
   def new_rank(student)
   @student = student
   @dojo = Dojo.find(1)

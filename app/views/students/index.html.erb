@@ -69,28 +69,28 @@ $(document).ready(function(){
     <td><%= student.classes_attended_each_week %></td>
 	<td>
 			<% if student.blackbelt_club? then %>
-				<%= image_tag("/images/bbc.png", :size => "64x64") %>
+				<%= image_tag("bbc.png", :size => "64x64") %>
 			<% end %>
 				<% if student.swat? then %>
-					<%= image_tag("/images/swat.png", :size => "64x64") %>
+					<%= image_tag("swat.png", :size => "64x64") %>
 				<% end %>
 					<% if student.storm? then %>
-						<%= image_tag("/images/storm.png", :size => "64x64") %>
+						<%= image_tag("storm.png", :size => "64x64") %>
 					<% end %>
 						<% if student.demo_team? then %>
-							<%= image_tag("/images/demo.png", :size => "64x64") %>
+							<%= image_tag("demo.png", :size => "64x64") %>
 						<% end %>
 							<% if student.tournament_team? then %>
-								<%= image_tag("/images/tt.png", :size => "64x64")%>
+								<%= image_tag("tt.png", :size => "64x64")%>
 							<% end %>
                         					<% if student.cardiokick? then %>
-                                					<%= image_tag("/images/cardiokick.png", :size => "64x64") %>
+                                					<%= image_tag("cardiokick.png", :size => "64x64") %>
                         					<% end %>
                                                                 <% if student.instructor? then %>
-                                                                        <%= image_tag("/images/instructor.png", :size => "64x64") %>
+                                                                        <%= image_tag("instructor.png", :size => "64x64") %>
                                                                 <% end %>
                                                                 <% if student.mastersclub? then %>
-                                                                        <%= image_tag("/images/master.png", :size => "64x64") %>
+                                                                        <%= image_tag("master.png", :size => "64x64") %>
                                                                 <% end %>
 	</td>
     <td><%= student.favorite_martial_artist %></td>
@@ -100,7 +100,7 @@ $(document).ready(function(){
     <td><%= student.long_term_goal %></td>
 	<td>
 		<% if student.tnet_member? then %>
-			<%= image_tag asset_path("/images/tnet.png", :size => "25x25") %>
+			<%= image_tag("tnet.png", :size => "50x50") %>
 			TNET-ID(<%= link_to(student.tnetid,"https://sandbox.t0urnament.net/view.php?tnetid=#{student.tnetid}") %>)
 		<% else %>
 			Not a Member <%=link_to("Sign Up!","https://secure.t0urnament.net/User/Create/") %>
