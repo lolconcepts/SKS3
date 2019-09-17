@@ -70,8 +70,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "mail.lolconcepts.com",
     :port                 => 587,
-    :user_name            => ENV['mail_user'],
-    :password             => ENV['mail_password'],
+    :user_name            => ENV['MAIL_USER'],
+    :password             => ENV['MAIL_PASSWORD'],
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
