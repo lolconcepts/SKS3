@@ -20,8 +20,8 @@ module ApplicationHelper
       end
         def getSK()
     	      Socket.ip_address_list.each do |ip_addr|
-                if ip_addr.ip_address != "127.0.0.1"
-                  @sidekick = request.env[HTTP_HOST]
+                if ip_addr.ip_address != "127.0.0.1" && !.ip_addr.contains("::")
+                  @sidekick = ip_addr
                 end
 	      end
 	      return @sidekick
