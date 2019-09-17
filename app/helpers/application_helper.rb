@@ -21,7 +21,7 @@ module ApplicationHelper
         def getSK()
     	      Socket.ip_address_list.each do |ip_addr|
                 if ip_addr.ip_address != "127.0.0.1"
-                  @sidekick = root_url
+                  @sidekick = app.root_url
                 end
 	      end
 	      return @sidekick
