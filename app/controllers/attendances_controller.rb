@@ -4,7 +4,7 @@ class AttendancesController < ApplicationController
   def index
     if params[:id] && Student.find(params[:id])
 	@student = Student.find(params[:id])
-        @student_attendances = Attendance.where(:student_id => @student.id)
+        @student_attendances = Attendance.where(:student_id => @student.id).order('created_at DESC')
 	@smon = 0
     	@stue = 0
     	@swed = 0
