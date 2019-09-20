@@ -53,6 +53,32 @@
 	position:relative;
 	top:1px;
 }
+.alert{
+	    background: orangered;
+    line-height: 50px;
+}
+.notice{
+	    background: antiquewhite;
+    line-height: 50px;
+}
+h2 {color:white;
+    width: auto;
+    background: black;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 60px;}
+.new_user{
+    background: #58a;
+    height: 298px;
+    width: 300px;
+    border-radius: 20px;
+    margin: auto;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.new_student{
+	color:white;
+}
   
   </style>
   <%= javascript_include_tag "application","jquery.min.js","jquery-ui.min.js" %>
@@ -77,5 +103,7 @@ $('#manage').tipsy({html: true});
 	<meta http-equiv="refresh" content="3600">
 </head>
 <body>
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
 
 <%= yield %>

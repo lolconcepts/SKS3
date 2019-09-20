@@ -7,10 +7,6 @@
 </p>
 
 <div class="field">
-<p>
-  <b>Photo file name:</b>
-  <%= @student.pic %>
-</p>
 <% if @student.pic? then %>
 	<%= image_tag @student.pic_url(:thumb) %>
 <% end %>

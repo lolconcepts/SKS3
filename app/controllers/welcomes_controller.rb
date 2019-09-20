@@ -1,6 +1,6 @@
 class WelcomesController < ApplicationController
 protect_from_forgery
-before_action :require_http_basic_auth if Rails.env == "development"
+before_action :authenticate_user!#:require_http_basic_auth if Rails.env == "development"
 
 def require_http_basic_auth 
 	authenticate_or_request_with_http_basic do | login, password|

@@ -1,3 +1,25 @@
+<style>
+  .field{
+        color: white;
+    background: darkslategrey;
+    height: fit-content;
+    width: 650px;
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 50px;
+  }
+  .field > img {
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    margin-bottom: 5px;
+    margin-top: -2px;
+    margin-right: 20px;
+}
+</style>
 <img class="logo" src="/images/tnet.png" width="100" height="100">
 <h1 class="adminTitle">SideKick&reg; Configuration Viewer </h1>
 <p id="notice"><%= notice %></p>
@@ -32,21 +54,21 @@
 <p>
  <b>Social Connections</b><br />
     <% if @dojo.twitter != "" %>
-                <%= link_to(image_tag("/images/png_twitter2.png", :size => "64x64"),"https://www.twitter.com/#{@dojo.twitter}") %>
+                <%= link_to(image_tag("/images/png_twitter2.png", :size => "25x25"),"https://www.twitter.com/#{@dojo.twitter}") %>
         <% else %>
-                [No Twitter Account!]
+                
         <% end %>
 
          <% if @dojo.facebook != "" %>
-                <%= link_to(image_tag("/images/facebook.png", :size => "64x64"),@dojo.facebook) %>
+                <%= link_to(image_tag("/images/facebook.png", :size => "25x25"),@dojo.facebook) %>
         <% else %>
-               [No Facebook Account!]
+               
         <% end %>
 
         <% if @dojo.youtube != "" %>
-                <%= link_to(image_tag("/images/youtube.jpg", :size => "64x64"),"https://www.youtube.com/user/#{@dojo.youtube}")%>
+                <%= link_to(image_tag("/images/youtube.jpg", :size => "25x25"),"https://www.youtube.com/user/#{@dojo.youtube}")%>
         <% else %>
-                [No YouTube Account!]
+                
         <% end %> 
 </p>
 

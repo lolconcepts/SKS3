@@ -70,7 +70,7 @@
 			<% end %>
 			<div id="tnet-rank" style="background-color:<%= @student.rank.base %>;color:<%= @fontcolor %>;"><%= @student.rank.color %></div>
 			<div id="tnet-membership">Member Since: <%= @student.startdate.strftime("%m/%Y") %></div>
-			<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://#{getSK()}/attend?id=#{@student.id}&choe=UTF-8" %>
+			<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http://#{root_url}attend?id=#{@student.id}&choe=UTF-8" %>
 			<% @alternate_text = "Student IdentityCard for #{@student.first_name} #{@student.last_name}" %>
 			<div id="tnet-QR"><%= raw(@url) %> title=<%= @alternate_text %> /></img></div>
 		</div>

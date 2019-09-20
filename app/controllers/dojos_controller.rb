@@ -1,7 +1,7 @@
 class DojosController < ApplicationController
 include ApplicationHelper
- http_basic_authenticate_with name: "tnet", password: "sidekick"
-  
+ #http_basic_authenticate_with name: "tnet", password: "sidekick"
+  before_action :authenticate_user!
   def index
     @dojos = Dojo.all
 	  @students = Student.all

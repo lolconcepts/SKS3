@@ -23,7 +23,7 @@
 				</td>
 				<td>        
 					<% if @dojo.pic? then %>
-	          			<%= image_tag @dojo.pic(:thumb) %>
+	          			<%= image_tag @dojo.pic_url(:thumb) %>
 	        			<% end %>
 				</td>
 				<td>
@@ -132,7 +132,7 @@
 					</td>
 					<td>
 						<%= text_field_tag 'code' %>
-						<%= link_to 'Get More Licenses','http://www.t0urnament.net/getsidekick.html'%>
+						<%= link_to 'Get More Licenses','https://t0urnament.net/product/sidekick-student-license/'%>
 					</td>
 			</tr>
 			<tr>
