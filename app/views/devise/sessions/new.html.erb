@@ -1,7 +1,5 @@
 <h2>Log in</h2>
-<div class="home-video-wrapper">
-<%= video_tag "Writing-Working.mp4", autoplay: :autoplay, loop: :loop, mute: :mute, class: "home_video" %>
-</div>
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
