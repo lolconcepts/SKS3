@@ -109,16 +109,12 @@ $('#PW').tipsy({html: true});
 $('#ranks').tipsy({html: true});
 $('#manage').tipsy({html: true});
 	});
-	function clearNotice(){
-		$(".notice").animate({opacity:'0'},1500);
-	}
-  $(document).ready(function(){
 	
+  $(document).ready(function(){
+	$(".alert").fadeOut(3000);
+	$(".notice").fadeOut(3000);
   });
-  $(document).on('page:load', ready);
-  var ready = function(){
-  	setTimeout(clearNotice, 1000);
-  }	       
+         
   </script>
   <%= csrf_meta_tags %>
 	<meta http-equiv="refresh" content="3600">
