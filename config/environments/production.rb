@@ -67,6 +67,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_url_options = { :host => 'sidekick.t0urnament.net' }
+
   config.action_mailer.smtp_settings = {
     :address              => "mail.lolconcepts.com",
     :port                 => 587,
