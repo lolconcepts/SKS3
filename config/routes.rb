@@ -30,6 +30,7 @@ resources :students
    match 'card/new', :to => 'billing#new_card', :via => :get
    post "/card" => "billing#create_card", as: :create_payment_method
    get '/success' => 'billing#success', as: :success
+   post '/subscription' => 'billing#subscribe', as: :subscribe
    root 'welcomes#index'
    
 
