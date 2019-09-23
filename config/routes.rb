@@ -25,10 +25,13 @@ resources :students
      match 'identity/',:to => 'students#identity', :via => :get
      match 'attend/', :to => 'attendances#attend', :via => :get
 	 match 'list/', :to => 'students#list', :via => :get
-
-
-  root 'welcomes#index'
-
+   
+   match 'billing/', :to => 'billing#index', :via => :get
+   match 'card/new', :to => 'billing#new_card', :via => :get
+   post "/card" => "billing#create_card", as: :create_payment_method
+   get '/success' => 'billing#success', as: :success
+   root 'welcomes#index'
+   
 
   get ':controller(/:action(/:id))(.:format)'
 end

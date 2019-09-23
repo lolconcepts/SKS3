@@ -80,6 +80,8 @@ Rails.application.configure do
 
   }
 
+  config.stripe.secret_key = ENV['STRIPE_SK_TEST']
+  config.stripe.publishable_key = ENV['STRIPE_PK_TEST']
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
