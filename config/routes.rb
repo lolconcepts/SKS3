@@ -28,11 +28,7 @@ resources :tuitions
      match 'attend/', :to => 'attendances#attend', :via => :get
 	 match 'list/', :to => 'students#list', :via => :get
    
-   match 'billing/', :to => 'billing#index', :via => :get
-   match 'card/new', :to => 'billing#new_card', :via => :get
-   post "/card" => "billing#create_card", as: :create_payment_method
-   get '/success' => 'billing#success', as: :success
-   post '/subscription' => 'billing#subscribe', as: :subscribe
+   
    root 'welcomes#index'
    
 
