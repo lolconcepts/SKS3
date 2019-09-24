@@ -17,7 +17,7 @@
     <div class="form-group">
       <select class="form-control" name="plan_id">
         <% @plans.each do |plan| %>
-        <option value="<%= plan.id %>"><%= plan.amount/100 %>/€ <%= plan.nickname %></option>
+        <option value="<%= plan.id %>">$<%= plan.amount/100 %> <%= plan.nickname %></option>
         <!-- we pass id chosen by custmer as a value  to use it for subscription -->
         <%end%>
       </select>
