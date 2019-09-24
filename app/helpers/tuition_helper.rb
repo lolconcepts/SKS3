@@ -1,0 +1,2 @@
+module TuitionHelper
+end

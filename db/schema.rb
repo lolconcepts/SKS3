@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_192820) do
+ActiveRecord::Schema.define(version: 2019_09_24_172429) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -90,6 +90,14 @@ ActiveRecord::Schema.define(version: 2019_09_23_192820) do
     t.string "email"
     t.string "telephone"
     t.index ["rank_id"], name: "index_students_on_rank_id"
+  end
+
+  create_table "tuitions", force: :cascade do |t|
+    t.string "stripe_id"
+    t.string "student_id"
+    t.string "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

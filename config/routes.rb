@@ -13,6 +13,8 @@ resources :ranks
 
 resources :students
 
+resources :tuitions
+
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
