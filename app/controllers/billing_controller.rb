@@ -1,5 +1,5 @@
 class BillingController < ApplicationController
- 	before_Action :authenticate_user!
+ 	before_action :authenticate_user!
 
 	def index
 		@user = current_user.email
