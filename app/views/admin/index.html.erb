@@ -1,0 +1,31 @@
+<div class="container text-center">
+<h2>Welcome</h2>
+<p style="color:white;text-align: center;">
+	to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
+</p>
+<p>
+	<%= link_to('Setup Your Dojo', dojos_path )%>
+</p>
+<p>
+	<%= link_to('Configure Ranks', ranks_path )%>
+</p>
+<p>
+	<%= link_to('Manage Students', students_path )%>
+</p>
+<p>
+	<%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
+</p>
+
+<tr>
+	<div style="color:white;">
+					<td>
+						<h3>Student Identity Card Licenses</h3>
+					</td>
+					<td>
+						0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
+						(<%= @dojo.max - @dojo.count %> remaining)
+					</td>
+					
+			</tr>
+		</div>
+</div>

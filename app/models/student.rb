@@ -1,4 +1,8 @@
 class Student < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
 after_update :send_notification_of_new_rank
 
   belongs_to :rank
@@ -72,6 +76,10 @@ after_update :send_notification_of_new_rank
     else
 	return "Undefined (Please Edit)"
     end
+  end
+
+  def getStripeCharge
+    return self.tuition + "00"
   end
 
 end

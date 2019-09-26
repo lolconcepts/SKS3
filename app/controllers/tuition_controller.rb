@@ -1,6 +1,7 @@
 class TuitionController < ApplicationController
 
 def new
+  @student = Student.find([params: => :id]) || 1
 end
 
 def create
@@ -21,7 +22,7 @@ def create
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to new_charge_path
+  redirect_to new_tuition_path
 end
 
 

@@ -1,3 +1,5 @@
+<h2>Tuition Payments</h2>
+<h3 style="color:white;">You are about to make a payment for <%= @student.fullname %></h3>
 <%= form_tag tuitions_path do %>
   <article>
     <% if flash[:error].present? %>

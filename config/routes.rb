@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :students, path: 'students', controllers: {sessions: "students/sessions"}
+  devise_for :users, path: 'users', controllers: {sessions: "users/sessions"}
 resources :attendances
 
 resources :class_slips
@@ -15,6 +16,8 @@ resources :students
 
 resources :tuitions
 
+resources :admin
+
 
 # The priority is based upon order of creation:
 # first created -> highest priority.
@@ -26,10 +29,10 @@ resources :tuitions
      match 'addme/', :to => 'students#addme', :via => :get
      match 'identity/',:to => 'students#identity', :via => :get
      match 'attend/', :to => 'attendances#attend', :via => :get
-	 match 'list/', :to => 'students#list', :via => :get
+	   match 'list/', :to => 'students#list', :via => :get
+     match '/payment', :to => 'dashboard#payments', :via => :get
    
-   
-   root 'welcomes#index'
+   root 'admin#index'
    
 
   get ':controller(/:action(/:id))(.:format)'
