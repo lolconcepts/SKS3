@@ -1,7 +1,7 @@
 class TuitionController < ApplicationController
 
 def new
-  @student = Student.find([params: => :id]) || 1
+  
 end
 
 def create
