@@ -107,7 +107,7 @@ $(document).ready(function(){
 		<% end %>
 	</td>
             <td>
-            	<%= link_to 'Create Student Login', new_user_registration_path, :student_id => student.id %>
+            	
 	    <%= link_to 'Edit Student |', edit_student_path(student) %>
 	    	<% if student.pic_url != nil %>
 	    		<%= link_to(" Delete Photo |",:controller => "students",:action => "remove_pic",:id => student.id) %>

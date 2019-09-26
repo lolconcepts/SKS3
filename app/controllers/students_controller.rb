@@ -30,7 +30,7 @@ def index
  
   def new
     @student = Student.new
-	@dojo = Dojo.find 1
+	  @dojo = Dojo.find 1
 
     respond_to do |format|
       format.html # new.html.erb
@@ -75,6 +75,8 @@ def index
 
   def create
     @student = Student.new(student_params)
+    #@student.password = "djskjfshfh8789fdsufhsfghfihshfhdhfiudshfhfiuhdsiufhbbyhb"
+    #@student.rank = Rank.first
 
     respond_to do |format|
       if @student.save
