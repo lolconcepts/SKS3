@@ -1,6 +1,7 @@
 class RanksController < ApplicationController
 # GET /ranks
   # GET /ranks.json
+  before_action :authenticate_user!
   def index
     @ranks = Rank.all
 

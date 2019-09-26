@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_user!
 def index
     @students = Student.order("last_name").order("first_name")
     @missed = 0 #Counter of Students Who Are Missed, > 0 Appears on the View
