@@ -80,10 +80,10 @@
 					<p>Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process
 						ATTENDANCE.</p>
 						<p><strong>INSTRUCTOR:</strong> SCAN The &quot;QR&quot; Code on the front of this STUDENT ID.</p>
-						TUITION.<p>
+						TUITION.
 							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
 							Scan to pay online: <div id="tnet-QR"><%= raw(@url2) %> title=<%= @alternate_text %> /></img></div>
-						</p>
+						<br/>
 							<p>If this STUDENT ID is found, please contact <%= @dojo.name %> at <br /><%= @dojo.telephone %><br />Register Today: https://secure.t0urnament.net</p>
 				</div>
 				<div id="tnet-logo-back"></div>
