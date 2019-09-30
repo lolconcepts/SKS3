@@ -82,7 +82,7 @@
 						<p><strong>INSTRUCTOR:</strong> SCAN The &quot;QR&quot; Code on the front of this STUDENT ID.</p>
 						TUITION.
 							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
-							Scan to pay online: <div id="tnet-QR"><%= raw(@url2) %> title=<%= @alternate_text %> /></img></div>
+							Scan to pay online: <div id="tnet-QR2"><%= raw(@url2) %> title=<%= @alternate_text %> /></img></div>
 						<br/>
 							<p>If this STUDENT ID is found, please contact <%= @dojo.name %> at <br /><%= @dojo.telephone %><br />Register Today: https://secure.t0urnament.net</p>
 				</div>
