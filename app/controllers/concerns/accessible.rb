@@ -6,7 +6,7 @@ module Accessible
 
   protected
   def check_user
-    if current_student
+    if current_user
       flash.clear
       # if you have rails_admin. You can redirect anywhere really
       #redirect_to(rails_admin.dashboard_path) && return
