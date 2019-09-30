@@ -24,7 +24,7 @@
 	</style>
 	</br>
 	<h1 class="badass">Attendance Student Identity Card</h1>
-	<h2 class="badass2">by T0urnament.net</h2>
+	<h2 class="badass2">by T0urnament.net /<%= @student.rank.base %>/</h2>
 	<div id="identity_placeholder">
 		<div id="tempidentity">
 			<div id="tnet-dojo-banner"><%= @dojo.name %></div>
@@ -75,7 +75,7 @@
 			<% else %>
 			     <%	@fontcolor = "white" %>
 			<% end %>
-			<div id="tnet-rank" style="background-color:<%= @student.rank.base %>;color:<%= @fontcolor %>;"><%= @student.rank.color %></div>
+			<div id="tnet-rank" style="background:<%= @student.rank.base %>;color:<%= @fontcolor %>;"><%= @student.rank.color %></div>
 			<div id="tnet-membership">Member Since: <%= @student.startdate.strftime("%m/%Y") %></div>
 			<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}attend?id=#{@student.id}&choe=UTF-8" %>
 			<% @alternate_text = "Student IdentityCard for #{@student.first_name} #{@student.last_name}" %>
