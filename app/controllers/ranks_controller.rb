@@ -41,7 +41,7 @@ class RanksController < ApplicationController
   # POST /ranks
   # POST /ranks.json
   def create
-    @rank = Rank.new(params[:rank])
+    @rank = Rank.new(rank_params)
 
     respond_to do |format|
       if @rank.save
@@ -60,7 +60,7 @@ class RanksController < ApplicationController
     @rank = Rank.find(params[:id])
 
     respond_to do |format|
-      if @rank.update_attributes(params[:rank])
+      if @rank.update_attributes(rank_params)
         format.html { redirect_to @rank, :notice => 'Rank was successfully updated.' }
         format.json { head :no_content }
       else
@@ -80,6 +80,13 @@ class RanksController < ApplicationController
       format.html { redirect_to ranks_url }
       format.json { head :no_content }
     end
+  end
+
+  def rank_params
+    # we construct a strong parameters whitelist below
+    # require(:post) means that the `params` hash MUST contain a :post key
+    # permit(:title, :body, ...) = here we enumerate the attributes which we will accept from the form parameters; it acts as a whitelist
+    params.require(:rank).permit(:color,:base) 
   end
 end
 
