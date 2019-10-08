@@ -14,7 +14,7 @@ resources :ranks
 
 resources :students
 
-resources :tuitions
+resources :tuition
 
 resources :admin
 
