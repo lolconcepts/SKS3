@@ -87,7 +87,7 @@ $(document).ready(function(){
                                 					<%= image_tag("/images/cardiokick.png", :size => "64x64") %>
                         					<% end %>
                                                                 <% if student.instructor? then %>
-                                                                        <%= image_tag("/images/instructor.png", :size => "64x64") %>
+                                                                        <%= image_tag("instructor.png", :size => "64x64") %>
                                                                 <% end %>
                                                                 <% if student.mastersclub? then %>
                                                                         <%= image_tag("/images/master.png", :size => "64x64") %>
@@ -121,7 +121,7 @@ $(document).ready(function(){
 		<%= link_to ' Delete Student', student, :method => :delete,:class=>:destroy, :data => { :confirm => 'Are you sure?' } %>
 	       <% if student.is_missed %>
 		<div class="caution">
-                 <%= link_to(image_tag("/images/caution.png"),:controller => "students",:action => "missme", :id => student.id) %>
+                 <%= link_to(image_tag("caution.png"),:controller => "students",:action => "missme", :id => student.id) %>
                </div>  
 	       <% end %>
 	  </td>
