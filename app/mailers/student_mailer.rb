@@ -8,7 +8,7 @@ class StudentMailer < ApplicationMailer
 
   # Send out a note to students, when they miss a certain amount of classes. Template:=> /views/user_mailer/we_miss_you.text.erb
   def we_miss_you(student)
-  @attendance_records = Attendance.find_all_by_student_id(student.id)
+  @attendance_records = Attendance.where(:student_id => student.id)
   @last_seen = @attendance_records.last.created_at.strftime("%A,%B %y")
   @dojo = Dojo.find(1)
   @student = student
