@@ -1,5 +1,9 @@
 class TuitionController < ApplicationController
 def index
+  respond_to do |format|
+      format.html # index.html.erb
+      format.mobile
+    end
 end
 
 def new
