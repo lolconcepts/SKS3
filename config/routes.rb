@@ -16,6 +16,8 @@ resources :students
 
 resources :tuitions
 
+resources :tuition
+
 resources :admin
 
 
