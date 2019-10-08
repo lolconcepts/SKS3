@@ -22,7 +22,7 @@ def create
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to new_tuition_path
+  redirect_to root_path
 end
 
 
