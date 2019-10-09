@@ -29,6 +29,11 @@ def create
     description: 'Rails Stripe customer',
     currency: 'usd',
   })
+    tuition = Tuition.create({
+    stripe_id: customer.source,
+    student_id: @student.id,
+    amount: @amount
+  })
   redirect_to "https://www.t0urnament.net"
 rescue Stripe::CardError => e
   flash[:error] = e.message
