@@ -38,23 +38,34 @@ class Student < ApplicationRecord
   end 
 
   def is_missed
-   @classes_last_month = 0
-   if (self.classes_attended_each_week != nil)
-   	@max_classes = self.classes_attended_each_week * 4
-   end
-   @attendance_records = Attendance.where(:student_id => self.id)
-   @attendance_records.each do |record|
-	if(record.created_at > 1.month.ago)
-		@classes_last_month += 1
-	end
-   end
-   @average = @classes_last_month/@max_classes.to_f * 100
-   if(@attendance_records.count > 8 && @average < 50.0)
-	return true
-   else
-	return false
-   end
 
+    #consider the student missed if last checkin in greater than 2 weeks and student has at least a months worth of attendance
+    @max_classes = self.classes_attended_each_week * 4 # This is the baseline
+    @attendance_records = Attendance.where(:student_id => self.id) # Get attendance Records
+
+    if @attendance_records.count > @max_classes
+      if @attendance_records.last.created_at < 2.weeks.ago
+        return true
+      else
+        return false
+      end
+    end
+ #   @classes_last_month = 0
+ #   if (self.classes_attended_each_week != nil)
+ #   	@max_classes = self.classes_attended_each_week * 4
+ #   end
+ #   @attendance_records = Attendance.where(:student_id => self.id)
+ #   @attendance_records.each do |record|
+	# if(record.created_at > 1.month.ago)
+	# 	@classes_last_month += 1
+	# end
+ #   end
+ #   @average = @classes_last_month/@max_classes.to_f * 100
+ #   if(@attendance_records.count > 8 && @average < 50.0)
+	# return true
+ #   else
+	# return false
+ #   end
   end
   def fullname
   	@fn = "#{self.first_name} #{self.last_name}"
