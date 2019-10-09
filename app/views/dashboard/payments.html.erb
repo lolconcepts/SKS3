@@ -1,6 +1,6 @@
 <h2>Tuition Payments</h2>
 <h3 style="color:white;">You are about to make a payment for <%= @student.fullname %></h3>
-<%= form_tag tuitions_path :amount => @student.getStripeCharge do %>
+<%= form_tag tuitions_path :amount => @student.getStripeCharge, :student_id => @student.id do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -14,7 +14,7 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Tuition - #{@student.fullname}"
+          data-description=<%="Tuition - #{@student.fullname}" %>
           data-amount=<%=@student.getStripeCharge %>
           data-locale="auto"></script>
 <% end %>

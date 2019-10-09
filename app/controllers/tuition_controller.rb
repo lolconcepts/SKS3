@@ -6,6 +6,10 @@ def index
     end
 end
 
+def payments
+
+end
+
 def new
   
 end

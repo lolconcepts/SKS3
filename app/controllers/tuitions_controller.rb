@@ -14,7 +14,8 @@ def create
   # Amount in cents
   @amount = params[:amount]
   @amount = @amount.to_i
-
+  @student = Student.find(params[:student_id])
+  @description = "Sidekick - Tuition - #{@student.fullname}"
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
     source: params[:stripeToken],
@@ -23,7 +24,7 @@ def create
   charge = Stripe::Charge.create({
     customer: customer.id,
     amount: @amount,
-    description: 'Rails Stripe customer',
+    description: @description,
     currency: 'usd',
   })
   redirect_to root_path
