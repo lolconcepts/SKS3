@@ -11,10 +11,10 @@
       <span>Amount: $<%=@student.getStripeCharge %></span>
     </label>
   </article>
-
+  <% @desc = "Tuition - #{@student.fullname}" %>
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description=<%="Tuition - #{@student.fullname}" %>
+          data-description="<%= @desc %>"
           data-amount=<%=@student.getStripeCharge %>
           data-locale="auto"></script>
 <% end %>
