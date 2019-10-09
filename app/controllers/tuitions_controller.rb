@@ -12,7 +12,8 @@ end
 
 def create
   # Amount in cents
-  @amount = 500
+  @amount = params[:amount]
+  @amount = Float(@amount).round(2)
 
   customer = Stripe::Customer.create({
     email: params[:stripeEmail],
