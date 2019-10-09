@@ -29,7 +29,7 @@ def create
     description: 'Rails Stripe customer',
     currency: 'usd',
   })
-  redirect_to root_path
+  redirect_to "https://www.t0urnament.net"
 rescue Stripe::CardError => e
   flash[:error] = e.message
   redirect_to root_path
