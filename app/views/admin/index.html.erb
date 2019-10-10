@@ -2,32 +2,31 @@
 	#top_left{
 		background-color: yellow;
 		opacity: 0.5;
-		height:50px; 
-		width:50px;
+		width:33%;
+		float: left
 	}
 	#top_middle{
 		background-color: orange;
 		opacity: 0.5;
-		height:50px; 
-		width:50px;
+		width:33%;
+		float: left
 	}
 	#top_right{
 		background-color: green;
 		opacity: 0.5;
-		height:50px; 
-		width:50px;
+		width:33%;
+		float: left
 	}
 	#left_nav{
 		background-color: blue;
 		opacity: 0.5;
-		height:50px; 
-		width:50px;
+		width:30%;
+		clear:both;
 	}
 	#right_nav{
 		background-color: white;
-		opacity: 0.5;
-		height:50px; 
-		width:50px;
+		opacity: 0.5; 
+		width:70%;
 	}
 	BODY{
 		background-image: url(/images/background.png);
@@ -47,18 +46,52 @@
 <p style="color:white;text-align: center;">
 	to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
 </p>
-<div id="top_left"></div>
+<div id="top_left">
+	<span><%= @student_count %> Students</span>
+</div>
 <div id="top_middle"></div>
 <div id="top_right"></div>
-<div id="left_nav"></div>
-<div id="right_nav"></div>
-
-<nav>
+<div id="left_nav">
+	<nav>
 	<%= link_to('Setup Your Dojo', dojos_path )%>
 	<%= link_to('Configure Ranks', ranks_path )%>
 	<%= link_to('Manage Students', students_path )%>
 	<%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
-</nav>
+	</nav>
+</div>
+<div id="right_nav">
+	<div class="graphs">
+		
+	</div>
+	<div class="notifications">
+		<h3>Birthdays</h3>
+		<ul>
+			<li>John Smith - 10/22 </li>
+			<li>Debbie Reynolds - 10/13 </li>
+			<li>Jim Godfried - 10/1</li>
+		</ul>
+		<h3>Missed Students</h3>
+		<ul>
+			<li>Bob Goldfarb</li>
+			<li>Amy Ventura</li>
+		</ul>
+	</div>
+	<div class="ranks">
+		<ul>
+			<li>[belt]White Belt - 21</li>
+			<li>[belt]Yellow Belt - 12</li>
+			<li>[belt]Orange Belt - 9</li>
+			<li>[belt]Purple Belt - 13</li>
+			<li>[belt]Blue Belt - 5</li>
+			<li>[belt]Green Belt - 3</li>
+			<li>[belt]Brown Belt - 11</li>
+			<li>[belt]Black Belt - 20</li>
+		</ul>
+	</div>
+
+</div>
+
+
 
 <tr>
 	<div style="color:white;">
