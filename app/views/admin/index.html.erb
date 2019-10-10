@@ -50,7 +50,19 @@
 	<span><%= @student_count %> Students</span>
 </div>
 <div id="top_middle"></div>
-<div id="top_right"></div>
+<div id="top_right">
+		<div style="color:white;">
+					<td>
+						<h3>Student Identity Card Licenses</h3>
+					</td>
+					<td>
+						0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
+						(<%= @dojo.max - @dojo.count %> remaining)
+					</td>
+					
+			
+		</div>
+</div>
 <div id="left_nav">
 	<nav>
 	<%= link_to('Setup Your Dojo', dojos_path )%>
@@ -93,16 +105,5 @@
 
 
 
-<tr>
-	<div style="color:white;">
-					<td>
-						<h3>Student Identity Card Licenses</h3>
-					</td>
-					<td>
-						0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
-						(<%= @dojo.max - @dojo.count %> remaining)
-					</td>
-					
-			</tr>
-		</div>
+
 </div>
