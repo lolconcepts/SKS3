@@ -9,6 +9,14 @@ module ApplicationHelper
 			end
 	end
 
+	# def getQR(rurl,page,id,value)
+	# 	@page = page || ""
+	# 	@id = id || ""
+	# 	@value = value || ""
+	# 	@rurl = rurl || root_url
+	# 	@url = '<"img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{rurl}#{page}?#{id}=#{value}&choe=UTF-8">'
+	# end
+
 	def generateCode(qty)
 		@qty = Time.now.year.to_i + qty.to_i
 		@encoded = @qty.to_s(16)
