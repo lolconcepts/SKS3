@@ -13,6 +13,7 @@ def require_http_basic_auth
 end
 
   def index
+    @Version = 19.10
 	if Dojo.all.count == 0 #DB has been reset
 		@dojo = Dojo.create
 		@dojo.name = "Initial Configuration"
