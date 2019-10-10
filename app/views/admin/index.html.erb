@@ -1,9 +1,20 @@
 <style type="text/css">
+	.notify_banner{
+		color: white;
+	    text-align: center;
+	    background: #909090;
+	    width: 500px;
+	    text-align: center;
+	    border-bottom-left-radius: 30px;
+	    border-bottom-right-radius: 30px;
+	    margin: auto;
+	}
+
 	#top_left{
-		background-color: yellow;
-		opacity: 0.5;
-		width:33%;
-		float: left
+	    /* opacity: 0.5; */
+	    width: 33%;
+	    float: left;
+	    margin-left: 10px;
 	}
 	#top_middle{
 		background-color: orange;
@@ -12,10 +23,12 @@
 		float: left
 	}
 	#top_right{
-		background-color: green;
-		opacity: 0.5;
-		width:33%;
-		float: left
+		/* background-color: green; */
+	    /* opacity: 0.5; */
+	    width: 33%;
+	    float: right;
+	    text-align: right;
+	    margin-right: 10px;
 	}
 	#left_nav{
 		background-color: blue;
@@ -43,7 +56,7 @@
 		<h1>Sidekick - <%=Dojo.find(1).name || "" %></h1>
 		<h2>v.<%=@Version || "" %></h2>
 	</div>
-<p style="color:white;text-align: center;">
+<p class= "notify_banner" style="color:white;text-align: center;">
 	to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
 </p>
 <div id="top_left">
