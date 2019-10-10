@@ -9,7 +9,13 @@
 	    border-bottom-right-radius: 30px;
 	    margin: auto;
 	}
-
+	nav a{
+		display: inline-block;
+		padding: 15px 20px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
 	#top_left{
 	    /* opacity: 0.5; */
 	    width: 33%;
@@ -62,7 +68,7 @@
 	to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
 </p>
 <div id="top_left">
-	<span><%= @student_count %> Students</span>
+	<span style="color:white;"><%= @student_count %> Students</span>
 </div>
 <div id="top_middle"></div>
 <div id="top_right">
