@@ -176,9 +176,19 @@ $(document).ready(function(){
 			<div class="notifications">
 				<h3>Birthdays</h3>
 				<ul>
-					<li>John Smith - 10/22 </li>
-					<li>Debbie Reynolds - 10/13 </li>
-					<li>Jim Godfried - 10/1</li>
+				<% @students.each do |s| %>
+				   <% if s.dob != nil %>
+					<% if s.dob.month == Time.now.month %>
+					<li>
+						<% if s.rank.base == "black" %>
+							<%= image_tag("/images/blackbelt_belt.png", :height => "25")%>
+						<% end %>
+						<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
+						</li>
+					<% end %>
+				  <% end%>
+				<% end %>
+				</ul>
 				</ul>
 				<h3>Missed Students</h3>
 				<ul>
