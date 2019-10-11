@@ -64,68 +64,69 @@
 		<h1>Sidekick - <%=Dojo.find(1).name || "" %></h1>
 		<h2>v.<%=@Version || "" %></h2>
 	</div>
-<p class= "notify_banner" style="color:white;text-align: center;">
-	to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
-</p>
-<div id="top_left">
-	<span style="color:white;"><%= @student_count %> Students</span>
-</div>
-<div id="top_middle"></div>
-<div id="top_right">
-		<div style="color:white;">
-					<td>
-						<h3>Student Identity Card Licenses</h3>
-					</td>
-					<td>
-						0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
-						(<%= @dojo.max - @dojo.count %> remaining)
-					</td>
-					
-			
+	<div class="content-wrap">
+		<p class= "notify_banner" style="color:white;text-align: center;">
+			to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
+		</p>
+		<div id="top_left">
+			<span style="color:white;"><%= @student_count %> Students</span>
 		</div>
-</div>
-<div id="left_nav">
-	<nav>
-	<%= link_to('Setup Your Dojo', dojos_path )%>
-	<%= link_to('Configure Ranks', ranks_path )%>
-	<%= link_to('Manage Students', students_path )%>
-	<%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
-	</nav>
-</div>
-<div id="right_nav">
-	<div class="graphs">
-		<img src="https://via.placeholder.com/150">
-	</div>
-	<div class="notifications">
-		<h3>Birthdays</h3>
-		<ul>
-			<li>John Smith - 10/22 </li>
-			<li>Debbie Reynolds - 10/13 </li>
-			<li>Jim Godfried - 10/1</li>
-		</ul>
-		<h3>Missed Students</h3>
-		<ul>
-			<li>Bob Goldfarb</li>
-			<li>Amy Ventura</li>
-		</ul>
-	</div>
-	<div class="ranks">
-		<h3>Rank Breakdowns</h3>
-		<ul>
-			<li>[belt]White Belt - 21</li>
-			<li>[belt]Yellow Belt - 12</li>
-			<li>[belt]Orange Belt - 9</li>
-			<li>[belt]Purple Belt - 13</li>
-			<li>[belt]Blue Belt - 5</li>
-			<li>[belt]Green Belt - 3</li>
-			<li>[belt]Brown Belt - 11</li>
-			<li>[belt]Black Belt - 20</li>
-		</ul>
-	</div>
+		<div id="top_middle"></div>
+		<div id="top_right">
+				<div style="color:white;">
+							<td>
+								<h3>Student Identity Card Licenses</h3>
+							</td>
+							<td>
+								0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
+								(<%= @dojo.max - @dojo.count %> remaining)
+							</td>
+							
+					
+				</div>
+		</div>
+		<div id="left_nav">
+			<nav>
+			<%= link_to('Setup Your Dojo', dojos_path )%>
+			<%= link_to('Configure Ranks', ranks_path )%>
+			<%= link_to('Manage Students', students_path )%>
+			<%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
+			</nav>
+		</div>
+		<div id="right_nav">
+			<div class="graphs">
+				<img src="https://via.placeholder.com/150">
+			</div>
+			<div class="notifications">
+				<h3>Birthdays</h3>
+				<ul>
+					<li>John Smith - 10/22 </li>
+					<li>Debbie Reynolds - 10/13 </li>
+					<li>Jim Godfried - 10/1</li>
+				</ul>
+				<h3>Missed Students</h3>
+				<ul>
+					<li>Bob Goldfarb</li>
+					<li>Amy Ventura</li>
+				</ul>
+			</div>
+			<div class="ranks">
+				<h3>Rank Breakdowns</h3>
+				<ul>
+					<li>[belt]White Belt - 21</li>
+					<li>[belt]Yellow Belt - 12</li>
+					<li>[belt]Orange Belt - 9</li>
+					<li>[belt]Purple Belt - 13</li>
+					<li>[belt]Blue Belt - 5</li>
+					<li>[belt]Green Belt - 3</li>
+					<li>[belt]Brown Belt - 11</li>
+					<li>[belt]Black Belt - 20</li>
+				</ul>
+			</div>
 
-</div>
+		</div>
 
-
+	</div>
 
 
 </div>
