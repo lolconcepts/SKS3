@@ -144,12 +144,17 @@ end
     @city = ["Cranston","Warwick","Providence","Coventry","Woonsocket","Cumberland","Harmony","Foster","Pawtucket"]
     @state = ["RI"]
   	@school = Dojo.find(1).name
+
   	5.times do
+      @ranMon = rand(1..12)
+      @ranDay = rand(1..27)
+      @ranYear = rand(5..50).years.ago.year
+      @bday = "#{@ranMon}/#{@ranDay}/#{@ranYear}"
 			Student.create(
                 :first_name => @first_names.sample,
 			       	  :last_name => @last_names.sample,
 			       	  :age => rand(5..50),
-			       	  :dob => "#{rand(1..12)}/#{rand(1..27)}/#{rand(5..50).years.ago.year}",
+			       	  :dob => @bday,
 				      :rank_id => @ranks.sample.id,
 			       	  :years_in_martial_arts => @years_in,
 			       	  :startdate => @years_in.years.ago,
