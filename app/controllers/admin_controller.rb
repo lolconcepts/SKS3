@@ -1,7 +1,7 @@
 class AdminController < ApplicationController
 before_action :authenticate_user!
 def index
-    @birthday_count = BirthdayCount
+    @birthday_count = BirthdayCount()
 	@student_count = Student.count
     @students = Student.all
 	@dojo = Dojo.first
