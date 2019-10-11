@@ -176,8 +176,7 @@ $(document).ready(function(){
 			<div class="notifications">
 				<h3>Birthdays</h3>
 				<ul>
-					<%=@birthdays = BirthdayCount %>
-					<% if @birthdays == 0 %>
+					<% if @birthday_count == 0 %>
 						<li>no birthdays this month</li>
 					<% else %>
 						<% @students.each do |s| %>
