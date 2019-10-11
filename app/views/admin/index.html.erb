@@ -1,15 +1,60 @@
+<script>
+$(document).ready(function(){
+	$('#hchart').highcharts({
+		chart:{
+			plotBackgroundColor:null,
+			plotBorderWidth:null,
+			plotShadow:false
+		},
+		title:{
+			text: 'Attendance Insight'
+		},
+		tooltip:{
+			pointFormat: '{series.name}:<b>{point.percentage:.1f}%</b>'
+		},
+		plotOptions:{
+			pie:{
+				allowPointSelect: true,
+				cursor: 'pointer',
+				dataLabels:{
+					enabled:true,
+					format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					style: {
+						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					}
+				}
+			}
+		},
+		series:[{
+			type: 'pie',
+			name: 'Popularity',
+			data:[
+				['Mon', <%=@mon.to_f/@attendances.count.to_f %>],
+				['Tue', <%=@tue.to_f/@attendances.count.to_f %>],
+				['Wed', <%=@wed.to_f/@attendances.count.to_f %>],
+				['Thu', <%=@thu.to_f/@attendances.count.to_f %>],
+				['Fri', <%=@fri.to_f/@attendances.count.to_f %>],
+				['Sat', <%=@sat.to_f/@attendances.count.to_f %>],
+				['Sun', <%=@sun.to_f/@attendances.count.to_f %>]
+			]
+		}]
+	});
+
+});
+</script>
 <style type="text/css">
 	.notify_banner{
 		color: white;
 	    text-align: center;
 	    background: #909090;
-	    width: 500px;
+	    width: 200px;
 	    text-align: center;
-	    border-bottom-left-radius: 30px;
-	    border-bottom-right-radius: 30px;
 	    margin: auto;
-	    position: relative;
-    	top: 20px;
+	    position: fixed;
+	    bottom: 20px;
+	    left: 20px;
+	    border-radius: 15px;
+	    padding: 10px;
 	}
 	nav a{
 		display: inline-block;
@@ -41,7 +86,6 @@
 	    clear: both;
 	    position: fixed;
 	    width: 100%;
-	    text-align: center;
 	    top: 75px;
 	}
 	#right_nav{
@@ -66,7 +110,7 @@
 	</div>
 	<div class="content-wrap">
 		<p class= "notify_banner" style="color:white;text-align: center;">
-			to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
+			Welcome to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
 		</p>
 		<div id="top_left">
 			<span style="color:white;"><%= @student_count %> Students</span>
@@ -94,8 +138,22 @@
 			</nav>
 		</div>
 		<div id="right_nav">
-			<div class="graphs">
-				<img src="https://via.placeholder.com/150">
+				<h2>Top Classes</h2>
+				<% if @attendances.count > 1 %>
+					Monday: <%= ((@mon.to_f/@attendances.count.to_f) * 100).round %>%
+					Tuesday: <%= ((@tue.to_f/@attendances.count.to_f) * 100).round %>% 
+					Wednesday: <%= ((@wed.to_f/@attendances.count.to_f) * 100).round %>%
+					Thursday: <%= ((@thu.to_f/@attendances.count.to_f) * 100).round %>% 
+					Friday: <%= ((@fri.to_f/@attendances.count.to_f) * 100).round %>% 
+					Saturday: <%= ((@sat.to_f/@attendances.count.to_f) * 100).round %>% 
+					Sunday: <%= ((@sun.to_f/@attendances.count.to_f) * 100).round %>%
+				<% end %> 
+			<div id="hchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+			</div>
+			
+
+
+
 			</div>
 			<div class="notifications">
 				<h3>Birthdays</h3>
@@ -113,14 +171,14 @@
 			<div class="ranks">
 				<h3>Rank Breakdowns</h3>
 				<ul>
-					<li>[belt]White Belt - 21</li>
-					<li>[belt]Yellow Belt - 12</li>
-					<li>[belt]Orange Belt - 9</li>
-					<li>[belt]Purple Belt - 13</li>
-					<li>[belt]Blue Belt - 5</li>
-					<li>[belt]Green Belt - 3</li>
-					<li>[belt]Brown Belt - 11</li>
-					<li>[belt]Black Belt - 20</li>
+					<li><%=image_tag('white-belt-25x25')%>White Belt - 21</li>
+					<li><%=image_tag('yellow-belt-25x25')%>Yellow Belt - 12</li>
+					<li><%=image_tag('orange-belt-25x25')%>Orange Belt - 9</li>
+					<li><%=image_tag('purple-belt-25x25')%>Purple Belt - 13</li>
+					<li><%=image_tag('blue-belt-25x25')%>Blue Belt - 5</li>
+					<li><%=image_tag('green-belt-25x25')%>Green Belt - 3</li>
+					<li><%=image_tag('brown-belt-25x25')%>Brown Belt - 11</li>
+					<li><%=image_tag('black-belt-25x25')%>Black Belt - 20</li>
 				</ul>
 			</div>
 
