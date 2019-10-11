@@ -128,7 +128,7 @@ $(document).ready(function(){
 	</div>
 	<div class="content-wrap">
 		<p class= "notify_banner" style="color:white;text-align: center;">
-			Welcome to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %>
+			Welcome to the administration area of Sidekick Server. Here you will be able to do all the things you need. If you have any issues you can always email <%=mail_to('blackbelt@t0urnament.net','Support') %><i class="far fa-life-ring"></i>
 		</p>
 		<div id="top_left">
 			<span class="motto" style="color:#909090;font-size:xx-large;">You have <%= @student_count %> Students</span>
@@ -149,10 +149,10 @@ $(document).ready(function(){
 		</div>
 		<div id="left_nav">
 			<nav>
-			<%= link_to('Setup Your Dojo', dojos_path )%>
-			<%= link_to('Configure Ranks', ranks_path )%>
-			<%= link_to('Manage Students', students_path )%>
-			<%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
+			<i class="fas fa-cogs"></i><%= link_to('Setup Your Dojo', dojos_path )%>
+			<i class="fas fa-cogs"></i><%= link_to('Configure Ranks', ranks_path )%>
+			<i class="fas fa-users"></i><%= link_to('Manage Students', students_path )%>
+			<i class="fas fa-shopping-cart"></i><%= link_to('Purchase Licenses', 'https://t0urnament.net/product/sidekick-student-license/', target: :_blank )%>
 			</nav>
 		</div>
 		<div id="right_nav">
