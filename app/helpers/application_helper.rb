@@ -9,7 +9,7 @@ module ApplicationHelper
 			end
 	end
 
-	def BirthdayCount
+	def BirthdayCount()
 		@students = Student.all
 		@birthday_count = 0
 		@students.each do |s|
