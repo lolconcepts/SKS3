@@ -20,6 +20,15 @@
     		bottom: -2px;
     		right: -14px;
 		}
+		#tnet-pic img{
+			height: 100%; 
+		    width: 125px;
+		    position: absolute;
+		    top: 35px;
+		    left: 15px;
+		    background: gray;
+		    border: none;
+		}
 	</style>
 	</br>
 	<h1 class="badass">Attendance Student Identity Card</h1>
@@ -83,8 +92,9 @@
 		<div id="tempidentity2">
 			<div id="tnet-backdetails">
 				<div id="tnet-disclaimer">
+					<h4><%= @dojo.name.capitalize %></h4>
 					<p>Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process
-						ATTENDANCE.</p>
+						ATTENDANCE.<br></p>
 						<p><strong>INSTRUCTOR:</strong> SCAN The &quot;QR&quot; Code on the front of this STUDENT ID.</p>
 						TUITION.
 							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
