@@ -2,6 +2,7 @@ class AdminController < ApplicationController
 before_action :authenticate_user!
 def index
     @birthday_count = BirthdayCount()
+    @missed_count = missedCount()
 	@student_count = Student.count
     @students = Student.all
 	@dojo = Dojo.first
@@ -52,6 +53,17 @@ def BirthdayCount()
         end
     end
     return @birthday_count
+end
+
+def missedCount()
+    @students = Student.all
+    @missed_count = 0
+    @students.each do |s|
+        if s.is_missed
+            @missed_count += 1
+        end
+    end
+    return @missed_count
 end
 
 end

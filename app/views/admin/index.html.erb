@@ -195,8 +195,17 @@ $(document).ready(function(){
 					<% end %>
 				<h3>Missed Students</h3>
 				<ul>
-					<li>Bob Goldfarb</li>
-					<li>Amy Ventura</li>
+					<% if @missed_count == 0 %>
+					<li>everyone is accounted for :)</li>
+					<% else %>
+						<% @students.each do |s| %>
+							<% if s.is_missed %>
+							<li>
+								<%= s.first_name %> <%= s.last_name %> - <%= link_to('Send Note',:controller => "students",:action => "missme", :id => s.id) %><br/>
+							</li>
+							<% end %>
+						<% end %>
+					<% end %>
 				</ul>
 			</div>
 			<div class="ranks">
