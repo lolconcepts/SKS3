@@ -40,4 +40,18 @@ def index
 	end
 
 end
+
+private
+
+def BirthdayCount()
+    @students = Student.all
+    @birthday_count = 0
+    @students.each do |s|
+        if s.dob.month == Time.now.month
+            @birthday_count += 1
+        end
+    end
+    return @birthday_count
+end
+
 end
