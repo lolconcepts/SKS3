@@ -80,18 +80,20 @@ $(document).ready(function(){
 	    float: right;
 	    text-align: right;
 	    margin-right: 10px;
+	    margin-bottom: 50px;
 	}
 	#left_nav{
 	    width: 30%;
 	    clear: both;
-	    position: fixed;
+	    position: absolute;
 	    width: 100%;
 	    top: 75px;
 	}
 	#right_nav{
-		background-color: white;
-		opacity: 0.5; 
-		width:70%;
+		background-color: white; 
+		width:64%;
+		float:right;
+		padding:11px;
 	}
 	BODY{
 		background-image: url(/images/background.png);
@@ -100,6 +102,12 @@ $(document).ready(function(){
     	color: #000000;
     	margin: 0px;
     	padding: 0px;
+	}
+	li,ul{
+		list-style-type: none;
+	}
+	.notifications{
+		clear: left;
 	}
 </style>
 <div class="container text-center">
@@ -171,14 +179,14 @@ $(document).ready(function(){
 			<div class="ranks">
 				<h3>Rank Breakdowns</h3>
 				<ul>
-					<li><%=image_tag('white-belt-25x25.png')%>White Belt - 21</li>
-					<li><%=image_tag('yellow-belt-25x25.png')%>Yellow Belt - 12</li>
-					<li><%=image_tag('orange-belt-25x25.png')%>Orange Belt - 9</li>
-					<li><%=image_tag('purple-belt-25x25.png')%>Purple Belt - 13</li>
-					<li><%=image_tag('blue-belt-25x25.png')%>Blue Belt - 5</li>
-					<li><%=image_tag('green-belt-25x25.png')%>Green Belt - 3</li>
-					<li><%=image_tag('brown-belt-25x25.png')%>Brown Belt - 11</li>
-					<li><%=image_tag('black-belt-25x25.png')%>Black Belt - 20</li>
+					<li><%=image_tag('white-belt-25x25.png')%>White Belt - <%=belt_count("white")%></li>
+					<li><%=image_tag('yellow-belt-25x25.png')%>Yellow Belt - <%=belt_count("yellow")%></li>
+					<li><%=image_tag('orange-belt-25x25.png')%>Orange Belt - <%=belt_count("orange")%></li>
+					<li><%=image_tag('purple-belt-25x25.png')%>Purple Belt - <%=belt_count("purple")%></li>
+					<li><%=image_tag('blue-belt-25x25.png')%>Blue Belt - <%=belt_count("blue")%></li>
+					<li><%=image_tag('green-belt-25x25.png')%>Green Belt - <%=belt_count("green")%></li>
+					<li><%=image_tag('brown-belt-25x25.png')%>Brown Belt - <%=belt_count("brown")%></li>
+					<li><%=image_tag('black-belt-25x25.png')%>Black Belt - <%=belt_count("black")%></li>
 				</ul>
 			</div>
 

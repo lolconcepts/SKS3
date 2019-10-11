@@ -17,6 +17,16 @@ module ApplicationHelper
 	# 	@url = '<"img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{rurl}#{page}?#{id}=#{value}&choe=UTF-8">'
 	# end
 
+	def belt_count(base)
+		@students = Student.all
+		@count = 0
+		@students.each do |s|
+			if s.rank.base == base
+				@count += 1
+			end
+		end
+		return @count
+	end
 	def generateCode(qty)
 		@qty = Time.now.year.to_i + qty.to_i
 		@encoded = @qty.to_s(16)
