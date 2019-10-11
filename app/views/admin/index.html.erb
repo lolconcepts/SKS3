@@ -176,22 +176,23 @@ $(document).ready(function(){
 			<div class="notifications">
 				<h3>Birthdays</h3>
 				<ul>
-				<% @students.each do |s| %>
-				   <% if s.dob != nil %>
-					<% if s.dob.month == Time.now.month %>
-					<li>
-						<% if s.rank.base == "black" %>
-							<%= image_tag("/images/blackbelt_belt.png", :height => "25")%>
-						<% end %>
-						<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
-						</li>
-						<% else %>
+					<% if BirthdayCount == 0 %>
 						<li>no birthdays this month</li>
-					<% end %> 
-				  <% end%>
-				<% end %>
-				</ul>
-				</ul>
+					<% else %>
+						<% @students.each do |s| %>
+						   <% if s.dob != nil %>
+							<% if s.dob.month == Time.now.month %>
+							<li>
+								<% if s.rank.base == "black" %>
+									<%= image_tag("/images/blackbelt_belt.png", :height => "25")%>
+								<% end %>
+								<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
+								</li>
+							<% end %> 
+						  <% end%>
+						<% end %>
+						</ul>
+					<% end %>
 				<h3>Missed Students</h3>
 				<ul>
 					<li>Bob Goldfarb</li>

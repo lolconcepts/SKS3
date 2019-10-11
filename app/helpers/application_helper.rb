@@ -9,6 +9,16 @@ module ApplicationHelper
 			end
 	end
 
+	def BirthdayCount
+		@students = Student.all
+		@birthday_count = 0
+		@students.each do |s|
+			if s.dob.month == Time.now.month
+				@birthday_count += 1
+			end
+		end
+		return @birthday_count
+	end
 	# def getQR(rurl,page,id,value)
 	# 	@page = page || ""
 	# 	@id = id || ""
