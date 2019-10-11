@@ -192,6 +192,13 @@ end
 			@a.save
 		end
 	     end
+
+       #fix blank dob
+       @s.each do |student|
+        if student.dob == nil
+          student.destroy
+        end
+       end
 			respond_to do |format|
                 		if Student.count >= 5
                         		format.html { redirect_to students_path, :notice => 'SideKick PWS Demo Load Complete!' }
