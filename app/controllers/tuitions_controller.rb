@@ -28,7 +28,7 @@ def create
     currency: 'usd',
   })
   tuition = Tuition.create({
-    stripe_id: customer.source,
+	  stripe_id: params[:stripeToken],
     student_id: @student.id,
     amount: @amount
   })

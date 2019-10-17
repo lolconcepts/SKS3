@@ -90,10 +90,6 @@ ActiveRecord::Schema.define(version: 2019_09_25_185946) do
     t.string "email"
     t.string "telephone"
     t.string "tuition", default: "95"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end
 
