@@ -40,7 +40,11 @@ class Student < ApplicationRecord
   def is_missed
 
     #consider the student missed if last checkin in greater than 2 weeks and student has at least a months worth of attendance
-    @max_classes = self.classes_attended_each_week * 4 # This is the baseline
+    if self.classes_attended_each_week != nil
+      @max_classes = self.classes_attended_each_week * 4 # This is the baseline
+    else
+      @max_classes = 4
+    end
     @attendance_records = Attendance.where(:student_id => self.id) # Get attendance Records
 
     if @attendance_records.count > @max_classes

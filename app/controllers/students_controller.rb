@@ -19,6 +19,7 @@ def index
  
   def show
     @student = Student.find(params[:id])
+    @image_holder = "sidekick_student_icon_#{@student.rank.base}.png"
 
     respond_to do |format|
       format.html # show.html.erb

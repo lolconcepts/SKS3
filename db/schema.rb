@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_25_185946) do
+ActiveRecord::Schema.define(version: 2019_10_18_163607) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -90,6 +90,11 @@ ActiveRecord::Schema.define(version: 2019_09_25_185946) do
     t.string "email"
     t.string "telephone"
     t.string "tuition", default: "95"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.date "last_promotion"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end
 
