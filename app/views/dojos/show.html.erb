@@ -20,9 +20,26 @@
     margin-right: 20px;
 }
 </style>
-<img class="logo" src="/images/tnet.png" width="100" height="100">
-<h1 class="adminTitle">SideKick&reg; Configuration Viewer </h1>
-<p id="notice"><%= notice %></p>
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#"><img class="logo" src="/images/tnet.png" width="50" height="50"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Dashboard', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Edit Configuration', edit_dojo_path(1), class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+       Side Kick&reg; Configuration Viewer
+    </span>
+  </div>
+</nav>
 <div class="field">
 <% if @dojo.pic? then %>
         <%= image_tag @dojo.pic_url(:thumb) %>

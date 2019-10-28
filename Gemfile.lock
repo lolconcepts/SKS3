@@ -128,6 +128,8 @@ GEM
       url_safe_base64
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
+    font-awesome-sass (5.11.2)
+      sassc (>= 1.11)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     httpclient (2.8.3)
@@ -321,6 +323,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   fb_graph2
+  font-awesome-sass
   jbuilder (~> 2.5)
   jquery-rails
   passenger

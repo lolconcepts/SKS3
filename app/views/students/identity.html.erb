@@ -1,5 +1,7 @@
 <link href='//fonts.googleapis.com/css?family=Shojumaru|Prosto+One|Raleway|Playball|Aldrich|Cinzel|Orbitron' rel='stylesheet' type='text/css'>
 	<%= stylesheet_link_tag('application', media: 'all')%>
+	<link rel="stylesheet" href="//bootstrap-extension.com/css/4.5.0/bootstrap-extension.min.css" type="text/css">
+	<script src="//bootstrap-extension.com/js/4.5.0/bootstrap-extension.min.js"></script>
 	<style>
 		#tnet-rank{
 			font-size:small!important;
@@ -39,8 +41,11 @@
 		}
 	</style>
 	</br>
-	<h1 class="badass">Attendance Student Identity Card</h1>
-	<h2 class="badass2">by T0urnament.net</h2>
+	<div class="container text-center">
+		<h1>Attendance Student Identity Card</h1>
+		<h2 class="badass2">by T0urnament.net</h2>
+	</div>
+	
 	<div id="identity_placeholder">
 		<div id="tempidentity">
 			<div id="tnet-dojo-banner"><%= @dojo.name %></div>
@@ -61,30 +66,30 @@
 			<div id="tnet-fname"><h3><%= @student.first_name %></h3></div>
 			<div id="tnet-lname"><h3><%= @student.last_name %></h3></div>
 			<div id="tnet-badge-ribbon">
-								<% if @student.blackbelt_club %>
-										<img src="/images/bbc.png" width="25" height="25" alt="badge">
-								<% end %>
-                                <% if @student.swat %>
-                                        <img src="/images/swat.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.storm %>
-                                        <img src="/images/storm.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.demo_team %>
-                                        <img src="/images/demo.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.tournament_team %>
-                                        <img src="/images/tt.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.cardiokick %>
-                                        <img src="/images/cardiokick.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.mastersclub %>
-                                        <img src="/images/masters.png" width="25" height="25" alt="badge">
-                                <% end %>
-                                <% if @student.tnet_member %>
-                                        <img src="/images/tnet_2x2.png" width="25" height="25" alt="badge">
-                                <% end %>
+				<% if @student.blackbelt_club %>
+						<img src="/images/bbc.png" width="25" height="25" alt="badge">
+				<% end %>
+                <% if @student.swat %>
+                        <img src="/images/swat.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.storm %>
+                        <img src="/images/storm.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.demo_team %>
+                        <img src="/images/demo.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.tournament_team %>
+                        <img src="/images/tt.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.cardiokick %>
+                        <img src="/images/cardiokick.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.mastersclub %>
+                        <img src="/images/master.png" width="25" height="25" alt="badge">
+                <% end %>
+                <% if @student.tnet_member %>
+                        <img src="/images/tnet_2x2.png" width="25" height="25" alt="badge">
+                <% end %>
 			</div>
 			<% if @student.rank.base == "white" || @student.rank.base == "yellow" || @student.rank.base == "orange" %>
 			     <%	@fontcolor = "black" %>
@@ -92,26 +97,19 @@
 			     <%	@fontcolor = "white" %>
 			<% end %>
 			<div id="tnet-rank" style="background:<%= @student.rank.base %>;color:<%= @fontcolor %>;"><%= @student.rank.color %></div>
-			<div id="tnet-membership">Member Since: <%= @student.startdate.strftime("%m/%Y") %></div>
+			<div id="tnet-membership">Member Since: <%= @student.startdate.strftime("%m/%Y") %></div><!-- END OF FRONT OF ID CARD -->
 			<% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}attend?id=#{@student.id}&choe=UTF-8" %>
 			<% @alternate_text = "Student IdentityCard for #{@student.first_name} #{@student.last_name}" %>
 			<div id="tnet-QR"><%= raw(@url) %> title=<%= @alternate_text %> /></img></div>
 		</div>
-		<div id="tempidentity2">
-			<div id="tnet-backdetails">
-				<div id="tnet-disclaimer">
-					<h4><%= @dojo.name.upcase %></h4>
-					<p>Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process
-						<strong>ATTENDANCE</strong><br></p>
-						<p>INSTRUCTOR: SCAN The &quot;QR&quot; Code on the front of this STUDENT ID.</p>
-						<strong>TUITION</strong>
-							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
-							Scan to pay online: <div id="tnet-QR2"><%= raw(@url2) %> title=<%= @alternate_text %> /></img></div>
-						<br/>
-							<p>If this STUDENT ID is found, please contact<br /> <%= @dojo.name %> at <br /><%= @dojo.telephone %><br />Register Today: https://secure.t0urnament.net</p>
-				</div>
-				<div id="tnet-logo-back"></div>
-			</div>
+		
+
+		<div id="tempidentity2" class="rotate">
+					<p class="small p-2">Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process it.<br/>
+	
+							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
+							Scan to pay tuition online: <%= raw(@url2) %> title=<%= @alternate_text %>><span class="small">www.t0urnament.net | blackbelt@t0urnament.net | 401-237-0101</span></img>
+
 		</div>
 	</div>
 	<br />

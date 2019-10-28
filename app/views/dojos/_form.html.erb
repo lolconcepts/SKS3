@@ -9,13 +9,17 @@
       	</ul>
     </div>
   <% end %>
-  <div class="table3">
-	<table>
+  <div class="container">
+  	<div class="row">
+  		<h1 class="text-light">Welcome to Dojo Configurator</h1>
+  	</div>
+  	<div class="row">
+	<table class="table-bordered table-dark table-responsive shadow-lg p-4">
 		<tbody>
 			<tr>
-				<th class="whitesmoke">Setting</th>
-				<th class="whitesmoke">Value</th>
-				<th class="whitesmoke">Comment</th>
+				<th>Setting</th>
+				<th>Value</th>
+				<th>Comment</th>
 			</tr>
 			<tr>
 				<td>
@@ -140,12 +144,12 @@
 					</td>
 					<td>
 					</td>
-					<td>
+					<td class="text-right">
 						<%= f.submit %>
-						<%= link_to 'Back', dojos_path %>
 					</td>
 			</tr>
 		</tbody>
 	</table>
-  </div>
+		</div>
+	</div>
 <% end %>

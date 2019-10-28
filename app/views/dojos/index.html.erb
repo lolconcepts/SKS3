@@ -1,4 +1,33 @@
-<img class="logo" src="/images/tnet.png" width="100" height="100">
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#"><img class="logo" src="/images/tnet.png" width="50" height="50"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Dashboard', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Edit Configuration', edit_dojo_path(1), class: "nav-link" %>
+      </li>
+       <li class="nav-item">
+        <%= link_to 'View Ranks', ranks_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'View Students', students_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Launch PhotoWall', welcomes_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+       Side Kick&reg; Configuration
+    </span>
+  </div>
+</nav>
+
 <script>
 $(document).ready(function(){
 	$('#hchart').highcharts({
@@ -44,25 +73,24 @@ $(document).ready(function(){
 });
 </script>
 </script>
-<h1 class="adminTitle">SideKick&reg; Configuration</h1>
-<div class="table3">
-<table>
+<div class="container">
+	<div class="row"></div>
+<table class="table-dark table-bordered text-center">
   <tr>
-    <th class="whitesmoke">My Logo</th>
-    <th class="whitesmoke">Dojo Name</th>
-    <th class="whitesmoke">Motto</th>
-    <th class="whitesmoke">Telephone</th>
-    <th class="whitesmoke">Website</th>
-    <th class="whitesmoke">Email</th>
-    <th class="whitesmoke">Social Connections</th>
-    <th class="whitesmoke"></th>
+    <th>My Logo</th>
+    <th>Dojo Name</th>
+    <th>Motto</th>
+    <th>Telephone</th>
+    <th>Website</th>
+    <th>Email</th>
+    <th>Social Connections</th>
   </tr>
 
 <% @dojos.each do |dojo| %>
   <tr>
                 <td>
                         <% if dojo.pic? then %>
-                                <%= image_tag dojo.pic_url(:thumb) %>
+                                <%= image_tag dojo.pic_url(:thumb), width: "50px" %>
                         <% end %>
                 </td>
     <td><%= dojo.name %></td>
@@ -71,38 +99,29 @@ $(document).ready(function(){
     <td><%= dojo.website %></td>
     <td><%= dojo.email %></td>
     <td>
-	<% if !dojo.twitter.nil? %>
+	<% if !dojo.twitter == "" %>
 		<%= link_to(image_tag("/images/png_twitter2.png", :size => "25x25"),"https://www.twitter.com/#{dojo.twitter}",:id => 'twitter',:title => "https://www.twitter.com/#{dojo.twitter}") %>
 	<% else %>
 		<%= link_to(image_tag("/images/png_twitter2.png", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
 	<% end %>
 
-	 <% if !dojo.facebook.nil? %>
+	 <% if !dojo.facebook == "" %>
                 <%= link_to(image_tag("/images/facebook.png", :size => "25x25"),dojo.facebook,:id =>'facebook',:title =>"#{dojo.facebook}") %>
         <% else %>
                <%= link_to(image_tag("/images/facebook.png", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
         <% end %>
 
- 	<% if !dojo.youtube.nil? %>
+ 	<% if !dojo.youtube == "" %>
                 <%= link_to(image_tag("/images/youtube.jpg", :size => "25x25"),"https://www.youtube.com/user/#{dojo.youtube}",:id => 'youtube',:title => "https://www.youtube.com/user/#{dojo.youtube}") %>
         <% else %>
                 <%= link_to(image_tag("/images/youtube.jpg", :size => "25x25", :style => "opacity:0.25; filter:alpha(opacity=25);"),"#") %>
         <% end %>
     </td>
-    <td><%= link_to 'Edit', edit_dojo_path(dojo),:title => '<font color="red">Configure</font> your Dojo Here',:id =>'configure' %>
-  
-<% if Dojo.count == 0 %>
-<%= link_to 'New Dojo', new_dojo_path %>
-<% end %>
- 
-<%= link_to 'PhotoWall', root_url,:title => '<font color="red">View</font> your PhotoWall Here',:id =>'PW' %>
-<%= link_to 'View Ranks', ranks_url,:title => '<font color="red">Configure</font> Ranks Here',:id =>'ranks' %>
-<%= link_to 'View Students', students_url,:title => '<font color="red">Manage</font> your Students Here',:id =>'manage' %>
-</td>
+    
 </tr>
 <% end %>
 </table>
-</div>
+<div class="row">
 <div class="group">
 <h2>Upcoming Birthdays</h2>
 <% @students.each do |s| %>
@@ -116,6 +135,8 @@ $(document).ready(function(){
   <% end%>
 <% end %>
 </div>
+</div>
+<div class="row">
 <div class="group">
 <h2>Missing Students</h2>
 <% @students.each do |s| %>
@@ -124,6 +145,8 @@ $(document).ready(function(){
 	<% end %>
 <% end %>
 </div>
+</div>
+<div class="row">
 <div class="group">
 <h2>Top Classes</h2>
 <% if @attendances.count > 1 %>
@@ -136,4 +159,6 @@ $(document).ready(function(){
 	Sunday: <%= ((@sun.to_f/@attendances.count.to_f) * 100).round %>%
 <% end %> 
 </div>
+</div>
 <div id="hchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+</div>

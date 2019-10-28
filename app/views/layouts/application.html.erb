@@ -122,13 +122,12 @@ $('#manage').tipsy({html: true});
 	$(".alert").fadeOut(10000);
 	$(".notice").fadeOut(3000);
   });
-         
+     
   </script>
   <%= csrf_meta_tags %>
 	<meta http-equiv="refresh" content="3600">
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	
 
 <%= yield %>

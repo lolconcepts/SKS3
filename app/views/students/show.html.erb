@@ -2,8 +2,8 @@
 <style>
 	.student_pic_overlay{
 		position: absolute;
-    	top: 1px;
-    	left: 0px;
+    	top: 15px;
+    	left: 15px;
     	border-radius: 50%!important;
     	overflow: hidden;
 	}
@@ -16,25 +16,82 @@
 		height:150px;
 	}
 </style>
-<%= image_tag @image_holder, style: 'width:150px;' %>
 
-<h1 class="adminTitle">Side Kick&reg; Showing <%=@student.first_name %> <%=@student.last_name %></h1>
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#">
+  	<%= image_tag @image_holder, class: "logo", style: 'width:150px;' %>
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Payments', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Edit Your Info', edit_student_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+       Side Kick&reg; Showing <%=@student.fullname%>
+    </span>
+  </div>
+</nav>
 
 <div class="student_pic_overlay">
 <% if @student.pic? then %>
 	<%= image_tag @student.pic_url %>
 <% end %>
 </div>
-
-		
-			<h2 class="round"><%= daysAtRank(@student.id)%></h2>	
-			<h3>Days at Rank</h3>
-		
-		
-			<h2 class="round"><%= daysInTraining(@student.id)%></h2>	
-			<h3>Classes Taken</h3>
-		
-			<h2 class="round">$<%= @student.tuition %></h2>
-			<h3>Tuition</h3>	
+<div class="container">
+	<div class="card-columns">
+	<section class="card mb-5">
+		<div class="card-body">
+			<h2 class="round card-img"><%= daysAtRank(@student.id)%></h2>
+			<h3 class="card-title">Days at Rank</h3>
+		</div>
+	</section>
+		<section class="card mb-5">
+		<div class="card-body">
+			<h2 class="round card-img"><%= daysInTraining(@student.id)%></h2>
+			<h3 class="card-title">Classes Taken</h3>
+		</div>
+	</section>
+		<section class="card mb-5">
+		<div class="card-body text-center">
+			<h2 class="round card-img">$<%= @student.tuition %></h2>
+			<h3 class="card-title">Tuition</h3>
+			<p>Your current monthly tuition payment is shown here on this card. If you would like to setup a re-occuring charge, see an instructor.</p>
+		</div>
+		<div class="card-footer text-center"><%=link_to 'Submit a Payment', "#{root_url}dashboard/payments?student_id=#{@student.id}" %></div>
+	</section>
+	</div><!-- end of card columns -->
+	<div class="container">
+		<h1 class="text-light">Last Recorded Payments</h1>
+	<% if !@payments.empty? %>
+		<table class="table-dark table-bordered table-striped text-center">
+			<thead>
+				<tr><td>Payment Date</td><td>Payment Amount</td><td>Payment ID</td></tr>
+			</thead>
+			<% @payments.each do |payment| %>
+				<tr>
+					<td><%=payment.created_at%></td>
+					<td>$<%=payment.amount.delete_suffix('00')%></td>
+					<% if payment.stripe_id != nil %>
+						<td><%= payment.stripe_id %></td>
+					<% else %>
+						<td>not recorded.</td>
+					<% end %>
+				</tr>
+			<% end %>
+		</table>
+	<% else %>
+			<h2 class="text-monospace">No Payments have been recorded.</h2>
+	<% end %>
+	</div><!-- end of container -->
+</div><!-- end of container -->
+	
 		
 

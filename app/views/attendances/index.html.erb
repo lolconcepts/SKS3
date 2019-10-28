@@ -1,57 +1,39 @@
-<img class="logo" src="/images/tnet.png" width="100" height="100">
-<h1 class="adminTitle">Side Kick&reg; Attendance Records</h1>
-<script type="text/javascript">
-$(function() {
- new Highcharts.Chart({
-   chart: {
-	renderTo: "orders_chart",
-	type: "bar"},
-   title: {
-	text: "Attendance Statistics"
-	},
-   xAxis: {
-	categories: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]
-	},
-   yAxis: {
-	title:{
-	  text: "Students"
-	}
-  },
-   series: [{
-	name: "All Students",
-	data: [<%= @mon %>,<%= @tue %>,<%= @wed %>,<%= @thu %>,<%= @fri %>,<%= @sat %>,<%= @sun %>]
-	}
-	<% if @student != nil %>
-	,{
-	name: "<%= @student.fullname %>",
-	data: [<%= @smon %>,<%= @stue %>,<%= @swed %>,<%= @sthu %>,<%= @sfri %>,<%= @ssat %>,<%= @ssun %>]
-	}
-	<% end %>
-	]
-  });
-});
-</script>
-<div id="orders_chart" style="width:500px;height:300px;"></div>
-<div class="table3">
-<div class="scrollable">
-<table>
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#"><img class="logo" src="/images/tnet.png" width="50" height="50"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Dashboard', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Students', students_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+       Side Kick&reg; Attendance Records for <%= @student.fullname %>
+    </span>
+  </div>
+</nav>
+<div class="container">
+<table class="table-striped table-dark table-bordered">
   <tr>
-    <th class="whitesmoke">Student</th>
-    <th class="whitesmoke">Day of Week</th>
-    <th class="whitesmoke">Class Date</th>
-    <th class="whitesmoke">Options</th>
+    <th>Student</th>
+    <th>Day of Week</th>
+    <th>Class Date</th>
+    <th>Options</th>
   </tr>
-
 	<% @attendances.each do |attendance| %>
-  <tr>
-    <td><%= fullname(attendance.student.id) %></td>
-    <td><%= attendance.dow || attendance.created_at.strftime("%A")%></td>
-    <td><%= attendance.created_at.strftime("%m/%d/%y") %></td>
-    <td><%= link_to ' Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+	  <tr>
+	    <td><%= fullname(attendance.student.id) %></td>
+	    <td><%= attendance.dow || attendance.created_at.strftime("%A")%></td>
+	    <td><%= attendance.created_at.strftime("%m/%d/%y") %></td>
+	    <td><%= link_to ' Delete', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
 </table>
 </div>
-</div>
-<br />
 
