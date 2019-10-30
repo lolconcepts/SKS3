@@ -49,7 +49,6 @@ gem 'passenger'
 # Whenever
 gem 'whenever',:require => false
 gem 'profanity_filter'
-gem 'jquery-rails'
 gem 'rails-ujs'
 gem 'stripe-rails'
 gem 'cancan'
