@@ -51,12 +51,14 @@
 		<div class="card-body">
 			<h2 class="round card-img"><%= daysAtRank(@student.id)%></h2>
 			<h3 class="card-title">Days at Rank</h3>
+			<p>This represents the number of classes or hours you have trained since your last promotion. The number may not accurately reflect your hours at rank if this was the first belt since Sidekick was used.</p>
 		</div>
 	</section>
 		<section class="card mb-5">
 		<div class="card-body">
 			<h2 class="round card-img"><%= daysInTraining(@student.id)%></h2>
 			<h3 class="card-title">Classes Taken</h3>
+			<p>Regular training habits are important to your growth as a Martial Artist. This is the total recorded classes you have taken since this attendance system has been implemented.</p>
 		</div>
 	</section>
 		<section class="card mb-5">
@@ -65,31 +67,37 @@
 			<h3 class="card-title">Tuition</h3>
 			<p>Your current monthly tuition payment is shown here on this card. If you would like to setup a re-occuring charge, see an instructor.</p>
 		</div>
-		<div class="card-footer text-center"><%=link_to 'Submit a Payment', "#{root_url}dashboard/payments?student_id=#{@student.id}" %></div>
+		<% if ENV['PAYMENTS'] && ENV['PAYMENTS'] == "true" %>
+			<div class="card-footer text-center"><%=link_to 'Submit a Payment', "#{root_url}dashboard/payments?student_id=#{@student.id}" %></div>
+		<% end %>
 	</section>
 	</div><!-- end of card columns -->
 	<div class="container">
 		<h1 class="text-light">Last Recorded Payments</h1>
-	<% if !@payments.empty? %>
-		<table class="table-dark table-bordered table-striped text-center">
-			<thead>
-				<tr><td>Payment Date</td><td>Payment Amount</td><td>Payment ID</td></tr>
-			</thead>
-			<% @payments.each do |payment| %>
-				<tr>
-					<td><%=payment.created_at%></td>
-					<td>$<%=payment.amount.delete_suffix('00')%></td>
-					<% if payment.stripe_id != nil %>
-						<td><%= payment.stripe_id %></td>
-					<% else %>
-						<td>not recorded.</td>
+		<% if ENV['PAYMENTS'] && ENV['PAYMENTS'] == "true" %>
+			<% if !@payments.empty? %>
+				<table class="table-dark table-bordered table-striped text-center">
+					<thead>
+						<tr><td>Payment Date</td><td>Payment Amount</td><td>Payment ID</td></tr>
+					</thead>
+					<% @payments.each do |payment| %>
+						<tr>
+							<td><%=payment.created_at%></td>
+							<td>$<%=payment.amount.delete_suffix('00')%></td>
+							<% if payment.stripe_id != nil %>
+								<td><%= payment.stripe_id %></td>
+							<% else %>
+								<td>not recorded.</td>
+							<% end %>
+						</tr>
 					<% end %>
-				</tr>
+				</table>
+			<% else %>
+					<h2 class="text-monospace">No Payments have been recorded.</h2>
 			<% end %>
-		</table>
-	<% else %>
-			<h2 class="text-monospace">No Payments have been recorded.</h2>
-	<% end %>
+			<% else %>
+					<h2 class="text-monospace">Your Dojo has not enabled payments. Please check with the Dojo for tuition information.</h2>
+			<% end %>
 	</div><!-- end of container -->
 </div><!-- end of container -->
 	
