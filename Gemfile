@@ -36,6 +36,7 @@ gem 'popper_js'
 gem 'tether-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
+gem "chartkick"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -63,8 +63,8 @@ module ApplicationHelper
 
 	def studentGrowth()
 		@total_students = Student.all.count
-		@diff = (studentsGained - studentsLost)
-		return "#{((@diff / @total_students) * 100).to_s}%"
+		@diff = (studentsGained.to_f - studentsLost.to_f)
+		return "#{((@diff / @total_students.to_f) * 100).to_s}%"
 	end
 
 	def belt_count(base)

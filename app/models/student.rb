@@ -33,7 +33,8 @@ class Student < ApplicationRecord
   def send_notification_of_new_rank
   	if (self.rank_id_changed? && self.created_at != self.updated_at)
 		StudentMailer.new_rank(self).deliver
-        end
+    self.last_promotion = Time.now()
+    end
 
   end 
 

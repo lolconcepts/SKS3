@@ -1,47 +1,3 @@
-<script>
-$(document).ready(function(){
-	$('#hchart').highcharts({
-		chart:{
-			plotBackgroundColor:null,
-			plotBorderWidth:null,
-			plotShadow:false
-		},
-		title:{
-			text: 'Attendance Insight'
-		},
-		tooltip:{
-			pointFormat: '{series.name}:<b>{point.percentage:.1f}%</b>'
-		},
-		plotOptions:{
-			pie:{
-				allowPointSelect: true,
-				cursor: 'pointer',
-				dataLabels:{
-					enabled:true,
-					format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-					style: {
-						color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-					}
-				}
-			}
-		},
-		series:[{
-			type: 'pie',
-			name: 'Popularity',
-			data:[
-				['Mon', <%=@mon.to_f/@attendances.count.to_f %>],
-				['Tue', <%=@tue.to_f/@attendances.count.to_f %>],
-				['Wed', <%=@wed.to_f/@attendances.count.to_f %>],
-				['Thu', <%=@thu.to_f/@attendances.count.to_f %>],
-				['Fri', <%=@fri.to_f/@attendances.count.to_f %>],
-				['Sat', <%=@sat.to_f/@attendances.count.to_f %>],
-				['Sun', <%=@sun.to_f/@attendances.count.to_f %>]
-			]
-		}]
-	});
-
-});
-</script>
 <style type="text/css">
 	.notify_banner{
 		color: white;
@@ -135,51 +91,70 @@ $(document).ready(function(){
     </span>
   </div>
 </nav>
-
+<div class="jumboton">
+	 <h2 class="display-4 motto">Martial Arts Management System</h2>
+  <p class="lead text-center text-light">Welcome to the Sidekick Dashboard. This is your home base to see whats happening with your Dojo.</p>
+  <hr class="my-4">
+</div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-3">
-			<div class="card-header">Licenses</div>
-			<div class="card">
-				<td>
-								<h3>Student Identity Card Licenses</h3>
-							</td>
-							<td>
-								0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
-								(<%= @dojo.max - @dojo.count %> remaining)
-							</td>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="far fa-id-card"></i> Licenses</div>
+				<div class="card-body">
+					<h5 class="card-title">Student Identity Card Licenses</h5>
+					<p class="card-text">0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
+								(<%= @dojo.max - @dojo.count %> remaining)</p>
+				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card-header">New Students</div>
-			<div class="card">
-				<%= studentsGained() %>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-user-plus"></i> New Students</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text h1"><%= studentsGained() %></p>
+				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card-header">Lost Students</div>
-			<div class="card">
-				<%= studentsLost() %>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-user-minus"></i> Lost Students</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text h1"><%= studentsLost() %></p>
+				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card-header">Growth</div>
-			<div class="card">
-				<%= studentGrowth() %>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-chart-line"></i> Growth</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text h1"><%= studentGrowth() %>%
+						<% if studentGrowth().to_i > 0 %>
+							<i class="fas fa-sort-up"></i>
+						<% else %>
+							<i class="fas fa-sort-down"></i>
+						<% end %>
+					</p>
+				</div>
 			</div>
 		</div>
 	</div>
 		<div class="row">
-		<div class="col-3 no-wrap">
+		<div class="col-3 no-wrap p-2">
 			
 				<h2 class="motto">Elevate. Your. Dojo.</h2>
 			
 		</div>
-		<div class="col-3">
-			<div class="card-header">Top Classes</div>
-			<div class="card">
-				<% if @attendances.count > 1 %>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-chart-pie"></i> Top Classes</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text">	<% if @attendances.count > 1 %>
 					Monday: <%= ((@mon.to_f/@attendances.count.to_f) * 100).round %>%
 					Tuesday: <%= ((@tue.to_f/@attendances.count.to_f) * 100).round %>% 
 					Wednesday: <%= ((@wed.to_f/@attendances.count.to_f) * 100).round %>%
@@ -188,15 +163,24 @@ $(document).ready(function(){
 					Saturday: <%= ((@sat.to_f/@attendances.count.to_f) * 100).round %>% 
 					Sunday: <%= ((@sun.to_f/@attendances.count.to_f) * 100).round %>%
 				<% end %> 
-			<div id="hchart" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
-			</div>
+				<%= pie_chart({
+					"Monday" => ((@mon.to_f/@attendances.count.to_f) * 100).round, 
+					"Tuesday" => ((@tue.to_f/@attendances.count.to_f) * 100).round,
+					"Wednesday" => ((@wed.to_f/@attendances.count.to_f) * 100).round,
+					"Thursday" => ((@thu.to_f/@attendances.count.to_f) * 100).round,
+					"Friday" => ((@fri.to_f/@attendances.count.to_f) * 100).round,
+					"Saturday" => ((@sat.to_f/@attendances.count.to_f) * 100).round,
+					"Sunday" => ((@sun.to_f/@attendances.count.to_f) * 100).round,
+				}) %></p>
+				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card-header">Notification Center</div>
-			<div class="card">
-				<h3>Birthdays</h3>
-				<ul>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="far fa-bell"></i> Notification Center</div>
+				<div class="card-body">
+					<h5 class="card-title"><i class="fas fa-birthday-cake"></i> Birthdays</h5>
+					<p class="card-text"><ul>
 					<% if @birthday_count == 0 %>
 						<li>no birthdays this month</li>
 					<% else %>
@@ -214,8 +198,9 @@ $(document).ready(function(){
 						<% end %>
 						</ul>
 					<% end %>
-				<h3>Missed Students</h3>
-				<ul>
+				</p>
+				<h5 class="card-title"><i class="fas fa-birthday-cake"></i> Missed Students</h5>
+					<p class="card-text"><ul>
 					<% if @missed_count == 0 %>
 					<li>everyone is accounted for :)</li>
 					<% else %>
@@ -227,13 +212,16 @@ $(document).ready(function(){
 							<% end %>
 						<% end %>
 					<% end %>
-				</ul>
+				</ul></p>
+				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card-header text-center border"><h4>Dojo Health</h4></div>
-			<div class="card p-2">
-				<ul>
+		<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-heartbeat"></i> Dojo Health</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text"><ul>
 					<li><%=image_tag('white-belt-25x25.png')%>White Belt - <%=belt_count("white")%></li>
 					<li><%=image_tag('yellow-belt-25x25.png')%>Yellow Belt - <%=belt_count("yellow")%></li>
 					<li><%=image_tag('orange-belt-25x25.png')%>Orange Belt - <%=belt_count("orange")%></li>
@@ -242,7 +230,8 @@ $(document).ready(function(){
 					<li><%=image_tag('green-belt-25x25.png')%>Green Belt - <%=belt_count("green")%></li>
 					<li><%=image_tag('brown-belt-25x25.png')%>Brown Belt - <%=belt_count("brown")%></li>
 					<li><%=image_tag('black-belt-25x25.png')%>Black Belt - <%=belt_count("black")%></li>
-				</ul>
+				</ul></p>
+				</div>
 			</div>
 		</div>
 	</div>
