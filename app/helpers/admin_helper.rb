@@ -46,6 +46,6 @@ module AdminHelper
 	def studentGrowth()
 		@total_students = Student.all.count
 		@diff = (studentsGained - studentsLost)
-		return ((@diff.to_f / @total_students.to_f) * 100)
+		return ((@diff.to_f(2) / @total_students.to_f(2)) * 100)
 	end
 end
