@@ -108,7 +108,12 @@
 					<p class="small p-2">Keep this STUDENT ID with you at all times. Be sure to hand it to your instructor at the beginning of each class or whomever is designated by your instructor to process it.<br/>
 	
 							<% @url2 = "<img src=" + "https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=#{root_url}dashboard/payments?student_id=#{@student.id}&choe=UTF-8" %>
-							Scan to pay tuition online: <%= raw(@url2) %> title=<%= @alternate_text %>><span class="small">www.t0urnament.net | blackbelt@t0urnament.net | 401-237-0101</span></img>
+							<% if ENV['PAYMENTS'] && ENV['PAYMENTS'] == "true" %>
+								Scan to pay tuition online: <%= raw(@url2) %> title=<%= @alternate_text %>><span class="small">www.t0urnament.net | blackbelt@t0urnament.net | 401-237-0101</span></img>
+							<% else %>
+								<hr>
+								<span class="p-2">https://www.t0urnament.net blackbelt@t0urnament.net | 401-237-0101</span>
+							<% end %>
 
 		</div>
 	</div>
