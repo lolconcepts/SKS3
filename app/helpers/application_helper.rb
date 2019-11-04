@@ -9,14 +9,18 @@ module ApplicationHelper
 			end
 	end
 
+	def monthlyIncomeForecast
+		#See expected Monthly Revenue Based on Active Students
+		@income = 0
+		@students = Student.all.where(:disabled => nil)
+
+		@students.each do |s|
+			@income += s.tuition.to_i
+		end
+
+		return @income
+	end
 	
-	# def getQR(rurl,page,id,value)
-	# 	@page = page || ""
-	# 	@id = id || ""
-	# 	@value = value || ""
-	# 	@rurl = rurl || root_url
-	# 	@url = '<"img src=" + "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=#{rurl}#{page}?#{id}=#{value}&choe=UTF-8">'
-	# end
 	def studentGained(student_id)
 		@month = Time.now().month
 		@year = Time.now().year
