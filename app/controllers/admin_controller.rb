@@ -6,7 +6,7 @@ def index
 	@student_count = Student.count
     @students = Student.all
 	@dojo = Dojo.first
-	@Version = "19.10" # YEAR.MONTH of update
+	@Version = "19.11" # YEAR.MONTH of update
 	# Get Attendance Info For Graph
 	@attendances = Attendance.all
     
