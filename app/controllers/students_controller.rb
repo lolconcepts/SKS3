@@ -2,6 +2,8 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
 def index
     @students = Student.order("last_name").order("first_name")
+    @active = Student.all.where(:disabled => nil)
+    @disabled = Student.all.where.not(:disabled => nil)
     @missed = 0 #Counter of Students Who Are Missed, > 0 Appears on the View
     @students.each do |student|
       if(student.is_missed)
@@ -96,7 +98,7 @@ def index
 
   def update
     @student = Student.find(params[:id])
-    if params[:disabled] == 1
+    if params[:disabled] == "1"
       @student.disabled = Time.now()
     end
 
@@ -178,6 +180,38 @@ def index
   def list
    	@students = Student.order("last_name").order("first_name")
    	@dojo = Dojo.find(1)
+  end
+
+  def disable
+     @student = Student.find(params[:id])
+     @student.disabled = Time.now()
+     respond_to do |format|
+                        if @student.save
+                                format.html { redirect_to students_url, :notice => 'Student was successfully disabled.' }
+                                format.json { head :no_content }
+                                format.mobile { redirect_to students_url, :notice => 'Student was successfully disabled..' }
+                        else
+                                format.html { render :action => "edit" }
+                                format.json { render :json => @student.errors, :status => :unprocessable_entity }
+                                format.mobile { render :action => "edit" }
+                        end
+      end
+  end
+
+  def enable
+     @student = Student.find(params[:id])
+     @student.disabled = nil
+     respond_to do |format|
+                        if @student.save
+                                format.html { redirect_to students_url, :notice => 'Student was successfully enabled.' }
+                                format.json { head :no_content }
+                                format.mobile { redirect_to students_url, :notice => 'Student was successfully enabled..' }
+                        else
+                                format.html { render :action => "edit" }
+                                format.json { render :json => @student.errors, :status => :unprocessable_entity }
+                                format.mobile { render :action => "edit" }
+                        end
+      end
   end
 
   def student_params

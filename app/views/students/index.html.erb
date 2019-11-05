@@ -65,7 +65,7 @@
 					</p>
 			</div>
 		<% else %>
-		<h2>You have <%= @students.count %> Students</h2>
+		<h2>You have <%= @active.count %> Active Students</h2>
 			<table class="table table-responsive table-striped table-dark table-bordered  w-100">
   				<tr class="thead-light">
     				<th></th>
@@ -79,7 +79,27 @@
 					<th>Admin Controls</th>
 				</tr>
 				<% @students.each do |student| %>
-		  			<tr>
+				<!-- If student is disabled -->
+					<% if student.disabled != nil %>
+						<tr>
+							<td>
+						<% if student.pic? then %>
+							<%= image_tag student.pic_url(:thumb) %>
+						<% else %>
+							<%= image_tag 'noMug.jpg', width: '125px' %>
+						<% end %>
+					</td>
+					<td><%= student.first_name %> <%= student.last_name %></td>
+				    <td><%= student.getAge %></td>
+				    <td><%= student.rank.color %></td>
+							<td>STUDENT DISABLED</td>
+							<td>STUDENT DISABLED</td>
+							<td>STUDENT DISABLED</td>
+							<td>STUDENT DISABLED</td>
+							<td><%= link_to('<i class="fas fa-user-plus"></i>  '.html_safe,:controller => "students",:action => "enable",:id => student.id) %></td>
+						</tr>
+					<% else %>
+						<tr>
 					<td>
 						<% if student.pic? then %>
 							<%= image_tag student.pic_url(:thumb) %>
@@ -132,7 +152,8 @@
 							<% end %>
 						<% end %>
 				    <%= link_to('<i class="fas fa-calendar-check"></i> |'.html_safe,:controller => "attendances",:action => "index",:id => student.id) %>
-					<%= link_to '<i class="fas fa-user-times"></i>  '.html_safe, student, :method => :delete,:class=>:destroy, :data => { :confirm => 'Are you sure?' } %>
+
+					<%= link_to('<i class="fas fa-user-times"></i>  '.html_safe,:controller => "students",:action => "disable",:id => student.id) %>
 				       <% if student.is_missed %>
 							<div class="caution">
 			                 <%= link_to(image_tag("caution.png"),:controller => "students",:action => "missme", :id => student.id) %>
@@ -140,7 +161,9 @@
 				       <% end %>
 				  </td>
 				  </tr>
-				<% end %>
+					<% end %>
+		  			
+				<% end %><!-- end of student array -->
 			</table>
 		<% end %>
 	</div><!-- end container -->
