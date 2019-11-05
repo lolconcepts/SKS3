@@ -128,7 +128,7 @@ $(document).ready(function(){
    <% if s.dob != nil %>
 	<% if s.dob.month == Time.now.month %>
 		<% if s.rank.base == "black" %>
-			<%= image_tag("/images/blackbelt_belt.png", :height => "25")%>
+			<%= image_tag('black-belt-25x25.png')%>
 		<% end %>
 		<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
 	<% end %>
