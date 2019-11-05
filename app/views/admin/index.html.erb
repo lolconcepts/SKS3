@@ -104,8 +104,14 @@
 				<div class="card-header"><i class="far fa-id-card"></i> Licenses</div>
 				<div class="card-body">
 					<h5 class="card-title">Student Identity Card Licenses</h5>
-					<p class="card-text">0<meter value=<%= @dojo.meterval %> low="80.0" high="20.0" optimal="50.0" max="100.0"></meter><%=@dojo.max %><br />
-								(<%= @dojo.max - @dojo.count %> remaining)</p>
+					<p class="card-text"><div class="progress">
+					<% if (100 - licenseLevel) < 50 %>
+						<div class="progressbar bg-warning progress-bar-striped progress-bar-animated text-dark"
+					<% end %>
+						<div class="progressbar bg-primary progress-bar-striped progress-bar-animated text-light" 
+					style="width:<%= 100 - licenseLevel %>%" aria-value-min="0" aria-value-now=<%= gasTank(1) %> aria-value-max=<%=@dojo.max %>><%= gasTank(1) %> remaining
+					</div><!--progressbar-->
+				</div><!--progress-->
 				</div>
 			</div>
 		</div>

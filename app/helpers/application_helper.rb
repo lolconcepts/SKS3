@@ -91,6 +91,12 @@ module ApplicationHelper
 		@dojo = Dojo.find(dojo_id)
 		return (@dojo.max - @dojo.count)
 	end
+
+	def licenseLevel
+		# This is used to set the width of the progressbar
+		@dojo = Dojo.find(1)
+		return ((@dojo.count.to_f/@dojo.max.to_f)*100)
+	end
       def fullname(id)
 	  @s = Student.find(id)
 	  return "#{@s.first_name} #{@s.last_name}"
