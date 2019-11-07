@@ -59,8 +59,12 @@ module StudentsHelper
 
 	def studentGrowth()
 		@total_students = Student.all.count
-		@diff = (studentsGained - studentsLost)
-		return ((@diff.to_f / @total_students.to_f) * 100).round(2)
+			if @total_students == 0
+				return "0.0"
+			else
+				@diff = (studentsGained - studentsLost)
+				return ((@diff.to_f / @total_students.to_f) * 100).round(2)
+			end
 	end
 
 end
