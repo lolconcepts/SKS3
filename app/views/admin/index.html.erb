@@ -168,7 +168,7 @@
 					Friday: <%= ((@fri.to_f/@attendances.count.to_f) * 100).round %>% 
 					Saturday: <%= ((@sat.to_f/@attendances.count.to_f) * 100).round %>% 
 					Sunday: <%= ((@sun.to_f/@attendances.count.to_f) * 100).round %>%
-				<% end %> 
+				
 				<%= pie_chart({
 					"Monday" => ((@mon.to_f/@attendances.count.to_f) * 100).round, 
 					"Tuesday" => ((@tue.to_f/@attendances.count.to_f) * 100).round,
@@ -177,7 +177,9 @@
 					"Friday" => ((@fri.to_f/@attendances.count.to_f) * 100).round,
 					"Saturday" => ((@sat.to_f/@attendances.count.to_f) * 100).round,
 					"Sunday" => ((@sun.to_f/@attendances.count.to_f) * 100).round,
-				}) %></p>
+				}) %>
+					<% end %> 
+				</p>
 				</div>
 			</div>
 		</div>
