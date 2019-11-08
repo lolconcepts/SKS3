@@ -9,6 +9,12 @@
  top: 0;
  z-index: -2;
 }
+.new_user{
+  padding:50px;
+  height:100%;
+  width: 100%;
+  background: none;
+}
 </style>
 <%= image_tag "adrien-lemaire-N8Qlw1gi4rA-unsplash.jpg",class: "home_video" %>
 <div class="container">
@@ -19,7 +25,7 @@
   <p>Use the below form in order to login to your Sidekick Instance. If you have any issues, please reach out to us at <%=mail_to('blackbelt@t0urnament.net','blackbelt@t0urnament.net') %>.</p>
   <p class="lead">
   </div>
-  <h1 class="text-center shadow">Log in</h1>
+  <h2 class="text-center text-uppercase">Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
