@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!,except: [:show]
 def index
     @students = Student.order("last_name").order("first_name")
     @active = Student.all.where(:disabled => nil)
