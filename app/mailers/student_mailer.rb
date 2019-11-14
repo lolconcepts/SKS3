@@ -23,16 +23,17 @@ class StudentMailer < ApplicationMailer
   end
   
   # Send out a note to ALL students. Template:=> /views/user_mailer/email_blast.text.erb
-#  def email_blast(subject |= "", message |= "")
-# @dojo = Dojo.find(1)
-# @students = Student.find(:all)
- # @email_list = []
-  #@students.each do |student|
-   # if student.email != nil
-    #  @email_list << student.email
-    #end
-  #end
-  #@subj = subject
-# mail(:bcc => @email_list, :subject => @subj, :body => message)
- # end
+  def email_blast(subject,message)
+    @students = Student.all.where(:sms_ok => true)
+    @email_list = []
+    @students.each do |s|
+      email = s.smsAddress
+      if email != ""
+        @email_list << email
+      end
+    end
+    @subj = subject
+    mail(:bcc => @email_list, :subject => @subj, :body => message)
+  end
+
 end

@@ -92,6 +92,8 @@ module ApplicationHelper
 		return (@dojo.max - @dojo.count)
 	end
 
+	
+
 	def licenseLevel
 		# This is used to set the width of the progressbar
 		@dojo = Dojo.find(1)

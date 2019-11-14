@@ -84,7 +84,17 @@ class Student < ApplicationRecord
       return false
     end
   end
-    
+  
+  def smsAddress
+    if self.carrier_id && self.telephone
+      @sms = "#{self.telephone}#{Carrier.find(self.carrier_id).suffix}"
+    else
+      @sms = ""
+    end
+    return @sms
+  end
+
+
   def getAge
     if dob != nil
     	return (Time.now.year - self.dob.to_date.year)

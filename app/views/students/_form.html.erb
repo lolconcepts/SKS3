@@ -51,6 +51,14 @@
     <%= f.label :telephone %><br />
     <%= f.text_field :telephone %>
   </div>
+    <div class="field">
+    <%= f.label :carrier %><br />
+    <%= f.collection_select :carrier_id, Carrier.all, :id, :name %>
+  </div>
+      <div class="field">
+    <%= f.label "TEXT MSG OK?" %><br />
+    <%= f.check_box :sms_ok %>
+  </div>
   <div class="field">
     Date of Birth<br />
     <%= f.date_select :dob ,:order => [:month,:day,:year], :start_year => 1920 %>

@@ -114,7 +114,7 @@ include ApplicationHelper
     # we construct a strong parameters whitelist below
     # require(:post) means that the `params` hash MUST contain a :post key
     # permit(:title, :body, ...) = here we enumerate the attributes which we will accept from the form parameters; it acts as a whitelist
-    params.require(:dojo).permit(:pic,:code,:photo,:name,:motto,:telephone,:website,:email,:facebook,:twitter,:youtube) 
+    params.require(:dojo).permit(:birthday_message,:missme_message,:pic,:code,:photo,:name,:motto,:telephone,:website,:email,:facebook,:twitter,:youtube) 
   end
 
 end

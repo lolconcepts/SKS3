@@ -57,6 +57,16 @@ module StudentsHelper
 		return @count
 	end
 
+	def smsAddress(id)
+		@student = Student.find(id)
+		if @student.carrier_id && @student.telephone
+			@sms = "#{@student.telephone}#{Carrier.find(@student.carrier_id).suffix}"
+		else
+			@sms = ""
+		end
+		return @sms
+	end
+
 	def studentGrowth()
 		@total_students = Student.all.count
 			if @total_students == 0
