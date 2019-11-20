@@ -37,8 +37,14 @@
 </table>
 
 <br>
-<div class="btn btn-primary">
-  <%= link_to 'New Message', new_message_path %>
-</div>
+<% if @students.count > 0 %>
+  <div class="btn btn-primary">
+    <%= link_to 'New Message', new_message_path %>
+  </div>
+  <% else %>
+  <div class="jumbotron">
+    <h1>Unable to create messages. You do not have any active students, who allow SMS.</h1>
+  </div>
+  <% end %>
 
 </div>

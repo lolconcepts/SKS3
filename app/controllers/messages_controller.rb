@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @students = Student.all.where(:sms_ok => true,:disabled => nil).where.not(telephone: [nil,""],carrier_id: [nil])
   end
 
   # GET /messages/1
@@ -27,6 +28,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @dojo = Dojo.first.name #get name of dojo
     @subject = "#{@dojo}-Alert" #set subject
+  
+
     StudentMailer.email_blast(@subject,@message.body).deliver #deliver message
  
     respond_to do |format|

@@ -24,7 +24,7 @@ class StudentMailer < ApplicationMailer
   
   # Send out a note to ALL students. Template:=> /views/user_mailer/email_blast.text.erb
   def email_blast(subject,message)
-    @students = Student.all.where(:sms_ok => true)
+    @students = Student.all.where(:sms_ok => true,:disabled => nil).where.not(telephone: [nil,""],carrier_id: [nil])
     @email_list = []
     @students.each do |s|
       email = s.smsAddress
