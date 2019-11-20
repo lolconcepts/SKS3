@@ -18,7 +18,16 @@ def index
     end
   end
 
- 
+  def export
+    @students = Student.order("last_name").order("first_name")
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.csv {send_data @students.to_csv} #Enable Output to CSV
+    end
+
+  end
+  
   def show
     @student = Student.find(params[:id])
     @image_holder = "sidekick_student_icon_#{@student.rank.base}.png"

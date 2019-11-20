@@ -35,7 +35,7 @@ resources :admin
 	   match 'list/', :to => 'students#list', :via => :get
      match '/payment', :to => 'dashboard#payments', :via => :get
      match '/tuitions', :to => 'tuition#index', :via => :get
-   
+     match '/export', :to => 'students#export', :via => :get
    root 'admin#index'
    
 

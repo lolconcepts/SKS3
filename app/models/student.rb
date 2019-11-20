@@ -18,7 +18,16 @@ class Student < ApplicationRecord
   #     :sidekick => "400x450#"}
 
   mount_uploader :pic, PhotoUploader
-      
+  
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |result|
+        csv << result.attributes.values_at(*column_names)
+      end
+    end
+  end
+
   def remove_pic
 	self.photo_file_name = nil
   end
