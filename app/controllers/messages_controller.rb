@@ -28,7 +28,8 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @dojo = Dojo.first.name #get name of dojo
     @subject = "#{@dojo}-Alert" #set subject
-  
+    @count = Student.all.where(:sms_ok => true,:disabled => nil).where.not(telephone: [nil,""],carrier_id: [nil]).count
+    @message.count = @count
 
     StudentMailer.email_blast(@subject,@message.body).deliver #deliver message
  
@@ -75,6 +76,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body)
+      params.require(:message).permit(:body,:count)
     end
 end

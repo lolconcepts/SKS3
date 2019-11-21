@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_14_192440) do
+ActiveRecord::Schema.define(version: 2019_11_20_183851) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_14_192440) do
     t.string "body", limit: 160
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "count"
   end
 
   create_table "ranks", force: :cascade do |t|
