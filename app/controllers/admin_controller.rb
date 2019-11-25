@@ -9,6 +9,13 @@ def index
 	@Version = "19.12" # YEAR.MONTH of update
 	# Get Attendance Info For Graph
 	@attendances = Attendance.all
+    @alert_count = 0
+    @students.each do |s|
+        if s.missingInfo.empty?
+        else
+            @alert_count += 1
+        end
+    end
     
     @mon = 0
     @tue = 0
