@@ -32,6 +32,7 @@ class StudentMailer < ApplicationMailer
         @email_list << email
       end
     end
+    @email_list = @email_list.uniq
     @subj = subject
     mail(:bcc => @email_list, :subject => @subj, :body => message)
   end
