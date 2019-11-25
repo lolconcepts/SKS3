@@ -110,6 +110,10 @@
     <%= f.label :tuition %><br />
     <%= f.text_field :tuition, placeholder: "65" %>
   </div>
+    <div class="field">
+    Last Promotion<br />
+    <%= f.date_select :last_promotion , :order => [:month, :day, :year], :start_year => 1920 %>
+  </div>
 </div><!-- END OF KARATE -->
 <div class="group">
  <h2>Group Membership</h2>
