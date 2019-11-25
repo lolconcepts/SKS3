@@ -106,6 +106,11 @@
 						<% else %>
 							<%= image_tag 'noMug.jpg', width: '125px' %>
 						<% end %>
+						<% if student.missingInfo.empty? == false %>
+
+						<%= link_to 'Alerts Present', edit_student_path(student),:data => {:toggle => 'tooltip', :html => true, :title => '<em>Tooltip</em> <u>with</u> <b>HTML</b>',:placement => 'top'}%>
+						
+						<% end %>
 					</td>
 					<td><%= student.first_name %> <%= student.last_name %></td>
 				    <td><%= student.getAge %></td>

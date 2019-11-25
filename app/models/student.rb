@@ -94,6 +94,27 @@ class Student < ApplicationRecord
     end
   end
   
+  def missingInfo
+    @missing_info = []
+    #Address
+    if self.address == nil
+      @missing_info << "address"
+    end
+    #Telephone
+    if self.telephone == nil
+      @missing_info << "telephone"
+    end
+    #Birthdate
+    if self.dob == "#{Time.now.year}-#{Time.now.month}-#{Time.now.day}"
+      @missing_info << "birthday"
+    end
+    if self.email == ""
+      @missing_info << "email"
+    end
+    return @missing_info
+
+  end
+
   def smsAddress
     if self.carrier_id && self.telephone
       @sms = "#{self.telephone}#{Carrier.find(self.carrier_id).suffix}"
