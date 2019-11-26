@@ -4,7 +4,13 @@ def index
     @birthday_count = BirthdayCount()
     @missed_count = missedCount()
 	@student_count = Student.count
+    @expiring_contracts = []
     @students = Student.all
+    @students.each do |s|
+        if s.expiring
+            @expiring_contracts << s
+        end
+    end
 	@dojo = Dojo.first
 	@Version = "19.12" # YEAR.MONTH of update
 	# Get Attendance Info For Graph

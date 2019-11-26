@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_183851) do
+ActiveRecord::Schema.define(version: 2019_11_26_173430) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_183851) do
     t.date "disabled"
     t.integer "carrier_id"
     t.boolean "sms_ok"
+    t.date "expiration"
     t.index ["carrier_id"], name: "index_students_on_carrier_id"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end

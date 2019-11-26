@@ -72,7 +72,7 @@
   </div>
   <div class="field">
     Training Start Date<br />
-    <%= f.date_select :startdate , :order => [:month, :day, :year], :start_year => 1920 %>
+    <%= f.date_select :startdate , :order => [:month, :day, :year], :start_year => 1970 %>
   </div>
   <div class="field">
     <%= f.label :instructors %><br />
@@ -113,6 +113,10 @@
     <div class="field">
     Last Promotion<br />
     <%= f.date_select :last_promotion , :order => [:month, :day, :year], :start_year => 1920 %>
+  </div>
+    <div class="field">
+    Contract Expiration<br />
+    <%= f.date_select :expiration , :order => [:month, :day, :year], :start_year => 2019 %>
   </div>
 </div><!-- END OF KARATE -->
 <div class="group">

@@ -227,7 +227,7 @@ def index
     # we construct a strong parameters whitelist below
     # require(:post) means that the `params` hash MUST contain a :post key
     # permit(:title, :body, ...) = here we enumerate the attributes which we will accept from the form parameters; it acts as a whitelist
-    params.require(:student).permit(:sms_ok,:carrier_id,:disabled,:last_promotion,:tuition,:pic,:first_name,:photo,:last_name,:address,:city,:state,:zip,:email,:telephone,:dob,:rank_id,:startdate,:instructors,:classes_attended_each_week,:school,:favorite_martial_artist,:favorite_movie,:favorite_class_activity,:short_term_goal,:long_term_goal,:blackbelt_club,:swat,:storm,:demo_team,:tournament_team,:cardiokick,:mastersclub,:instructor,:tnet_member,:tnetid) 
+    params.require(:student).permit(:expiration,:sms_ok,:carrier_id,:disabled,:last_promotion,:tuition,:pic,:first_name,:photo,:last_name,:address,:city,:state,:zip,:email,:telephone,:dob,:rank_id,:startdate,:instructors,:classes_attended_each_week,:school,:favorite_martial_artist,:favorite_movie,:favorite_class_activity,:short_term_goal,:long_term_goal,:blackbelt_club,:swat,:storm,:demo_team,:tournament_team,:cardiokick,:mastersclub,:instructor,:tnet_member,:tnetid) 
   end
 
 end

@@ -205,7 +205,7 @@
 								<% if s.rank.base == "black" %>
 									<%= image_tag('black-belt-25x25.png')%>
 								<% end %>
-								<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id) %><br />
+								<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Send Note',:controller => "students",:action => "happyBirthday", :id => s.id, :class => "text-primary bg-light") %><br />
 								</li>
 							<% end %> 
 						  <% end%>
@@ -213,7 +213,7 @@
 						</ul>
 					<% end %>
 				</p>
-				<h5 class="card-title"><i class="fas fa-birthday-cake"></i> Missed Students</h5>
+				<h5 class="card-title"><i class="fas fa-sad-tear"></i> Missed Students</h5>
 					<p class="card-text"><ul>
 					<% if @missed_count == 0 %>
 					<li>everyone is accounted for :)</li>
@@ -221,12 +221,32 @@
 						<% @students.each do |s| %>
 							<% if s.is_missed %>
 							<li>
-								<%= s.first_name %> <%= s.last_name %> - <%= link_to('Send Note',:controller => "students",:action => "missme", :id => s.id) %><br/>
+								<%= s.first_name %> <%= s.last_name %> - <%= link_to('Send Note',:controller => "students",:action => "missme", :id => s.id, :class => "text-primary bg-light") %><br/>
 							</li>
 							<% end %>
 						<% end %>
 					<% end %>
 				</ul></p>
+				<h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Expiring Contracts</h5>
+					<p class="card-text"><ul>
+					<% if @expiring_contracts.empty? %>
+					<li>no upcoming expirations</li>
+					<% else %>
+						<% @students.each do |s| %>
+							<% if s.expiring %>
+							<li>
+								<%= s.first_name %> <%= s.last_name %> - <%= link_to(s.expiration ,edit_student_path(s), :class => "text-primary") %><br/>
+							</li>
+							<% end %>
+						<% end %>
+					<% end %>
+				</ul></p>
+
+
+
+
+
+
 				</div>
 			</div>
 		</div>

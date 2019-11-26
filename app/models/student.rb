@@ -32,6 +32,22 @@ class Student < ApplicationRecord
 	self.photo_file_name = nil
   end
 
+  def expiring(num_months=2)
+    #Default is 2 months warning
+    @today = Time.now()
+    @warning = (num_months) * 30
+    if self.expiration != nil
+      @diff_days = self.expiration - @today.to_date
+      if @diff_days.to_i < @warning.to_i
+        return true
+      else
+        return false
+      end
+    else
+      return false
+    end
+  end
+
   def years_in_training
     if self.startdate != nil
 	return (Time.now.year - self.startdate.to_date.year)
