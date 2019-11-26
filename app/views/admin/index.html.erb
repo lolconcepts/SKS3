@@ -225,7 +225,12 @@
 						<% @students.each do |s| %>
 							<% if s.is_missed %>
 							<li>
+								<% if s.email == "" %>
+								<%= s.first_name %> <%= s.last_name %> - <%= link_to('Add Email',edit_student_path(s), :class => "text-primary bg-light") %><br/>
+								<% else %>
 								<%= s.first_name %> <%= s.last_name %> - <%= link_to('Send Note',:controller => "students",:action => "missme", :id => s.id, :class => "text-primary bg-light") %><br/>
+								<% end %>
+								
 							</li>
 							<% end %>
 						<% end %>
