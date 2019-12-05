@@ -201,10 +201,10 @@
 						<% @students.each do |s| %>
 						   <% if s.dob != nil %>
 							<% if s.dob.month == Time.now.month %>
-							<li>
+							<li><!--
 								<% if s.rank != nil && s.rank.base == "black" %>
 									<%= image_tag('black-belt-25x25.png')%>
-								<% end %>
+								<% end %> -->
 								<% if s.email == "" %>
 								<%= s.first_name %> <%= s.last_name %> (<%= s.dob.month %>/<%= s.dob.day %>) - <%= link_to('Add Email',edit_student_path(s), :class => "text-primary bg-light") %><br />
 								<% else %>
