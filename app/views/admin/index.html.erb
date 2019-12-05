@@ -202,7 +202,7 @@
 						   <% if s.dob != nil %>
 							<% if s.dob.month == Time.now.month %>
 							<li>
-								<% if s.rank.base == "black" %>
+								<% if s.rank && s.rank.base == "black" %>
 									<%= image_tag('black-belt-25x25.png')%>
 								<% end %>
 								<% if s.email == "" %>
