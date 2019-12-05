@@ -75,7 +75,7 @@ module ApplicationHelper
 		@students = Student.all
 		@count = 0
 		@students.each do |s|
-			if s.rank.base == base
+			if s.rank && s.rank.base == base
 				@count += 1
 			end
 		end
