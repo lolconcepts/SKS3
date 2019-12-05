@@ -114,7 +114,9 @@
 					</td>
 					<td><%= student.first_name %> <%= student.last_name %></td>
 				    <td><%= student.getAge %></td>
+				    <% if student.rank %>
 				    <td><%= student.rank.color %></td>
+				    <% end %>
 				    <td><%= student.years_in_training %></td>
 				    <td><%= student.instructors %></td>
 				    <td><%= student.classes_attended_each_week %></td>
