@@ -106,6 +106,12 @@
 						<% else %>
 							<%= image_tag 'noMug.jpg', width: '125px' %>
 						<% end %>
+						<% if student.program_id != nil %>
+							<h1 class="badge badge-warning"><%= student.program.description %></h1><br>
+						<% else %>
+							<span class="badge badge-danger">NO PROGRAM SET</span><br>
+						<% end %>
+						
 						<% if student.missingInfo.empty? == false %>
 
 						<%= link_to 'Alerts Present', edit_student_path(student),:data => {:toggle => 'tooltip', :html => true, :title => '<em>Tooltip</em> <u>with</u> <b>HTML</b>',:placement => 'top'}%>

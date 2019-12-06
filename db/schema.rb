@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_173430) do
+ActiveRecord::Schema.define(version: 2019_12_06_210628) do
 
   create_table "attendances", force: :cascade do |t|
     t.integer "student_id"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_173430) do
     t.integer "max", default: 100
     t.text "birthday_message"
     t.text "missme_message"
+    t.boolean "recovery", default: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -60,6 +61,12 @@ ActiveRecord::Schema.define(version: 2019_11_26_173430) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "count"
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ranks", force: :cascade do |t|
@@ -115,7 +122,9 @@ ActiveRecord::Schema.define(version: 2019_11_26_173430) do
     t.integer "carrier_id"
     t.boolean "sms_ok"
     t.date "expiration"
+    t.integer "program_id"
     t.index ["carrier_id"], name: "index_students_on_carrier_id"
+    t.index ["program_id"], name: "index_students_on_program_id"
     t.index ["rank_id"], name: "index_students_on_rank_id"
   end
 

@@ -66,6 +66,11 @@
 </div><!--END OF PERSONAL DIV -->
 <h2 class="student_header">Martial Arts Info</h2>
 <div id="Karate">
+    <div class="field">
+    <%= f.label "Program" %><br />
+    <%= f.collection_select :program_id, Program.all, :id, :description %>
+  </div>
+
   <div class="field">
     <%= f.label :rank %><br />
     <%= f.collection_select :rank_id, Rank.all, :id, :color %>

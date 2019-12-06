@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :programs
   resources :messages
   #devise_for :students, path: 'students', controllers: {sessions: "students/sessions"}
   devise_for :users, path: 'users', controllers: {sessions: "users/sessions"}

@@ -49,21 +49,21 @@
 	<div class="card-columns">
 	<section class="card mb-5">
 		<div class="card-body">
-			<h2 class="round card-img"><%= daysAtRank(@student.id)%></h2>
+			<h2 class="card-img"><%= daysAtRank(@student.id)%></h2>
 			<h3 class="card-title">Days at Rank</h3>
 			<p>This represents the number of classes or hours you have trained since your last promotion. The number may not accurately reflect your hours at rank if this was the first belt since Sidekick was used.</p>
 		</div>
 	</section>
 		<section class="card mb-5">
 		<div class="card-body">
-			<h2 class="round card-img"><%= daysInTraining(@student.id)%></h2>
+			<h2 class="card-img"><%= daysInTraining(@student.id)%></h2>
 			<h3 class="card-title">Classes Taken</h3>
 			<p>Regular training habits are important to your growth as a Martial Artist. This is the total recorded classes you have taken since this attendance system has been implemented.</p>
 		</div>
 	</section>
 		<section class="card mb-5">
 		<div class="card-body text-center">
-			<h2 class="round card-img">$<%= @student.tuition %></h2>
+			<h2 class="card-img">$<%= @student.tuition %></h2>
 			<h3 class="card-title">Tuition</h3>
 			<p>Your current monthly tuition payment is shown here on this card. If you would like to setup a re-occuring charge, see an instructor.</p>
 		</div>
