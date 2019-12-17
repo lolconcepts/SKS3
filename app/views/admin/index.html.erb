@@ -156,11 +156,40 @@
 		</div>
 	</div>
 		<div class="row">
-		<div class="col-3 no-wrap p-2">
+			<div class="col-3 text-center">
+			<div class="card bg-light mb-3">
+				<div class="card-header"><i class="fas fa-chart-line"></i> Programs</div>
+				<div class="card-body">
+					<h5 class="card-title"></h5>
+					<p class="card-text h1">
+						<% if @karate_program_count > 0 %>
+							Karate:<%= @karate_program_count  %><br>
+						<% end %>
+						<% if @kickboxing_program_count > 0 %>
+							Kickboxing:<%= @kickboxing_program_count  %><br>
+						<% end %>
+						<% if @krav_maga_program_count > 0 %>
+							Krav Maga:<%= @krav_maga_program_count  %><br>
+						<% end %>
+						<% if @sword_program_count > 0 %>
+							Sword:<%= @sword_program_count  %><br>
+						<% end %>
+						<% if @tae_program_count > 0 %>
+							Tae Kwon Do:<%= @tae_program_count  %><br>
+						<% end %>
+						<% if @trial_program_count > 0 %>
+							Trials:<%= @trial_program_count  %><br>
+						<% end %>
+						
+					</p>
+				</div>
+			</div>
+		</div>
+		<!--<div class="col-3 no-wrap p-2">
 			
 				<h2 class="motto">Elevate. Your. Dojo.</h2>
 			
-		</div>
+		</div> -->
 		<div class="col-3 text-center">
 			<div class="card bg-light mb-3">
 				<div class="card-header"><i class="fas fa-chart-pie"></i> Top Classes</div>

@@ -5,6 +5,13 @@ def index
     @missed_count = missedCount()
 	@student_count = Student.count
     @expiring_contracts = []
+    @karate_program_count = Program.find(1).student_count
+    @kickboxing_program_count = Program.find(2).student_count
+    @krav_maga_program_count = Program.find(3).student_count
+    @sword_program_count = Program.find(4).student_count
+    @tae_program_count = Program.find(5).student_count
+    @trial_program_count = Program.find(6).student_count
+
     @students = Student.all
     @students.each do |s|
         if s.expiring

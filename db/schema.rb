@@ -113,14 +113,10 @@ ActiveRecord::Schema.define(version: 2019_12_06_210628) do
     t.string "email"
     t.string "telephone"
     t.string "tuition", default: "95"
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
     t.date "last_promotion"
     t.date "disabled"
     t.integer "carrier_id"
-    t.boolean "sms_ok"
+    t.boolean "sms_ok", default: false
     t.date "expiration"
     t.integer "program_id"
     t.index ["carrier_id"], name: "index_students_on_carrier_id"
