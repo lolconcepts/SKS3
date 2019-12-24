@@ -19,7 +19,7 @@ def index
         end
     end
 	@dojo = Dojo.first
-	@Version = "19.12" # YEAR.MONTH of update
+	@Version = "20.01" # YEAR.MONTH of update
 	# Get Attendance Info For Graph
 	@attendances = Attendance.all
     @alert_count = 0
