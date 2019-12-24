@@ -125,7 +125,7 @@ class AttendancesController < ApplicationController
     @attendance.save
     respond_to do |format|
       if @attendance.save
-        format.html { render plain: "Attendance was successfully created." }
+        format.html { render plain: "#{@attendance.student.fullname} was checked in!" }
         format.json { render json: @attendance, status: :created, location: @attendance }
         format.mobile
       else
