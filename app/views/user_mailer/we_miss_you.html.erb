@@ -1,20 +1,22 @@
-Hey <%= @student.first_name %>,
+Hey <%= @student.first_name %>,<br>
 
-<% if @student.missme_message %>
-We haven't seen you in class since <%= @last_seen %>.
-<%= @student.missme_message %>
+<% if @dojo.missme_message %>
+	We haven't seen you in class since <%= @last_seen %>.<br>
+<%= @dojo.missme_message %>
 <% else %>
-	We haven't seen you in class since <%= @last_seen %>. We miss you and want to make sure that everything is all right! Please give the Dojo a 
-call when you get a chance and let us know if there is anything we can do for you. We understand that sometimes, life gets busy or you don't feel well.
-You are making great progress and we want to see you continue to build all the qualities that make a GREAT MARTIAL ARTIST. 
+We haven't seen you in class since <%= @last_seen %>. We miss you and want to make sure that everything is all right! <br>
+Please give the Dojo a 
+call when you get a chance and let us know if there is anything we can do for you.<br>
+ We understand that sometimes, life gets busy or you don't feel well.
+You are making great progress and we want to see you continue to build all the qualities that make a GREAT MARTIAL ARTIST. <br>
 
 Hope to see you in class soon :)
 <% end %>
 
 
 
-Telephone:<%= @dojo.telephone %>
+Telephone:<%= @dojo.telephone %><br>
 
-Regards,
+Regards,<br>
 
 <%= @dojo.name %>
