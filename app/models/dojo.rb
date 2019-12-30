@@ -10,6 +10,7 @@ attr_accessor :code,:pic #:email, :motto, :name, :telephone, :website, :facebook
   #     				:sidekick => "400x450#"}
   #do_not_validate_attachment_file_type :photo
   mount_uploader :pic, PhotoUploader
+  profanity_filter :missme_message,:birthday_message, :method => 'stars'
 
    def available_prints
    	       if (self.max > self.count)
