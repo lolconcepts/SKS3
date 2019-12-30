@@ -30,7 +30,7 @@
     <%= javascript_tag "$('#flash_errors').effect('highlight',{},1000);" %>
   <% end %>
 
-  <% flash[:error] = flash[:errors] = flash[:notice] = nil %>
+  <% flash.clear %>
 </div>
 <div class="container mt-4 mb-6">
 	<div class="row">
