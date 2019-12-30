@@ -56,7 +56,7 @@ def index
      student = Student.find(params[:id])
      StudentMailer.we_miss_you(student).deliver
      respond_to do |format|
-       format.html { render :text => "Message has been sent" }
+       format.html { redirect_to students_url, :notice => 'Message has been sent'}
      end
   end
   
@@ -65,7 +65,7 @@ def index
      student = Student.find(params[:id])
      StudentMailer.happy_birthday(student).deliver
      respond_to do |format|
-       format.html { render :text => "Message has been sent" }
+       format.html { redirect_to students_url, :notice => 'Message has been sent'}
      end
   end
 
