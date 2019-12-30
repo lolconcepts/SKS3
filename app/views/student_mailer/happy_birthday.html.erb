@@ -1,9 +1,13 @@
-<%= @student.first_name %>,
+<%= @student.first_name %>,<br>
 
-We just wanted to drop you a quick note and wish you a Happy Birthday! We are glad that you are part of our Karate Family and hope that you have a wonderful day. See you in class!
+<% if @dojo.birthday_message %>
+	<%= @dojo.birthday_message %><br>
+<% else %>
+	We just wanted to drop you a quick note and wish you a Happy Birthday! We are glad that you are part of our Karate Family and hope that you have a wonderful day. See you in class!<br>
+<% end %>
 
-Telephone:<%= @dojo.telephone %>
+Telephone:<%= @dojo.telephone %><br>
 
-Regards,
+Regards,<br>
 
 <%= @dojo.name %>
