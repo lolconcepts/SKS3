@@ -21,12 +21,12 @@
 <div id="flashes">
 
   <% if flash[:notice] %>
-    <p id="flash_notice" class="notice"><%= flash[:notice] %></p>
+    <p class="notice"><%= flash[:notice] %></p>
     <%= javascript_tag "$('#flash_notice').effect('highlight',{},1000);" %>
   <% end %>
 
   <% if flash[:error] || flash[:errors] %>
-    <p id="flash_errors" class="alert"><%= flash[:error] || flash[:errors] %></p>
+    <p class="alert"><%= flash[:error] || flash[:errors] %></p>
     <%= javascript_tag "$('#flash_errors').effect('highlight',{},1000);" %>
   <% end %>
 
