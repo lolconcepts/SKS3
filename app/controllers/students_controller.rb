@@ -113,7 +113,7 @@ def index
 
     respond_to do |format|
       if @student.update_attributes(student_params)
-        format.html { redirect_to @student, :notice => 'Student was successfully updated.' }
+        format.html { redirect_to students_url, :notice => 'Student was successfully updated.' }
         format.json { head :no_content }
         format.mobile { redirect_to @student, :notice => 'Student was successfully updated.' }
       else
