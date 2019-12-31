@@ -118,7 +118,7 @@ class Student < ApplicationRecord
       @missing_info << "address"
     end
     #Telephone
-    if self.telephone == nil
+    if self.telephone == ""
       @missing_info << "telephone"
     end
     #Birthdate
