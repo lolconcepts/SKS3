@@ -97,7 +97,7 @@
   <p class="lead text-center text-light">Welcome to the Sidekick Dashboard. This is your home base to see whats happening with your Dojo.</p>
   <% if @alert_count > 0 %>
   	<p class="lead text-center text-danger">
-  		<%= link_to "#{@alert_count} Alerts Active", students_url %>
+  		<%= link_to "#{@alert_count} Alerts Active", alerts_url %>
   	</p>
   <% end %>
   <hr class="my-4">

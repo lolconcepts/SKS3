@@ -37,6 +37,7 @@ resources :admin
      match '/payment', :to => 'dashboard#payments', :via => :get
      match '/tuitions', :to => 'tuition#index', :via => :get
      match '/export', :to => 'students#export', :via => :get
+     match 'alerts/', :to => 'admin#alerts', :via => :get
    root 'admin#index'
    
 

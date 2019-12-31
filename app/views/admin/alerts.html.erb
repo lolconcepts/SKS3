@@ -1,0 +1,14 @@
+<h1>Active Student Alerts</h1>
+<h3>Click the Student Name and Fix</h3>
+<table class="table table-responsive table-striped table-dark table-bordered">
+  				<tr class="thead-light">
+				    <th>Student</th>
+				    <th>Missing Info</th>
+				</tr>
+				<% @alerted_students.each do |s| %>
+				<tr>
+					<td><%= link_to s.fullname,edit_student_path(s) %></td>
+					<td><%= s.missingInfo %></td>
+				</tr>
+				<% end %>
+</table>

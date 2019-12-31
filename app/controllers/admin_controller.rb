@@ -61,6 +61,17 @@ def index
 	end
 
 end
+def alerts
+    @students = Student.all.where(:disabled => nil)
+    @alerted_students = []
+    @students.each do |s|
+        if s.missingInfo.empty?
+        else
+            @alerted_students << s
+        end
+    end
+    @alerted_students
+end
 
 private
 
@@ -85,5 +96,8 @@ def missedCount()
     end
     return @missed_count
 end
+
+
+
 
 end
