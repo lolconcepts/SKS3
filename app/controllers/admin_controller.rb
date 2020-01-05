@@ -73,6 +73,10 @@ def alerts
     @alerted_students
 end
 
+def selfserve
+    @students = Student.all.where(:disabled => nil)
+end
+
 private
 
 def BirthdayCount()

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+  <a class="navbar-brand" href="#"><img class="logo" src="/images/tnet.png" width="50" height="50"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to 'Dashboard', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Students', students_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <span class="navbar-text white-text">
+       Side Kick&reg; Selfie Links
+    </span>
+  </div>
+</nav>
+<table class="table table-striped">
+<% @students.each do |student| %>
+<tr>
+	<td><h2 class="text-center"><%= student.fullname %></h2><br><h3 class="text-center">Selfie Link</h3></td>
+	<td><% @url = "<img src=" + "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=#{root_url}selfie?id=#{student.id}&choe=UTF-8" %>
+			<% @alternate_text = "Student Selfie Link for #{student.first_name} #{student.last_name}" %>
+			<div><%= raw(@url) %> title=<%= @alternate_text %> /></img></div></td>
+
+</tr>
+<% end %>
+</table>

@@ -39,6 +39,7 @@ resources :admin
      match '/export', :to => 'students#export', :via => :get
      match 'alerts/', :to => 'admin#alerts', :via => :get
      match 'selfie/', :to => 'students#selfie', :via => :get
+     match 'selfserve/', :to => 'admin#selfserve', :via => :get
    root 'admin#index'
    
 
