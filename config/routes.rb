@@ -38,6 +38,7 @@ resources :admin
      match '/tuitions', :to => 'tuition#index', :via => :get
      match '/export', :to => 'students#export', :via => :get
      match 'alerts/', :to => 'admin#alerts', :via => :get
+     match 'selfie/', :to => 'students#selfie', :via => :get
    root 'admin#index'
    
 

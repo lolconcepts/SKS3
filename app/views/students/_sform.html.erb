@@ -1,0 +1,27 @@
+<h3 class="text-center text-light">Say Cheese, <%=@student.first_name %>!</h3>
+<h4 class="text-center">Upload your new picture for SideKick</h4>
+<%= form_for @student , :html => {:multipart => true } do |f| %>
+  <% if @student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
+
+      <ul>
+      <% @student.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="jumbotron bg-dark text-white">
+  
+	Upload Student Picture
+	<%= f.file_field :pic %>
+  
+</div><!--END OF PERSONAL DIV -->
+
+<div class="actions">
+    <%= f.submit %>
+  </div>
+  
+<% end %>

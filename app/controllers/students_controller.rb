@@ -80,6 +80,11 @@ def index
    end
   end
 
+  def selfie
+    @student = Student.find(params[:id])
+  end
+
+
   def edit
     @student = Student.find(params[:id])
     @dojo = Dojo.first
