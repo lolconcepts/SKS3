@@ -1,4 +1,4 @@
-<h3 class="text-center text-light">Say Cheese, <%=@student.first_name %>!</h3>
+<h3 class="text-center text-light col-xs-12">Say Cheese, <%=@student.first_name %>!</h3>
 <h4 class="text-center">Upload your new picture for SideKick</h4>
 <%= form_for @student , :html => {:multipart => true } do |f| %>
   <% if @student.errors.any? %>
@@ -13,15 +13,27 @@
     </div>
   <% end %>
 
-<div class="jumbotron bg-dark text-white">
-  
-	Upload Student Picture
-	<%= f.file_field :pic %>
-  
-</div><!--END OF PERSONAL DIV -->
 
-<div class="actions">
-    <%= f.submit %>
+  <div class="form-group col-xs-12">
+	 <label for="student_pic">Upload Student Picture</label>
+	 <%= f.file_field :pic,:class => "form-control" %>
   </div>
+  <div class="form-group col-xs-12">
+     <%= f.label :email %>
+     <%= f.text_field :email,:class => "form-control" %>
+  </div>
+  <div class="form-group col-xs-12">
+    <%= f.label "Mobile" %><br />
+    <%= f.text_field :telephone,:class => "form-control" %>
+  </div>
+  <div class="form-group col-xs-12">
+     <%= f.label :carrier %><br />
+    <%= f.collection_select :carrier_id, Carrier.all, :id, :name,:class => "form-control" %>
+  </div>
+  <div class="form-group col-xs-12">
+    <%= f.label "TEXT MSG OK?" %><br />
+    <%= f.check_box :sms_ok,:class => "form-control" %>
+  </div>
+    <%= f.submit  'Update', :class => 'btn btn-primary' %>
   
 <% end %>
