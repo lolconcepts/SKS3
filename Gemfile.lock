@@ -158,7 +158,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mimemagic (0.3.3)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.9.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
@@ -183,7 +185,8 @@ GEM
     popper_js (1.14.5)
     profanity_filter (0.1.1)
     public_suffix (4.0.1)
-    puma (3.12.2)
+    puma (4.3.9)
+      nio4r (~> 2.0)
     rack (2.0.8)
     rack-oauth2 (1.10.0)
       activesupport
@@ -332,7 +335,7 @@ DEPENDENCIES
   pg
   popper_js
   profanity_filter
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2.3)
   rails-ujs
   sass-rails (~> 5.0)
