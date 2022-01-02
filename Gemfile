@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.7.5'
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'carrierwave', '~> 2.0'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
+#gem 'mini_racer', platforms: [:mri, :mingw, :x64_mingw]
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'simple_form'
@@ -37,6 +38,7 @@ gem 'tether-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'font-awesome-sass'
 gem "chartkick"
+gem 'autoprefixer-rails', '9.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
