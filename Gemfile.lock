@@ -181,7 +181,8 @@ GEM
     popper_js (2.9.3)
     profanity_filter (0.1.1)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-oauth2 (1.19.0)
@@ -334,7 +335,7 @@ DEPENDENCIES
   pg
   popper_js
   profanity_filter
-  puma (~> 3.12)
+  puma (~> 4.3)
   rails (~> 5.2.3)
   rails-ujs
   sass-rails (~> 5.0)
